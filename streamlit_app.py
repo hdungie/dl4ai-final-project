@@ -1,3 +1,3 @@
 import streamlit as st
 
-text_search = st.text_input("Search videos by title or speaker", value="")
+text_search = st.text_input("Search companies by name or ticker", value="")
