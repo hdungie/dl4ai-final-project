@@ -3,7 +3,7 @@ import datetime
 import pandas as pd
 
 col1, col2 = st.columns([1,4])
-with col1: region = st.selectbox('Choose a region?', ('Nasdaq', 'Vietnam'))
+with col1: region = st.selectbox('Select a region', ('Nasdaq', 'Vietnam'), index=0)
   
 if region == "Nasdaq":
   df = pd.read_csv('./search_engine_nasdaq.csv')
@@ -12,7 +12,7 @@ else:
   
 df_search = df['company']
 with col2:
-  company = st.selectbox("Search companies by name or symbol", df_search)
+  company = st.selectbox("Search companies by name or symbol", df_search, index=0)
 
 col1, col2 = st.columns(2)
 with col1: start_date = st.date_input( "Start date: ")
