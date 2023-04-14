@@ -8,5 +8,5 @@ company = st.text_input("Search companies by name or ticker", value="")
 interval = st.slider('Choose an interval', min_value = 1, max_value = 365, step = 1)
 
 col1, col2 = st.columns(2)
-col1.start_date = st.date_input( "Start date: ")
-col2.end_date = st.date_input( "End date: ")
+col1.header = st.date_input( "Start date: ")
+col2.header = st.date_input( "End date: ")
