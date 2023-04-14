@@ -5,7 +5,7 @@ import pandas as pd
 df_search = []
 col1, col2 = st.columns([1,3])
 with col1: region = st.selectbox('Choose a region?', ('Nasdaq', 'Vietnam'))
-with col2: company = st.text_input("Search companies by name or symbol", value="", suggestions=df_search)
+with col2: company = st.multiselect("Search companies by name or symbol", value="")
 
 if region == "Nasdaq":
   df = pd.read_csv('./search_engine_nasdaq.csv')
