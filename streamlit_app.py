@@ -17,7 +17,7 @@ m2 = df['company_name'].str.contains(company)
 df_search = df[m1 | m2]
 
 if company:
-    st.write(df_search)
+    st.write(m1, '-', m2)
 
 col1, col2 = st.columns(2)
 with col1: start_date = st.date_input( "Start date: ")
