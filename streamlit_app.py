@@ -2,7 +2,7 @@ import streamlit as st
 import datetime
 import pandas as pd
 
-col1, col2 = st.columns([1,3])
+col1, col2 = st.columns([1,4])
 with col1: region = st.selectbox('Choose a region?', ('Nasdaq', 'Vietnam'))
 if region == "Nasdaq":
   df = pd.read_csv('./search_engine_nasdaq.csv')
@@ -10,7 +10,7 @@ else:
   df = pd.read_csv('./search_engine_vn.csv')
   
 df_search = df['company']
-with col2: company = st.multiselect("Search companies by name or symbol", df_search)
+with col2: company = st.selectbox("Search companies by name or symbol", df_search)
   
 # company = company.lower()
 # df = df.apply(lambda x: x.str.lower() if x.dtype == "object" else x)
