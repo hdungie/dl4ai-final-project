@@ -4,11 +4,14 @@ import pandas as pd
 
 col1, col2 = st.columns([1,3])
 with col1: region = st.selectbox('Choose a region?', ('Nasdaq', 'Vietnam'))
-  
-sheet_id = "1eCdfzIPQRilLy_twlJqvtgjXGtC5cevSb4xgRRwFnUg"
-sheet_name = "Nasdaq"
-url = f"https://docs.google.com/spreadsheets/d/1eCdfzIPQRilLy_twlJqvtgjXGtC5cevSb4xgRRwFnUg/edit#gid=0>"
-df = pd.read_csv(url, dtype=str).fillna("")
+
+nasdaq_url = "https://docs.google.com/spreadsheets/d/1eCdfzIPQRilLy_twlJqvtgjXGtC5cevSb4xgRRwFnUg/edit#gid=0>"
+def load_data(sheets_url):
+    csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
+    return pd.read_csv(csv_url)
+
+df = load_data(st.secrets["public_gsheets_url"])
+
 st.write(df)
 # with col2: company = st.text_input("Search companies by name or symbol", value="")
 
