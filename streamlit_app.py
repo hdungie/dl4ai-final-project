@@ -7,8 +7,8 @@ with col1: region = st.selectbox('Choose a region?', ('Nasdaq', 'Vietnam'))
   
 sheet_id = "1eCdfzIPQRilLy_twlJqvtgjXGtC5cevSb4xgRRwFnUg"
 sheet_name = "Nasdaq"
-url = f"https://docs.google.com/spreadsheets/d/1eCdfzIPQRilLy_twlJqvtgjXGtC5cevSb4xgRRwFnUg/edit#gid=0"
-df = pd.read_csv(url, dtype=str)
+url = f"<https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}>"
+df = pd.read_csv(url, dtype=str).fillna("")
 st.write(df)
 # with col2: company = st.text_input("Search companies by name or symbol", value="")
 
