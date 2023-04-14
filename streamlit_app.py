@@ -15,10 +15,10 @@ with col2: company = st.selectbox("Search companies by name or symbol", df_searc
 # company = company.lower()
 # df = df.apply(lambda x: x.str.lower() if x.dtype == "object" else x)
 
-m1 = df['symbol'].str.contains(company)
-m2 = df['company_name'].str.contains(company)
+# m1 = df['symbol'].str.contains(company)
+# m2 = df['company_name'].str.contains(company)
 
-df_search = df['company'].df[m1 | m2]
+# df_search = df['company'].df[m1 | m2]
 
 col1, col2 = st.columns(2)
 with col1: start_date = st.date_input( "Start date: ")
