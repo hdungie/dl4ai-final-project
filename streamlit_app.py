@@ -12,4 +12,4 @@ with col1: start_date = st.date_input( "Start date: ")
 with col2: end_date = st.date_input("End date: ")
 
 if end_date < start_date:
-  st.warning("Invalid end date", icon = "❌")
+  st.warning("  Invalid end date", icon = "❌")
