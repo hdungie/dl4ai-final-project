@@ -7,8 +7,9 @@ with col1: region = st.selectbox('Choose a region?', ('Nasdaq', 'Vietnam'))
 with col2: company = st.text_input("Search companies by name or symbol", value="")
 
 if region == "Nasdaq":
-  df = pd.read_csv('./companies_search_engine - nasdaq.csv')
-else: df = pd.read_csv('./companies_search_engine - vn.csv')
+  df = pd.read_csv('./search_engine_nasdaq.csv')
+else: 
+  df = pd.read_csv('./search_engine_vn.csv')
 
 m1 = df['symbol'].str.contains(company)
 m2 = df['company_name'].str.contains(company)
