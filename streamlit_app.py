@@ -1,7 +1,7 @@
 import streamlit as st
 import datetime
 
-col1, col2 = st.columns(1,3)
+col1, col2 = st.columns([1,3])
 with col1: region = st.selectbox('Choose a region?', ('Nasdaq', 'Vietnam'))
 with col2: company = st.text_input("Search companies by name or ticker", value="")
 
