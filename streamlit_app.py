@@ -8,7 +8,8 @@ sheet_id = "1eCdfzIPQRilLy_twlJqvtgjXGtC5cevSb4xgRRwFnUg"
 sheet_name = "Nasdaq"
 url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
 df = pd.read_csv(url, dtype=str)
-with col2: company = st.text_input("Search companies by name or symbol", value="")
+st.write(df)
+# with col2: company = st.text_input("Search companies by name or symbol", value="")
 
 col1, col2 = st.columns(2)
 with col1: start_date = st.date_input( "Start date: ")
