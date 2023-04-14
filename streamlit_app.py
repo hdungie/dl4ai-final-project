@@ -1,5 +1,6 @@
 import streamlit as st
 import datetime
+import panda as pd
 
 col1, col2 = st.columns([1,3])
 with col1: region = st.selectbox('Choose a region?', ('Nasdaq', 'Vietnam'))
