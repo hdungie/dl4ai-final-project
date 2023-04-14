@@ -16,7 +16,7 @@ m2 = df['company_name'].str.contains(company)
 
 df_search = df[m1 | m2]
 
-company = st.multiselect('Select a book', options=df_search['company_name'])
+company = st.company.multiselect('Select a book', options=df_search['company_name'])
 
 col1, col2 = st.columns(2)
 with col1: start_date = st.date_input( "Start date: ")
