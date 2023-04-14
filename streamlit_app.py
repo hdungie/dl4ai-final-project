@@ -12,7 +12,7 @@ else:
   
 df_search = df['company']
 if st.session_state.get('user_input') is None:
-    user_input = st.text_input("Enter your search query:")
+    with col2: user_input = st.text_input("Enter your search query:")
     st.session_state['user_input'] = user_input
 else:
     with col2:
