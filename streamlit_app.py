@@ -1,8 +1,8 @@
 import streamlit as st
 import datetime
 
-col1, col2 = st.columns([1,3])
-with col1: region = st.selectbox('Choose a region?', ('Nasdaq', 'Vietnam'))
+# col1, col2 = st.columns([1,3])
+# with col1: region = st.selectbox('Choose a region?', ('Nasdaq', 'Vietnam'))
   
 sheet_id = "1eCdfzIPQRilLy_twlJqvtgjXGtC5cevSb4xgRRwFnUg"
 sheet_name = "Nasdaq"
