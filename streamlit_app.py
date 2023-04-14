@@ -10,7 +10,7 @@ def load_data(sheets_url):
     csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
     return pd.read_csv(csv_url)
 
-df = load_data(st.secrets["public_gsheets_url"])
+df = load_data(st.secrets["nasdaq_url"])
 
 st.write(df)
 # with col2: company = st.text_input("Search companies by name or symbol", value="")
