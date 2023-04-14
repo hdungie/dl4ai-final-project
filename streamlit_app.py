@@ -12,7 +12,7 @@ else:
   
 df_search = df['company']
 with col2:
-  company = st.selectbox("Search companies by name or symbol", df_search)
+  company = st.multiselect("Search companies by name or symbol", df_search)
 
 col1, col2 = st.columns(2)
 with col1: start_date = st.date_input( "Start date: ")
