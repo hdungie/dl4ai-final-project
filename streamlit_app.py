@@ -11,8 +11,8 @@ if region == "Nasdaq":
 else: 
   df = pd.read_csv('./search_engine_vn.csv')
   
-company = company.lower()
-df = df.apply(lambda x: x.str.lower() if x.dtype == "object" else x)
+# company = company.lower()
+# df = df.apply(lambda x: x.str.lower() if x.dtype == "object" else x)
 
 m1 = df['symbol'].str.contains(company)
 m2 = df['company_name'].str.contains(company)
