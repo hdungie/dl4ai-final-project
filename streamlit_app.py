@@ -11,7 +11,12 @@ else:
   df = pd.read_csv('./search_engine_vn.csv')
   
 df_search = df['company']
-with col2: company = st.selectbox("Search companies by name or symbol", df_search)
+if st.session_state.get('user_input') is None:
+    user_input = st.text_input("Enter your search query:")
+    st.session_state['user_input'] = user_input
+else:
+    with col2:
+        company = st.selectbox("Search companies by name or symbol", df_search)
 
 col1, col2 = st.columns(2)
 with col1: start_date = st.date_input( "Start date: ")
