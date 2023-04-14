@@ -16,7 +16,7 @@ m2 = df['company_name'].str.contains(company)
 
 df_search = df[m1 | m2]
 
-selected = st.sidebar.multiselect('Select a book', options=df_search['m1'])
+selected = st.sidebar.multiselect('Select a book', options=df_search['company_name'])
 st.write('You have selected:', selected)
 
 col1, col2 = st.columns(2)
