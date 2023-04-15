@@ -25,6 +25,7 @@ if end_date > start_date:
   def get_interval():
     interval = (end_date - start_date).days
     return interval
+  interval = (end_date - start_date).days
   st.warning(f"Interval: {interval} days")
 if end_date < start_date:
     st.warning("End date must be after start date.", icon = "❌")
