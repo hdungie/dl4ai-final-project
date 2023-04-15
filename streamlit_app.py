@@ -133,7 +133,8 @@ table, th, td
 """
 
 # Create a figure and plot the data
-fig, ax = plt.subplots(figsize=(16, 8), dpi=300)
+matplotlib.use('agg')
+fig, ax = plt.subplots()
 line, = ax.plot(df['Dates'][:future-1], df['Close price'][:future-1], label='Predicted price', marker='.')
 
 # Create the labels for each point with the x and y coords
