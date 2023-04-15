@@ -102,10 +102,10 @@ df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
 df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
 df['Dates'] = df['Dates'].astype(str)
 
-
+close_prices = df['Close price'].apply("{:.2f}".format).tolist()
 if predict_button:
   # Create the line graph
-  fig = px.line(df[:future-1], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {company[0]} in {future} days', text = "{:.2f}".format(df['Close price']))
+  fig = px.line(df[:future-1], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {company[0]} in {future} days', text = close_prices)
   fig.add_trace(px.scatter(df[:future-1], x='Dates', y='Close price', 
                           color_continuous_scale='reds').data[0])
   fig.update_traces(textposition="top center")
