@@ -104,12 +104,12 @@ df['Dates'] = df['Dates'].astype(str)
 
 if predict_button:
   # Create the line graph
-  fig = px.line(df[:future-1], x='Dates', y='Close price', color_continuous_scale = 'reds', marker = '.')
+  fig = px.line(df[:future-1], x='Dates', y='Close price', color_discrete_sequence = 'reds', marker = '.')
 
   # Set the graph title and axis labels
-  fig.update_layout(title=f"Close price prediction of {comp[0]} in {future} days",
-                    xaxis_title='Dates',
-                    yaxis_title='Close price in $')
+#   fig.update_layout(title=f"Close price prediction of {comp[0]} in {future} days",
+#                     xaxis_title='Dates',
+#                     yaxis_title='Close price in $')
 
   # Show the graph
   st.plotly_chart(fig)
