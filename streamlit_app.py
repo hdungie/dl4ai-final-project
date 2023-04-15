@@ -154,7 +154,8 @@ if predict_button:
   ax.legend()
 
   # Convert the plot to HTML and display it
-  mpld3.display(fig)
+#   mpld3.display(fig)
         
-#   fig_html = mpld3.fig_to_html(graph)
-#   components.html(fig_html, height=600)
+  fig_html = mpld3.fig_to_html(graph)
+  components.html(fig_html, height=600)
+  st.pyplot(fig)
