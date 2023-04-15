@@ -1,4 +1,5 @@
 import streamlit_app
+from streamlit_app import get_interval, get_filepath
 import pandas as pd
 import tensorflow
 from tensorflow.keras.models import load_model
