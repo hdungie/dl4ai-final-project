@@ -106,8 +106,7 @@ if predict_button:
   # Create the line graph
   fig = px.line(df[:future-1], x='Dates', y='Close price')
   fig.add_trace(px.scatter(df[:future-1], x='Dates', y='Close price', 
-                          color_continuous_scale='reds',
-                          marker_color='white').data[0])
+                          color_continuous_scale='reds').data[0])
 
   # Show the graph
   st.plotly_chart(fig)
