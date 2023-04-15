@@ -48,6 +48,7 @@ filepath = f'./filtered-data-nasdaq/csv/{ticker}.csv'
 
 if interval < 30:
     window_size = 150
+future = interval
     
 data = pd.read_csv(filepath)
 new_df = data[['Date', 'Close']]
