@@ -24,7 +24,7 @@ with col2: end_date = st.date_input("End date: ")
 if end_date > start_date:
   def get_interval():
     interval = (end_date - start_date).days
-  return interval
+    return interval
   st.warning(f"Interval: {interval} days")
 if end_date < start_date:
     st.warning("End date must be after start date.", icon = "❌")
@@ -49,7 +49,7 @@ if region == "Nasdaq":
   base_dir = os.path.abspath(os.path.dirname(__file__))
   def get_filepath():
     file_path = os.path.join(base_dir, 'filtered-data-nasdaq', 'csv', f'{ticker}.csv')
-  return file_path
+    return file_path
 
 if predict_button:
   from predictions import graph
