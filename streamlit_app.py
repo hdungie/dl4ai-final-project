@@ -53,5 +53,5 @@ if region == "Nasdaq":
     return file_path
 
 if predict_button:
-  from predictions import graph
+#   from predictions import graph
   st.write(graph)
