@@ -1,6 +1,7 @@
 import streamlit as st
 import datetime
 import pandas as pd
+import predictions
 
 col1, col2 = st.columns([1,4])
 with col1: region = st.selectbox('Select a region', ('--','Nasdaq', 'Vietnam'), index=0)
@@ -36,10 +37,13 @@ with col4:
 with col5:
   pass
 with col3 :
-    center_button = st.button('Predict')
+    predict_button = st.button('Predict')
     
 ##
 if region == "Nasdaq":
   comp = company.split('-')
   ticker = comp[0]
   file_path = f'./filtered-data-nasdaq/csv/{ticker}.csv'
+
+if predict_button:
+  st_write(predictions.graph)
