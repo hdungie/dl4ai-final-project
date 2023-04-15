@@ -1,3 +1,4 @@
+pip install -r requirements.txt
 import streamlit as st
 import datetime
 import pandas as pd
@@ -5,9 +6,8 @@ import tensorflow
 from tensorflow.keras.models import load_model
 import numpy as np
 import matplotlib.pyplot as plt, mpld3
-import mpld3
 import streamlit.components.v1 as components
-from mpld3 import plugins
+import plotly.express as px
 # from predictions_graph import graph
 
 col1, col2 = st.columns([1,4])
@@ -110,52 +110,15 @@ df['Dates'] = df['Dates'].astype(str)
 # plt.legend()
 
 # if predict_button:
-css = """
-table
-{
-  border-collapse: collapse;
-}
-th
-{
-  color: #ffffff;
-  background-color: #000000;
-}
-td
-{
-  background-color: #cccccc;
-}
-table, th, td
-{
-  font-family:Arial, Helvetica, sans-serif;
-  border: 1px solid black;
-  text-align: right;
-}
-"""
 
 # Create a figure and plot the data
 fig, ax = plt.subplots()
 line, = ax.plot(df['Dates'][:future-1], df['Close price'][:future-1], label='Predicted price', marker='.')
-
-# Create the labels for each point with the x and y coords
-xy_data = line.get_xydata()
-labels = []
-for x, y in xy_data:
-    html_label = f'<table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> </thead> <tbody> <tr> <th>x</th> <td>{x}</td> </tr> <tr> <th>y</th> <td>{y}</td> </tr> </tbody> </table>'
-    labels.append(html_label)
-
-# Create the tooltip with the labels (x and y coords) and attach it to the line with the CSS specified
-tooltip = plugins.PointHTMLTooltip(line, labels, css=css)
-plugins.connect(fig, tooltip)
-
-# Set the plot title, labels, and legend
 ax.set_title(f'Close price prediction of {comp[0]} in {future} days')
 ax.set_ylabel('Close price in $')
 ax.set_xlabel('Dates')
 ax.legend()
 
 # Convert the plot to HTML and display it
-mpld3.show(fig)
+st.plotly_chart(fig, use_container_width = True)
 
-# fig_html = mpld3.fig_to_html(fig)
-# components.html(fig_html, height=600)
-# st.pyplot(fig)
