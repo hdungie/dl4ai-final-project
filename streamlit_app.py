@@ -101,7 +101,7 @@ df['Dates'] = df['Dates'].astype(str)
 st.write(df)
 
 graph = plt.figure(figsize=(16, 8), dpi=300)
-plt.plot(df['Dates'][:future], df['Close price'][:future], label='Predicted price')
+plt.plot(df['Dates'], df['Close price'], label='Predicted price')
 plt.ylabel('Close price in $')
 plt.xlabel('Dates')
 plt.legend()
