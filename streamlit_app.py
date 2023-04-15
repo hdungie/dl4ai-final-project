@@ -111,12 +111,13 @@ df['Dates'] = df['Dates'].astype(str)
 # if predict_button:
 
 # Create a figure and plot the data
-fig, ax = plt.subplots()
-line, = ax.plot(df['Dates'][:future-1], df['Close price'][:future-1], label='Predicted price', marker='.')
-ax.set_title(f'Close price prediction of {comp[0]} in {future} days')
-ax.set_ylabel('Close price in $')
-ax.set_xlabel('Dates')
-ax.legend()
+fig = px.scatter(df[:future-1], x = 'Dates', y = 'Close price', color_continuous_scale = 'reds')
+# fig, ax = plt.subplots()
+# line, = ax.plot(df['Dates'][:future-1], df['Close price'][:future-1], label='Predicted price', marker='.')
+# ax.set_title(f'Close price prediction of {comp[0]} in {future} days')
+# ax.set_ylabel('Close price in $')
+# ax.set_xlabel('Dates')
+# ax.legend()
 
 # Convert the plot to HTML and display it
 st.plotly_chart(fig, use_container_width = True)
