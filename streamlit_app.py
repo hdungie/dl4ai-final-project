@@ -51,14 +51,13 @@ if interval < 30:
     
 data = pd.read_csv(filepath)
 new_df = data[['Date', 'Close']]
-st.write(new_df)
 
 new_data = []
 for i in range(1, len(df) - window_size - 1):
     data_predict = []
     # Get a window_size time frame for data feature
     for j in range(window_size):
-        data_predict.append(df.loc[i + j, 'Close'])
+        data_predict.append(new_df.loc[i + j, 'Close'])
     new_data.append(np.array(data_predict).reshape(window_size, 1))
 
 new_data = np.array(new_data)
