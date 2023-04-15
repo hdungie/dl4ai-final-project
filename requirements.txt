@@ -1,3 +1,4 @@
 tensorflow
 matplotlib
 mpld3
+ipython
