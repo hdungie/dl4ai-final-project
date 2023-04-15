@@ -102,12 +102,12 @@ df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
 df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
 df['Dates'] = df['Dates'].astype(str)
 
-graph = plt.figure(figsize=(16, 8), dpi=300)
-plt.plot(df['Dates'][:future-1], df['Close price'][:future-1], label='Predicted price', marker = '.')
-plt.title(f'Close price prediction of {comp[0]} in {future} days')
-plt.ylabel('Close price in $')
-plt.xlabel('Dates')
-plt.legend()
+# graph = plt.figure(figsize=(16, 8), dpi=300)
+# plt.plot(df['Dates'][:future-1], df['Close price'][:future-1], label='Predicted price', marker = '.')
+# plt.title(f'Close price prediction of {comp[0]} in {future} days')
+# plt.ylabel('Close price in $')
+# plt.xlabel('Dates')
+# plt.legend()
 
 if predict_button:
   css = """
@@ -131,21 +131,30 @@ if predict_button:
     text-align: right;
   }
   """
-  for axes in graph.axes:
-    for line in axes.get_lines():
-        # get the x and y coords
-        xy_data = line.get_xydata()
-        labels = []
-        for x, y in xy_data:
-            # Create a label for each point with the x and y coords
-            html_label = f'<table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> </thead> <tbody> <tr> <th>x</th> <td>{x}</td> </tr> <tr> <th>y</th> <td>{y}</td> </tr> </tbody> </table>'
-            labels.append(html_label)
-        # Create the tooltip with the labels (x and y coords) and attach it to each line with the css specified
-        tooltip = plugins.PointHTMLTooltip(line, labels, css=css)
-        # Since this is a separate plugin, you have to connect it
-        plugins.connect(graph, tooltip)
+
+  # Create a figure and plot the data
+  fig, ax = plt.subplots(figsize=(16, 8), dpi=300)
+  line, = ax.plot(df['Dates'][:future-1], df['Close price'][:future-1], label='Predicted price', marker='.')
+
+  # Create the labels for each point with the x and y coords
+  xy_data = line.get_xydata()
+  labels = []
+  for x, y in xy_data:
+      html_label = f'<table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> </thead> <tbody> <tr> <th>x</th> <td>{x}</td> </tr> <tr> <th>y</th> <td>{y}</td> </tr> </tbody> </table>'
+      labels.append(html_label)
+
+  # Create the tooltip with the labels (x and y coords) and attach it to the line with the CSS specified
+  tooltip = plugins.PointHTMLTooltip(line, labels, css=css)
+  plugins.connect(fig, tooltip)
+
+  # Set the plot title, labels, and legend
+  ax.set_title(f'Close price prediction of {comp[0]} in {future} days')
+  ax.set_ylabel('Close price in $')
+  ax.set_xlabel('Dates')
+  ax.legend()
+
+  # Convert the plot to HTML and display it
+  mpld3.display(fig)
         
-  fig_html = mpld3.fig_to_html(graph)
-  components.html(fig_html, height=600)
-  
-  st.write(graph)
+#   fig_html = mpld3.fig_to_html(graph)
+#   components.html(fig_html, height=600)
