@@ -53,4 +53,5 @@ def get_interval(interval):
   return interval
 
 if predict_button:
+  from predictions import graph
   st.write(graph)
