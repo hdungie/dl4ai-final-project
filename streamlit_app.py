@@ -5,6 +5,9 @@ import tensorflow
 from tensorflow.keras.models import load_model
 import numpy as np
 import matplotlib.pyplot as plt
+import mpld3
+import streamlit.components.v1 as components
+from mpld3 import plugins
 # from predictions_graph import graph
 
 col1, col2 = st.columns([1,4])
@@ -98,7 +101,6 @@ for i in range(len(dates)):
 df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
 df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
 df['Dates'] = df['Dates'].astype(str)
-st.write(df)
 
 graph = plt.figure(figsize=(16, 8), dpi=300)
 plt.plot(df['Dates'][:future-1], df['Close price'][:future-1], label='Predicted price')
@@ -108,5 +110,6 @@ plt.xlabel('Dates')
 plt.legend()
 
 if predict_button:
+  fig_html = mpld3.fig_to_html(graph)
+  components.html(fig_html, height=600)
   st.write(graph)
-    
