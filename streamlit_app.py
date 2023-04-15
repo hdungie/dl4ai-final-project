@@ -20,7 +20,7 @@ col1, col2 = st.columns(2)
 with col1: start_date = st.date_input( "Start date: ")
 with col2: end_date = st.date_input("End date: ")
   
-interval = (end_date - start_date).strftime(%d)
+interval = (end_date - start_date).strftime('%d')
 st.write(interval)
 
 if end_date < start_date:
