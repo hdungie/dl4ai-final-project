@@ -1,7 +1,6 @@
 import streamlit as st
 import datetime
 import pandas as pd
-import predictions
 
 col1, col2 = st.columns([1,4])
 with col1: region = st.selectbox('Select a region', ('--','Nasdaq', 'Vietnam'), index=0)
