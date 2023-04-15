@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt, mpld3
 import streamlit.components.v1 as components
 import plotly.express as px
+import math
 # from predictions_graph import graph
 
 col1, col2 = st.columns([1,4])
@@ -104,10 +105,11 @@ df['Dates'] = df['Dates'].astype(str)
 
 if predict_button:
   # Create the line graph
-  fig = px.line(df[:future-1], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {company[0]} in {future} days', text = round(df['Close price'][:future-1], 2))
+  fig = px.line(df[:future-1], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {company[0]} in {future} days', text = "{:.2f}".format(df['Close price']))
   fig.add_trace(px.scatter(df[:future-1], x='Dates', y='Close price', 
                           color_continuous_scale='reds').data[0])
   fig.update_traces(textposition="top center")
+  fig.update_traces(line_color='#f63366')
 
   # Show the graph
   st.plotly_chart(fig)
