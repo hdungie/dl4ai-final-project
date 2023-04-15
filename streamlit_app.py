@@ -104,11 +104,10 @@ df['Dates'] = df['Dates'].astype(str)
 
 if predict_button:
   # Create the line graph
-  fig = px.line(df[:future-1], x='Dates', y='Close price', line_color='black')
+  fig = px.line(df[:future-1], x='Dates', y='Close price')
   fig.add_trace(px.scatter(df[:future-1], x='Dates', y='Close price', 
-                          color='Close price', color_continuous_scale='reds',
-                          marker_color='white', trendline='ols', 
-                          trendline_color_override='gray').data[0])
+                          color_continuous_scale='reds',
+                          marker_color='white').data[0])
 
   # Show the graph
   st.plotly_chart(fig)
