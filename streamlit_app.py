@@ -42,7 +42,7 @@ with col3 :
     predict_button = st.button('Predict')
 
 comp = company.split('-')
-ticker = comp[1]
+ticker = comp[0]
 filepath = f'./filtered-data-nasdaq/csv/{ticker}.csv'
 
 if interval < 30:
