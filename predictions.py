@@ -1,7 +1,7 @@
 import streamlit_app
 
-if streamlit_app.interval < 30:
-  window_size = 30
+# if streamlit_app.interval < 30:
+window_size = 30
 
 data = pd.read_csv(streamlit_app.filepath)
 df = data[['Date', 'Close']]
