@@ -53,9 +53,10 @@ if region == "Nasdaq":
     return file_path
 
 if predict_button:
-  def some_function():
+  def get_predictions():
       from predictions import get_graph_lazy
       get_graph_lazy()
+  get_predictions()
 
-  if __name__ == '__main__':
-      some_function()
+if __name__ == '__main__':
+    get_predictions()
