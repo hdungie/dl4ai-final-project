@@ -86,7 +86,6 @@ from datetime import datetime, timedelta
 dates = []
 start_date = new_df.loc[len(new_df)-1,'Date']
 start_date = datetime.strptime(start_date, '%d-%m-%Y').date()
-dates.append(start_date)
 
 current_date = start_date
 for i in range(future):
