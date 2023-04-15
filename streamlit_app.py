@@ -23,9 +23,6 @@ with col1: start_date = st.date_input( "Start date: ")
 with col2: end_date = st.date_input("End date: ")
   
 if end_date > start_date:
-  def get_interval_lazy():
-    interval = (end_date - start_date).days
-    return interval
   interval = (end_date - start_date).days
   st.warning(f"Interval: {interval} days")
 if end_date < start_date:
@@ -43,21 +40,3 @@ with col5:
 with col3 :
     predict_button = st.button('Predict')
     
-##
-import os
-if region == "Nasdaq":
-  comp = company.split('-')
-  ticker = comp[0]
-  base_dir = os.path.abspath(os.path.dirname(__file__))
-  def get_filepath_lazy():
-    file_path = os.path.join(base_dir, 'filtered-data-nasdaq', 'csv', f'{ticker}.csv')
-    return file_path
-
-if predict_button:
-  def get_predictions():
-      from predictions import get_graph_lazy
-      get_graph_lazy()
-  get_predictions()
-
-if __name__ == '__main__':
-    get_predictions()
