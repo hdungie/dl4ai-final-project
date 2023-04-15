@@ -15,7 +15,6 @@ else:
 df_search = df['company']
 with col2:
   company = st.selectbox("Search companies by name or symbol", df_search, index=0)
-  st.write(company)
 
 col1, col2 = st.columns(2)
 with col1: start_date = st.date_input( "Start date: ")
@@ -40,6 +39,7 @@ with col3 :
     center_button = st.button('Predict')
     
 ##
-ticker = company.split()
-file_path = f'./filtered-data-nasdaq/csv/{ticker[0]}.csv'
-st.write(filepath)
+comp = company.split()
+ticker = comp[0]
+# file_path = f'./filtered-data-nasdaq/csv/{ticker[0]}.csv'
+st.write(ticker)
