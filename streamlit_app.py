@@ -46,6 +46,7 @@ if region == "Nasdaq":
   ticker = comp[0]
   base_dir = os.path.abspath(os.path.dirname(__file__))
   file_path = os.path.join(base_dir, 'filtered-data-nasdaq', 'csv', f'{ticker}.csv')
+  predictions.get_predictions(file_path)
 
 if predict_button:
   st_write(predictions.graph)
