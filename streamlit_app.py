@@ -53,5 +53,9 @@ if region == "Nasdaq":
     return file_path
 
 if predict_button:
-#   from predictions import graph
-  st.write(graph)
+  def some_function():
+      from predictions import get_graph_lazy
+      get_graph_lazy()
+
+  if __name__ == '__main__':
+      some_function()
