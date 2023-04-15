@@ -104,7 +104,7 @@ df['Dates'] = df['Dates'].astype(str)
 
 if predict_button:
   # Create the line graph
-  fig = px.line(df[:future-1], x='Dates', y='Close price', color_discrete_sequence = 'reds',title=f'Close price prediction of {comp[0]} in {future} days')
+  fig = px.line(df[:future-1], x='Dates', y='Close price', color_discrete_sequence = ['red'],title=f'Close price prediction of {comp[0]} in {future} days')
   fig.update_traces(mode='markers+lines', marker=dict(size=4))
 
   # Set the graph title and axis labels
