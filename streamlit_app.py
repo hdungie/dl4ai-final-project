@@ -8,7 +8,6 @@ with col1: region = st.selectbox('Select a region', ('--','Nasdaq', 'Vietnam'), 
 if region == "Nasdaq":
   df = pd.read_csv('./search_engine_nasdaq.csv')
   df = df.fillna('')
-  data_folder = './filtered-data-nasdaq/csv'
 else: 
   df = pd.read_csv('./search_engine_vn.csv')
   df = df.fillna('')
@@ -42,5 +41,5 @@ with col3 :
     
 ##
 ticker = company.split()
-file_path = f'{data_folder}/{ticker}.csv'
+file_path = f'./filtered-data-nasdaq/csv/{ticker[1]}.csv'
 st.write(filepath)
