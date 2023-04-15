@@ -109,7 +109,7 @@ if predict_button:
   fig = px.scatter(df[:future-1], x='Dates', y='Close price', 
                    color='Close price', color_continuous_scale='reds',
                    line_color='black', marker_color='white', 
-                   trendline='ols', trendline_color_override='gray'
+                   trendline='ols', trendline_color_override='gray')
 
   # Set the graph title and axis labels
 #   fig.update_layout(title=f"Close price prediction of {comp[0]} in {future} days",
