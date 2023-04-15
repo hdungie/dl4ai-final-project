@@ -1,4 +1,3 @@
-pip install -r requirements.txt
 import streamlit as st
 import datetime
 import pandas as pd
