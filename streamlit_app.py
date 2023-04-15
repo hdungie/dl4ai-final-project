@@ -22,3 +22,5 @@ with col2: end_date = st.date_input("End date: ")
 
 if end_date < start_date:
   st.warning("Invalid end date. Please choose another date.", icon = "❌")
+  
+st.button("Predict")
