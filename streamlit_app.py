@@ -39,6 +39,7 @@ with col3 :
     center_button = st.button('Predict')
     
 ##
-comp = company.split('-')
-ticker = comp[0]
-file_path = f'./filtered-data-nasdaq/csv/{ticker}.csv'
+if region == "Nasdaq":
+  comp = company.split('-')
+  ticker = comp[0]
+  file_path = f'./filtered-data-nasdaq/csv/{ticker}.csv'
