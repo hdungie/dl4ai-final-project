@@ -1,4 +1,7 @@
 import streamlit_app
+import pandas as pd
+import tensorflow as tf
+from tf.keras.models import load_model
 
 # if streamlit_app.interval < 30:
 window_size = 30
@@ -24,6 +27,7 @@ for i in range(0, len(new_data_norm)):
     max_feature = np.max(new_data[i])
     new_data_norm[i] = (new_data[i] - min_feature) / (max_feature - min_feature)
     
+model = load_model('./nasdaq-model-30d.h5')
 # Get prediction on the test data
 y_pred_norm = model.predict(new_data_norm)
 
