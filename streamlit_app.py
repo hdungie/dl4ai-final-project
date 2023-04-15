@@ -49,10 +49,8 @@ if region == "Nasdaq":
 
 def get_filepath():
   return file_path
-__all__ = ['get_filepath']
 def get_interval():
   return interval
-__all__ = ['get_interval']
 
 if predict_button:
   from predictions import graph
