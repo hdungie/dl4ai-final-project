@@ -40,10 +40,10 @@ with col3 :
     predict_button = st.button('Predict')
     
 ##
-if region == "Nasdaq":
-  comp = company.split('-')
-  ticker = comp[0]
-  file_path = f'./filtered-data-nasdaq/csv/{ticker}.csv'
+# if region == "Nasdaq":
+comp = company.split('-')
+ticker = comp[0]
+file_path = f'./filtered-data-nasdaq/csv/{ticker}.csv'
 
 if predict_button:
   st_write(predictions.graph)
