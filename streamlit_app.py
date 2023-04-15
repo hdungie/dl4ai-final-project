@@ -47,9 +47,9 @@ if region == "Nasdaq":
   base_dir = os.path.abspath(os.path.dirname(__file__))
   file_path = os.path.join(base_dir, 'filtered-data-nasdaq', 'csv', f'{ticker}.csv')
 
-def get_filepath(file_path):
+def get_filepath():
   return file_path
-def get_interval(interval):
+def get_interval():
   return interval
 
 if predict_button:
