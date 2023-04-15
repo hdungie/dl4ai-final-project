@@ -1,6 +1,7 @@
 import streamlit as st
 import datetime
 import pandas as pd
+from predictions import graph
 
 col1, col2 = st.columns([1,4])
 with col1: region = st.selectbox('Select a region', ('--','Nasdaq', 'Vietnam'), index=0)
@@ -52,4 +53,4 @@ def get_interval(interval):
   return interval
 
 if predict_button:
-  st.write(predictions.graph)
+  st.write(graph)
