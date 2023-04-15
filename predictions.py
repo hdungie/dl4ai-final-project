@@ -62,3 +62,6 @@ plt.xlabel('Dates')
 plt.legend()
 
 __all__ = ['graph']
+
+def get_graph_lazy():
+    return graph
