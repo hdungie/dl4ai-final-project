@@ -1,10 +1,6 @@
-import subprocess
-subprocess.call(['pip', 'install', 'tensorflow'])
 import streamlit as st
 import datetime
 import pandas as pd
-import tensorflow as tf
-from tf.keras.models import load_model
 
 col1, col2 = st.columns([1,4])
 with col1: region = st.selectbox('Select a region', ('--','Nasdaq', 'Vietnam'), index=0)
