@@ -4,10 +4,10 @@ import pandas as pd
 import tensorflow 
 from tensorflow.keras.models import load_model
 import numpy as np
-import matplotlib.pyplot as plt
-import mpld3
+import matplotlib.pyplot as plt, mpld3
+# import mpld3
 import streamlit.components.v1 as components
-from mpld3 import plugins
+# from mpld3 import plugins
 # from predictions_graph import graph
 
 col1, col2 = st.columns([1,4])
@@ -110,6 +110,40 @@ plt.xlabel('Dates')
 plt.legend()
 
 if predict_button:
-  fig_html = mpld3.fig_to_html(graph)
-  components.html(fig_html, height=600)
+#   fig_html = mpld3.fig_to_html(graph)
+#   components.html(fig_html, height=600)
+# css = """
+# table
+# {
+#   border-collapse: collapse;
+# }
+# th
+# {
+#   color: #ffffff;
+#   background-color: #000000;
+# }
+# td
+# {
+#   background-color: #cccccc;
+# }
+# table, th, td
+# {
+#   font-family:Arial, Helvetica, sans-serif;
+#   border: 1px solid black;
+#   text-align: right;
+# }
+# """
+# for axes in graph.axes:
+#   for line in axes.get_lines():
+#       # get the x and y coords
+#       xy_data = line.get_xydata()
+#       labels = []
+#       for x, y in xy_data:
+#           # Create a label for each point with the x and y coords
+#           html_label = f'<table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> </thead> <tbody> <tr> <th>x</th> <td>{x}</td> </tr> <tr> <th>y</th> <td>{y}</td> </tr> </tbody> </table>'
+#           labels.append(html_label)
+#       # Create the tooltip with the labels (x and y coords) and attach it to each line with the css specified
+#       tooltip = plugins.PointHTMLTooltip(line, labels, css=css)
+#       # Since this is a separate plugin, you have to connect it
+#       plugins.connect(two_subplot_fig, tooltip)
   st.write(graph)
