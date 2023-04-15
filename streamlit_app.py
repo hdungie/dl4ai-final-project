@@ -41,5 +41,5 @@ with col3 :
 ##
 comp = company.split()
 ticker = comp[0]
-# file_path = f'./filtered-data-nasdaq/csv/{ticker[0]}.csv'
-st.write(ticker)
+file_path = f'./filtered-data-nasdaq/csv/{ticker}.csv'
+st.write(filepath)
