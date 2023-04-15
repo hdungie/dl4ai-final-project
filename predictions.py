@@ -1,12 +1,19 @@
-from streamlit_app import get_interval, get_filepath
+# from streamlit_app import get_interval, get_filepath
 import pandas as pd
 import tensorflow
 from tensorflow.keras.models import load_model
 
-if streamlit_app.get_interval(interval) < 30:
+def get_st():
+    from streamlit_app import get_filepath_lazy, get_interval_lazy
+    filepath = get_filepath_lazy()
+    interval = get_interval_lazy()
+
+get_st()
+
+if interval < 30:
     window_size = 30
     
-data = pd.read_csv(streamlit_app.get_filepath(file_path))
+data = pd.read_csv(filepath)
 df = data[['Date', 'Close']]
 
 new_data = []
