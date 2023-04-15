@@ -1,7 +1,7 @@
 import streamlit_app
 import pandas as pd
-import tensorflow as tf
-from tf.keras.models import load_model
+import tensorflow
+from tensorflow.keras.models import load_model
 
 # if streamlit_app.interval < 30:
 window_size = 30
