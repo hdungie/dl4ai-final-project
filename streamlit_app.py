@@ -23,18 +23,10 @@ with col2: end_date = st.date_input("End date: ")
 if end_date < start_date:
   st.warning("Invalid end date. Please choose another date.", icon = "❌")
   
-col1, col2, col3 , col4, col5 = st.beta_columns(5)
+col1, col2, col3 = st.beta_columns(3)
 with col1:
     pass
-with col2:
+with col3:
     pass
-with col4:
-    pass
-with col5:
-    pass
-with col3 :
+with col2 :
     center_button = st.button('Predict')
-st.markdown(""" div.stButton > button:first-child {
-background-color: #f63366;color:white;font-size:20px;height:3em;width:30em;border-radius:10px 10px 10px 10px;
-}
-“”", unsafe_allow_html=True)
