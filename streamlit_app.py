@@ -100,6 +100,7 @@ for i in range(len(dates)):
 
 df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
 df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
+df['Dates'] = df['Dates'].astype(str)
 
 graph = plt.figure(figsize=(16, 8), dpi=300)
 plt.plot(df['Dates'], df['Close price'], label='Predicted price')
