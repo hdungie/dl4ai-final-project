@@ -49,4 +49,4 @@ if region == "Nasdaq":
   predictions.get_predictions(file_path, interval)
 
 if predict_button:
-  st_write(predictions.graph)
+  st.write(predictions.graph)
