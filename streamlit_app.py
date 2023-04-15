@@ -5,9 +5,9 @@ import tensorflow
 from tensorflow.keras.models import load_model
 import numpy as np
 import matplotlib.pyplot as plt, mpld3
-# import mpld3
+import mpld3
 import streamlit.components.v1 as components
-# from mpld3 import plugins
+from mpld3 import plugins
 # from predictions_graph import graph
 
 col1, col2 = st.columns([1,4])
@@ -104,7 +104,7 @@ df['Dates'] = df['Dates'].astype(str)
 
 graph = plt.figure(figsize=(16, 8), dpi=300)
 plt.plot(df['Dates'][:future-1], df['Close price'][:future-1], label='Predicted price')
-plt.tilte('Close price prediction in 7 days')
+plt.title(f'Close price prediction of {comp[2]} in {future} days')
 plt.ylabel('Close price in $')
 plt.xlabel('Dates')
 plt.legend()
