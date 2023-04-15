@@ -110,7 +110,7 @@ plt.xlabel('Dates')
 plt.legend()
 
 if predict_button:
-#   fig_html = mpld3.fig_to_html(graph)
+  fig_html = mpld3.fig_to_html(graph)
   components.html(fig_html, height=600)
 css = """
 table
