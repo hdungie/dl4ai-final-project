@@ -6,7 +6,7 @@ from tensorflow.keras.models import load_model
 # if streamlit_app.interval < 30:
 window_size = 30
 
-def get_predictions(file_path):
+def get_predictions(file_path, interval):
     data = pd.read_csv(file_path)
     df = data[['Date', 'Close']]
 
