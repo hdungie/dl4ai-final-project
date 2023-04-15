@@ -50,7 +50,7 @@ if interval < 30:
     window_size = 150
     
 data = pd.read_csv(filepath)
-df = data[['Date', 'Close']]
+new_df = data[['Date', 'Close']]
 
 new_data = []
 for i in range(1, len(df) - window_size - 1):
