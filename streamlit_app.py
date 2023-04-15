@@ -145,5 +145,5 @@ for axes in graph.axes:
       # Create the tooltip with the labels (x and y coords) and attach it to each line with the css specified
       tooltip = plugins.PointHTMLTooltip(line, labels, css=css)
       # Since this is a separate plugin, you have to connect it
-      plugins.connect(two_subplot_fig, tooltip)
+      plugins.connect(graph, tooltip)
   st.write(graph)
