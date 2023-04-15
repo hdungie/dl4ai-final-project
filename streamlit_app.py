@@ -86,7 +86,6 @@ from datetime import datetime, timedelta
 dates = []
 start_date = new_df.loc[len(new_df)-1,'Date']
 start_date = datetime.strptime(start_date, '%d-%m-%Y').date()
-# start_date = start_date.strftime('%d %b %Y')
 dates.append(start_date)
 
 current_date = start_date
@@ -100,6 +99,7 @@ for i in range(len(dates)):
 df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
 df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
 df['Dates'] = df['Dates'].astype(str)
+st.write(df)
 
 graph = plt.figure(figsize=(16, 8), dpi=300)
 plt.plot(df['Dates'], df['Close price'], label='Predicted price')
