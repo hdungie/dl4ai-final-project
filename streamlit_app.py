@@ -101,23 +101,19 @@ df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
 df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
 df['Dates'] = df['Dates'].astype(str)
 
-# graph = plt.figure(figsize=(16, 8), dpi=300)
-# plt.plot(df['Dates'][:future-1], df['Close price'][:future-1], label='Predicted price', marker = '.')
-# plt.title(f'Close price prediction of {comp[0]} in {future} days')
-# plt.ylabel('Close price in $')
-# plt.xlabel('Dates')
-# plt.legend()
 
-# if predict_button:
+if predict_button:
+  # Create the line graph
+  fig = px.line(df[:future-1], x='Dates', y='Close price')
 
-# Create a figure and plot the data
-fig = px.scatter(df[:future-1], x = 'Dates', y = 'Close price', color_continuous_scale = 'reds')
-# fig, ax = plt.subplots()
-# line, = ax.plot(df['Dates'][:future-1], df['Close price'][:future-1], label='Predicted price', marker='.')
-# ax.set_title(f'Close price prediction of {comp[0]} in {future} days')
-# ax.set_ylabel('Close price in $')
-# ax.set_xlabel('Dates')
-# ax.legend()
+  # Set the graph title and axis labels
+  fig.update_layout(title=f"Close price prediction of {comp[0]} in {future} days",
+                    xaxis_title='Dates',
+                    yaxis_title='Close price in $')
+
+  # Show the graph
+  st.plotly_chart(fig)
+
 
 # Convert the plot to HTML and display it
 st.plotly_chart(fig, use_container_width = True)
