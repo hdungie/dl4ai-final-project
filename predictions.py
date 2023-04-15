@@ -60,3 +60,5 @@ plt.plot(df['Dates'], df['Close price'], label='Predicted price')
 plt.ylabel('Close price in $')
 plt.xlabel('Dates')
 plt.legend()
+
+__all__ = ['graph']
