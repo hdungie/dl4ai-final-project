@@ -23,4 +23,15 @@ with col2: end_date = st.date_input("End date: ")
 if end_date < start_date:
   st.warning("Invalid end date. Please choose another date.", icon = "❌")
   
-st.button("Predict")
+col1, col2, col3 , col4, col5 = st.beta_columns(5)
+
+with col1:
+    pass
+with col2:
+    pass
+with col4:
+    pass
+with col5:
+    pass
+with col3 :
+    center_button = st.button('Button')
