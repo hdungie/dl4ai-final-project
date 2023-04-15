@@ -110,7 +110,7 @@ if predict_button:
                           color_continuous_scale='oranges').data[0])
   fig.update_traces(textposition="top center")
   fig.update_traces(line_color='#f63366')
-  fig.update_traces(marker_color='ffa500')
+  fig.update_traces(marker_color='#ffa500')
 
   # Show the graph
   st.plotly_chart(fig)
