@@ -130,6 +130,7 @@ if predict_button:
   df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
   df['Dates'] = df['Dates'].astype(str)
   close_prices = df['Close price'].apply("{:.2f}".format).tolist()
+  st.write(df)
   
   # Create the line graph
   fig = px.line(df[gap_start:gap_end], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {ticker} from {start_date} to {end_date}', text = close_prices[gap_start:gap_end])
@@ -138,8 +139,6 @@ if predict_button:
   fig.update_traces(textposition="top center")
   fig.update_traces(line_color='#f63366')
   fig.update_traces(marker_color='#ffa500')
-  
-  fig2 = px.line(df)
 
   # Show the graph
   st.plotly_chart(fig)
