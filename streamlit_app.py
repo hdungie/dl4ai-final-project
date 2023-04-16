@@ -75,8 +75,6 @@ if predict_button:
       model = load_model(f'./{reg}-model-30d.h5')
   elif interval > 30 and interval <=365:
       window_size = 500
-      
-      !pip install gdown
       !gdown --id 13Jiyg6IrvYob8qFy4tJdh2-Rr2io2RNm -O model.h5
       # Load the model from the local H5 file
       model = load_model('model.h5')
