@@ -107,6 +107,11 @@ for i in range(future):
 for i in range(len(dates)):
     dates[i] = dates[i].strftime('%d %b %Y')
 
+latest = df.loc[len(df)-1,'Dates']
+latest = datetime.strptime(latest, '%d-%m-%Y').date()
+gap_end = end_date - latest
+gap_start = start_date - latest
+
 df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
 df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
 df['Dates'] = df['Dates'].astype(str)
@@ -114,8 +119,8 @@ df['Dates'] = df['Dates'].astype(str)
 close_prices = df['Close price'].apply("{:.2f}".format).tolist()
 if predict_button:
   # Create the line graph
-  fig = px.line(df[:future-1], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {ticker} from {start_date} to {end_date}', text = close_prices[:future-1])
-  fig.add_trace(px.scatter(df[:future-1], x='Dates', y='Close price',
+  fig = px.line(df[gap_start:gap_end], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {ticker} from {start_date} to {end_date}', text = close_prices[:future-1])
+  fig.add_trace(px.scatter(df[gap_start:gap_end], x='Dates', y='Close price',
                           color_continuous_scale='oranges').data[0])
   fig.update_traces(textposition="top center")
   fig.update_traces(line_color='#f63366')
