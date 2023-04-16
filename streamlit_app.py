@@ -97,8 +97,6 @@ for i in range(0, len(y_pred_denorm)): # denorm_x = norm_x * (max(x) - min(x)) +
 
 from datetime import datetime, timedelta
 df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
-df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
-df['Dates'] = df['Dates'].astype(str)
 st.write(df)
 
 latest = df_org.loc[len(df_org)-1,'Dates']
@@ -115,6 +113,9 @@ for i in range(future):
     
 for i in range(len(dates)):
     dates[i] = dates[i].strftime('%d %b %Y')
+    
+df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
+df['Dates'] = df['Dates'].astype(str)
 
 close_prices = df['Close price'].apply("{:.2f}".format).tolist()
 if predict_button:
