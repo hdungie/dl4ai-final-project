@@ -1,3 +1,4 @@
+pip install pip install -r requirements.txt
 import streamlit as st
 import datetime
 import pandas as pd
@@ -8,6 +9,8 @@ import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
 import plotly.express as px
 import math
+import requests
+import io
 # from predictions_graph import graph
 
 col1, col2 = st.columns([1,4])
@@ -72,7 +75,23 @@ if predict_button:
       model = load_model(f'./{reg}-model-30d.h5')
   elif: interval > 30 and interval <=365:
       window_size = 500
-      model = load_model(f'./{reg}-model-365d.h5')
+      # set the shareable link for the .h5 file
+      link = "https://drive.google.com/uc?id=13Jiyg6IrvYob8qFy4tJdh2-Rr2io2RNm"
+
+      # extract the file ID from the shareable link
+      file_id = link.split("=")[1]
+
+      # set the download link for the file
+      download_link = f"https://drive.google.com/uc?id={file_id}"
+
+      # use requests to download the file
+      response = requests.get(download_link)
+      content = response.content
+
+      # read the file using h5py and load the model
+      with io.BytesIO(content) as f:
+          with h5py.File(f, 'r') as h5_file:
+              model = load_model(h5_file)
       
   future = interval
 
