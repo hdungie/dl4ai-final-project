@@ -46,7 +46,7 @@ with col5:
 with col3 :
     predict_button = st.button('Predict')
 
-comp = company.split('-')
+comp = company.split(' ')
 ticker = comp[0]
 filepath = f'./filtered-data-nasdaq/csv/{ticker}.csv'
 
