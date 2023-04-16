@@ -138,11 +138,11 @@ if predict_button:
   
   # Create the line graph
   st.info("You can click on the data points for more details on close price and its corresponding date.")
-  fig = px.line(df[gap_start:gap_end], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {ticker} from {start_date} to {end_date}')
+  fig = px.line(df[gap_start:gap_end], x='Dates', y='Close price', markers = False, title = f'Predicted close price of {ticker} from {start_date} to {end_date}')
 #   fig.add_trace(px.scatter(df[gap_start:gap_end], x='Dates', y='Close price',
 #                           color_continuous_scale='oranges').data[0])
 #   fig.update_traces(textposition="top center")
-  fig.update_traces(line_color='#f63366')
+  fig.update_traces(line_color=['red' if i < 0 else 'green' for i in df['Close price'].diff().fillna(0)])
 #   fig.update_traces(marker_color='#ffa500')
 
   # Show the graph
