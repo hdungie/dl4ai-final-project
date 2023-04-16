@@ -55,7 +55,7 @@ if end_date <= start_date:
       predict_button = st.button('Predict', disabled = True)
 else: 
   interval = (end_date - start_date).days
-  st.info(f"Interval: {interval} days")
+  st.success(f"Interval: {interval} days")
   col1, col2, col3, col4, col5 = st.beta_columns(5)
   with col1:
     pass
