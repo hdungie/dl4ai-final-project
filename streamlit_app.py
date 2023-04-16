@@ -67,21 +67,27 @@ else:
     predict_button = st.button("Predict")
 
 if predict_button:
-  if interval <= 7:
-      window_size = 30
-      model = load_model(f'./{reg}-model-7d.h5')
-  elif interval > 7 and interval <=30:
-      window_size = 150
-      model = load_model(f'./{reg}-model-30d.h5')
-  elif interval > 30 and interval <=365:
-      window_size = 500
-      model = load_model(f'./{reg}-model-365d.h5')
-      
-  future = interval
-
   data = pd.read_csv(filepath)
   new_df = data[['Date', 'Close']]
 
+  latest = new_df.loc[len(new_df)-1,'Date']
+  latest = datetime.strptime(latest, '%d-%m-%Y').date()
+  gap_end = (end_date - latest).days
+  gap_start = (start_date - latest).days
+  
+  if gap_end <= 7:
+      future = 7
+      window_size = 30
+      model = load_model(f'./{reg}-model-7d.h5')
+  elif gap_end > 7 and gap_end <=30:
+      future = 30
+      window_size = 150
+      model = load_model(f'./{reg}-model-30d.h5')
+  elif gap_end > 30 and gap_end <=365:
+      future = 365
+      window_size = 500
+      model = load_model(f'./{reg}-model-365d.h5')
+  
   new_data = []
   for i in range(1, len(new_df) - window_size - 1):
       data_predict = []
@@ -91,7 +97,6 @@ if predict_button:
       new_data.append(np.array(data_predict).reshape(window_size, 1))
 
   new_data = np.array(new_data)
-  # Reshape the array to have shape (number of sequences, window_size, 1)
   new_data = new_data.reshape(new_data.shape[0], window_size, 1)
 
   new_data_norm = new_data.copy()
@@ -111,11 +116,6 @@ if predict_button:
   from datetime import datetime, timedelta
   df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
 
-  latest = new_df.loc[len(new_df)-1,'Date']
-  latest = datetime.strptime(latest, '%d-%m-%Y').date()
-  gap_end = (end_date - latest).days
-  gap_start = (start_date - latest).days
-
   dates = []
   current_date = latest
   for i in range(future):
@@ -128,8 +128,8 @@ if predict_button:
 
   df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
   df['Dates'] = df['Dates'].astype(str)
-
   close_prices = df['Close price'].apply("{:.2f}".format).tolist()
+  
   # Create the line graph
   fig = px.line(df[gap_start:gap_end], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {ticker} from {start_date} to {end_date}', text = close_prices[gap_start:gap_end])
   fig.add_trace(px.scatter(df[gap_start:gap_end], x='Dates', y='Close price',
