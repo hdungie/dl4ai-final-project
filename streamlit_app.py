@@ -29,10 +29,11 @@ with col1: start_date = st.date_input( "Start date: ")
 with col2: end_date = st.date_input("End date: ")
   
 if end_date <= start_date:
-    st.warning("End date must be after start date.", icon = "❌")
+  interval = (end_date - start_date).days
+  st.warning("End date must be after start date.", icon = "❌")
 else: 
-    interval = (end_date - start_date).days
-    st.warning(f"Interval: {interval} days")
+  interval = (end_date - start_date).days
+  st.warning(f"Interval: {interval} days")
   
 col1, col2, col3, col4, col5 = st.beta_columns(5)
 with col1:
