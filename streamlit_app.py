@@ -1,6 +1,6 @@
 import streamlit as st
 import datetime
-from datetime import strptime
+from datetime import datetime
 import pandas as pd
 import tensorflow 
 from tensorflow.keras.models import load_model
