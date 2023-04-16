@@ -28,28 +28,30 @@ col1, col2 = st.columns(2)
 with col1: start_date = st.date_input( "Start date: ")
 with col2: end_date = st.date_input("End date: ")
   
-if end_date <= start_date:
-  interval = (end_date - start_date).days
-  st.warning("End date must be after start date.", icon = "❌")
-else: 
-  interval = (end_date - start_date).days
-  st.warning(f"Interval: {interval} days")
-  
-col1, col2, col3, col4, col5 = st.beta_columns(5)
-with col1:
-  pass
-with col2:
-  pass
-with col4:
-  pass
-with col5:
-  pass
-with col3 :
-    predict_button = st.button('Predict')
+# col1, col2, col3, col4, col5 = st.beta_columns(5)
+# with col1:
+#   pass
+# with col2:
+#   pass
+# with col4:
+#   pass
+# with col5:
+#   pass
+# with col3 :
+#     predict_button = st.button('Predict')
 
 comp = company.split(' ')
 ticker = comp[0]
 filepath = f'./filtered-data-nasdaq/csv/{ticker}.csv'
+
+if end_date <= start_date:
+  interval = (end_date - start_date).days
+  st.warning("End date must be after start date.", icon = "❌")
+  predict_button = st.button("Predict", disabled=True)
+else: 
+  interval = (end_date - start_date).days
+  st.warning(f"Interval: {interval} days")
+  predict_button = st.button("Predict")
 
 if interval < 30:
     window_size = 150
