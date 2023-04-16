@@ -113,13 +113,6 @@ if predict_button:
 
   # Get prediction on the test data
   y_pred_norm = model.predict(new_data_norm)
-  
-  progress_text = "Operation in progress. Please wait."
-  eta_bar = st.progress(0, text=progress_text)
-
-  for percent_complete in range(100):
-    time.sleep(0.1)
-    eta_bar.progress(percent_complete + 1, text=progress_text)
 
   # Convert the result back to stock price (i.e., de-normalization) for visualization purpose
   y_pred_denorm = y_pred_norm
