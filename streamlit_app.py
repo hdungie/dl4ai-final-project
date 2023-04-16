@@ -28,7 +28,7 @@ col1, col2 = st.columns(2)
 with col1: start_date = st.date_input( "Start date: ")
 with col2: end_date = st.date_input("End date: ")
   
-if end_date < start_date:
+if end_date <= start_date:
     st.warning("End date must be after start date.", icon = "❌")
 else: 
     interval = (end_date - start_date).days
