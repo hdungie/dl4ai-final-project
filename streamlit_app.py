@@ -96,17 +96,6 @@ for i in range(0, len(y_pred_denorm)): # denorm_x = norm_x * (max(x) - min(x)) +
     y_pred_denorm[i] = y_pred_norm[i] * (max_feature - min_feature) + min_feature
 
 from datetime import datetime, timedelta
-
-dates = []
-
-current_date = start_date
-for i in range(future):
-    next_date = current_date + timedelta(days=1)
-    dates.append(next_date)
-    current_date = next_date
-for i in range(len(dates)):
-    dates[i] = dates[i].strftime('%d %b %Y')
-
 df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
 df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
 df['Dates'] = df['Dates'].astype(str)
@@ -116,6 +105,16 @@ latest = df_org.loc[len(df_org)-1,'Dates']
 latest = datetime.strptime(latest, '%d-%m-%Y').date()
 gap_end = end_date - latest
 gap_start = start_date - latest
+
+dates = []
+current_date = latest
+for i in range(future):
+    next_date = current_date + timedelta(days=1)
+    dates.append(next_date)
+    current_date = next_date
+    
+for i in range(len(dates)):
+    dates[i] = dates[i].strftime('%d %b %Y')
 
 close_prices = df['Close price'].apply("{:.2f}".format).tolist()
 if predict_button:
