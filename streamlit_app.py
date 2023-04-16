@@ -16,9 +16,11 @@ with col1: region = st.selectbox('Select a region', ('--','Nasdaq', 'Vietnam'), 
 if region == "Nasdaq":
   df = pd.read_csv('./search_engine_nasdaq.csv')
   df = df.fillna('')
+  reg = 'nasdaq'
 else: 
   df = pd.read_csv('./search_engine_vn.csv')
   df = df.fillna('')
+  reg = 'vn'
 
 df_search = df['company']
 with col2:
@@ -62,8 +64,16 @@ else:
     predict_button = st.button("Predict")
 
 if predict_button:
-  if interval < 30:
+  if interval <= 7:
+      window_size = 30
+      model = load_model(f'./{reg}-model-7d.h5')
+  elif: interval > 7 and interval <=30:
       window_size = 150
+      model = load_model(f'./{reg}-model-30d.h5')
+  elif: interval > 30 and interval <=365:
+      window_size = 500
+      model = load_model(f'./{reg}-model-365d.h5')
+      
   future = interval
 
   data = pd.read_csv(filepath)
@@ -87,7 +97,6 @@ if predict_button:
       max_feature = np.max(new_data[i])
       new_data_norm[i] = (new_data[i] - min_feature) / (max_feature - min_feature)
 
-  model = load_model('./nasdaq-model-30d.h5')
   # Get prediction on the test data
   y_pred_norm = model.predict(new_data_norm)
 
@@ -116,7 +125,6 @@ if predict_button:
 
   df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
   df['Dates'] = df['Dates'].astype(str)
-  st.write(df)
 
   close_prices = df['Close price'].apply("{:.2f}".format).tolist()
   # Create the line graph
