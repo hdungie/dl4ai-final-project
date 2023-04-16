@@ -46,7 +46,7 @@ with col5:
 with col3 :
     predict_button = st.button('Predict')
 
-comp = company.split(' ')
+comp = company.split('-')
 ticker = comp[0]
 filepath = f'./filtered-data-nasdaq/csv/{ticker}.csv'
 
@@ -105,7 +105,7 @@ df['Dates'] = df['Dates'].astype(str)
 close_prices = df['Close price'].apply("{:.2f}".format).tolist()
 if predict_button:
   # Create the line graph
-  fig = px.line(df[:future-1], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {company[0]} in {future} days', text = close_prices[:future-1])
+  fig = px.line(df[:future-1], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {ticker} in {future} days', text = close_prices[:future-1])
   fig.add_trace(px.scatter(df[:future-1], x='Dates', y='Close price',
                           color_continuous_scale='oranges').data[0])
   fig.update_traces(textposition="top center")
