@@ -112,7 +112,7 @@ df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
 df['Dates'] = df['Dates'].astype(str)
 st.write(df)
 
-latest = df_org.loc[len(df)-1,'Dates']
+latest = df_org.loc[len(df_org)-1,'Dates']
 latest = datetime.strptime(latest, '%d-%m-%Y').date()
 gap_end = end_date - latest
 gap_start = start_date - latest
