@@ -102,8 +102,8 @@ if predict_button:
 
   latest = new_df.loc[len(new_df)-1,'Date']
   latest = datetime.strptime(latest, '%d-%m-%Y').date()
-  gap_end = end_date - latest
-  gap_start = start_date - latest
+  gap_end = (end_date - latest).days
+  gap_start = (start_date - latest).days
 
   dates = []
   current_date = latest
