@@ -115,7 +115,7 @@ if predict_button:
 
   for percent_complete in range(100):
     time.sleep(0.1)
-    my_bar.progress(percent_complete + 1, text=progress_text)
+    eta_bar.progress(percent_complete + 1, text=progress_text)
 
   # Convert the result back to stock price (i.e., de-normalization) for visualization purpose
   y_pred_denorm = y_pred_norm
