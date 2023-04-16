@@ -18,7 +18,7 @@ if region == "Nasdaq":
   df_org = df.fillna('')
 else: 
   df_org = pd.read_csv('./search_engine_vn.csv')
-  df_org = df.fillna('')
+  df_org = df_org.fillna('')
   
 df_search = df_org['company']
 with col2:
