@@ -86,7 +86,7 @@ if predict_button:
       model = load_model(f'./{reg}-model-30d.h5')
   elif gap_end > 30 and gap_end <=365:
       future = 365
-      window_size = 500
+      window_size = 365
       model = load_model(f'./{reg}-model-365d.h5')
   
   new_data = []
@@ -138,7 +138,10 @@ if predict_button:
   fig.update_traces(textposition="top center")
   fig.update_traces(line_color='#f63366')
   fig.update_traces(marker_color='#ffa500')
+  
+  fig2 = px.line(df)
 
   # Show the graph
   st.plotly_chart(fig)
+  st.plotly_chart(fig2)
 
