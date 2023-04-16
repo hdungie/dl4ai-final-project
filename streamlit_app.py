@@ -68,6 +68,7 @@ if predict_button:
 
   data = pd.read_csv(filepath)
   new_df = data[['Date', 'Close']]
+  st.write(new_df)
 
   new_data = []
   for i in range(1, len(new_df) - window_size - 1):
@@ -98,7 +99,6 @@ if predict_button:
 
   from datetime import datetime, timedelta
   df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
-  st.write(df)
 
   latest = new_df.loc[len(new_df)-1,'Dates']
   latest = datetime.strptime(latest, '%d-%m-%Y').date()
