@@ -89,6 +89,10 @@ if predict_button:
       future = 365
       window_size = 365
       model = load_model(f'./{reg}-model-365d.h5')
+  elif gap_end >365 and gap_end <=1095:
+      future = 1095
+      window_size = 365
+      model = load_model(f'./{reg}-model-1095d.h5')
   
   new_data = []
   for i in range(1, len(new_df) - window_size - 1):
