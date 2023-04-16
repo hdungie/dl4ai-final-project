@@ -20,7 +20,8 @@ else:
   df_org = pd.read_csv('./search_engine_vn.csv')
   df_org = df_org.fillna('')
 
-st.write(dr_org)
+st.write(df_org)
+
 df_search = df_org['company']
 with col2:
   company = st.selectbox("Search companies by name or symbol", df_search, index=0)
