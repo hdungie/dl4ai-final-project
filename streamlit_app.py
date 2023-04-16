@@ -142,5 +142,4 @@ if predict_button:
 
   # Show the graph
   st.plotly_chart(fig)
-  st.plotly_chart(fig2)
 
