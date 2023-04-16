@@ -2,3 +2,5 @@ tensorflow
 matplotlib
 plotly.express
 h5py
+io
+requests
