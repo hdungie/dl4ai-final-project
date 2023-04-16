@@ -15,7 +15,7 @@ with col1: region = st.selectbox('Select a region', ('--','Nasdaq', 'Vietnam'), 
   
 if region == "Nasdaq":
   df_org = pd.read_csv('./search_engine_nasdaq.csv')
-  df_org = df.fillna('')
+  df_org = df_org.fillna('')
 else: 
   df_org = pd.read_csv('./search_engine_vn.csv')
   df_org = df_org.fillna('')
