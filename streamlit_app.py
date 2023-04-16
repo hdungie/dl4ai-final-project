@@ -12,6 +12,7 @@ import math
 import h5py
 import requests
 import io
+import time
 # from predictions_graph import graph
 
 col1, col2 = st.columns([1,4])
@@ -40,7 +41,7 @@ filepath = f'./filtered-data-nasdaq/csv/{ticker}.csv'
 
 if end_date <= start_date:
   interval = (end_date - start_date).days
-  st.warning("End date must be after start date.", icon = "❌")
+  st.error("End date must be after start date.", icon = "❌")
   col1, col2, col3, col4, col5 = st.beta_columns(5)
   with col1:
     pass
@@ -54,7 +55,7 @@ if end_date <= start_date:
       predict_button = st.button('Predict', disabled = True)
 else: 
   interval = (end_date - start_date).days
-  st.warning(f"Interval: {interval} days")
+  st.info(f"Interval: {interval} days")
   col1, col2, col3, col4, col5 = st.beta_columns(5)
   with col1:
     pass
@@ -108,6 +109,13 @@ if predict_button:
 
   # Get prediction on the test data
   y_pred_norm = model.predict(new_data_norm)
+  
+  progress_text = "Operation in progress. Please wait."
+  eta_bar = st.progress(0, text=progress_text)
+
+  for percent_complete in range(100):
+    time.sleep(0.1)
+    my_bar.progress(percent_complete + 1, text=progress_text)
 
   # Convert the result back to stock price (i.e., de-normalization) for visualization purpose
   y_pred_denorm = y_pred_norm
@@ -132,12 +140,13 @@ if predict_button:
   close_prices = df['Close price'].apply("{:.2f}".format).tolist()
   
   # Create the line graph
+  st.info("You can click on the data points for more details on close price and its corresponding date.")
   fig = px.line(df[gap_start:gap_end], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {ticker} from {start_date} to {end_date}')
-  fig.add_trace(px.scatter(df[gap_start:gap_end], x='Dates', y='Close price',
-                          color_continuous_scale='oranges').data[0])
+#   fig.add_trace(px.scatter(df[gap_start:gap_end], x='Dates', y='Close price',
+#                           color_continuous_scale='oranges').data[0])
 #   fig.update_traces(textposition="top center")
   fig.update_traces(line_color='#f63366')
-  fig.update_traces(marker_color='#ffa500')
+#   fig.update_traces(marker_color='#ffa500')
 
   # Show the graph
   st.plotly_chart(fig)
