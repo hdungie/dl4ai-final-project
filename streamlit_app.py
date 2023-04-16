@@ -14,15 +14,13 @@ col1, col2 = st.columns([1,4])
 with col1: region = st.selectbox('Select a region', ('--','Nasdaq', 'Vietnam'), index=0)
   
 if region == "Nasdaq":
-  df_org = pd.read_csv('./search_engine_nasdaq.csv')
-  df_org = df_org.fillna('')
+  df = pd.read_csv('./search_engine_nasdaq.csv')
+  df = df.fillna('')
 else: 
-  df_org = pd.read_csv('./search_engine_vn.csv')
-  df_org = df_org.fillna('')
+  df = pd.read_csv('./search_engine_vn.csv')
+  df = df.fillna('')
 
-st.write(df_org)
-
-df_search = df_org['company']
+df_search = df['company']
 with col2:
   company = st.selectbox("Search companies by name or symbol", df_search, index=0)
 
@@ -101,7 +99,7 @@ from datetime import datetime, timedelta
 df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
 st.write(df)
 
-latest = df_org.loc[len(df_org)-1,'Dates']
+latest = data.loc[len(data)-1,'Dates']
 latest = datetime.strptime(latest, '%d-%m-%Y').date()
 gap_end = end_date - latest
 gap_start = start_date - latest
