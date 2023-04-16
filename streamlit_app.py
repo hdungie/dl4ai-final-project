@@ -100,7 +100,7 @@ if predict_button:
   df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
   st.write(df)
 
-  latest = data.loc[len(data)-1,'Dates']
+  latest = new_df.loc[len(new_df)-1,'Dates']
   latest = datetime.strptime(latest, '%d-%m-%Y').date()
   gap_end = end_date - latest
   gap_start = start_date - latest
