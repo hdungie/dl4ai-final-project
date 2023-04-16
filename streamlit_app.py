@@ -76,22 +76,10 @@ if predict_button:
   elif interval > 30 and interval <=365:
       window_size = 500
       # set the shareable link for the .h5 file
-      link = "https://drive.google.com/uc?id=13Jiyg6IrvYob8qFy4tJdh2-Rr2io2RNm"
-
-      # extract the file ID from the shareable link
-      file_id = link.split("=")[1]
-
-      # set the download link for the file
-      download_link = f"https://drive.google.com/uc?id={file_id}"
-
-      # use requests to download the file
-      response = requests.get(download_link)
-      content = response.content
-
-      # read the file using h5py and load the model
-      with io.BytesIO(content) as f:
-          with h5py.File(f, 'r') as h5_file:
-              model = load_model(h5_file)
+      model_path = 'https://drive.google.com/file/d/13Jiyg6IrvYob8qFy4tJdh2-Rr2io2RNm/view?usp=sharing'
+      model_file_id = model_path.split('/')[-2]
+      url = f"https://drive.google.com/uc?id={model_file_id}"
+      model = load_model(url)
       
   future = interval
 
