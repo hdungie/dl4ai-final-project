@@ -69,10 +69,10 @@ if predict_button:
   if interval <= 7:
       window_size = 30
       model = load_model(f'./{reg}-model-7d.h5')
-  elif: interval > 7 and interval <=30:
+  elif interval > 7 and interval <=30:
       window_size = 150
       model = load_model(f'./{reg}-model-30d.h5')
-  elif: interval > 30 and interval <=365:
+  elif interval > 30 and interval <=365:
       window_size = 500
       # set the shareable link for the .h5 file
       link = "https://drive.google.com/uc?id=13Jiyg6IrvYob8qFy4tJdh2-Rr2io2RNm"
