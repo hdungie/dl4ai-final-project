@@ -142,7 +142,8 @@ if predict_button:
 #   fig.add_trace(px.scatter(df[gap_start:gap_end], x='Dates', y='Close price',
 #                           color_continuous_scale='oranges').data[0])
 #   fig.update_traces(textposition="top center")
-  fig.update_traces(line_color=['red' if i < 0 else 'green' for i in df['Close price'].diff().fillna(0)])
+  colors = ['green' if i >= 0 else 'red' for i in df['Close price'].diff().fillna(0)]
+  fig.update_traces(line_color=colors)
 #   fig.update_traces(marker_color='#ffa500')
 
   # Show the graph
