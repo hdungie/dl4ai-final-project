@@ -110,6 +110,7 @@ for i in range(len(dates)):
 df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
 df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
 df['Dates'] = df['Dates'].astype(str)
+st.write(df)
 
 latest = df.loc[len(df)-1,'Dates']
 latest = datetime.strptime(latest, '%d-%m-%Y').date()
