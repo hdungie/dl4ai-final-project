@@ -120,7 +120,7 @@ if predict_button:
 
   close_prices = df['Close price'].apply("{:.2f}".format).tolist()
   # Create the line graph
-  fig = px.line(df[gap_start:gap_end], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {ticker} from {start_date} to {end_date}', text = close_prices[:future-1])
+  fig = px.line(df[gap_start:gap_end], x='Dates', y='Close price', markers = True, title = f'Predicted close price of {ticker} from {start_date} to {end_date}', text = close_prices[gap_start:gap_end])
   fig.add_trace(px.scatter(df[gap_start:gap_end], x='Dates', y='Close price',
                           color_continuous_scale='oranges').data[0])
   fig.update_traces(textposition="top center")
