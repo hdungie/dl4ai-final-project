@@ -98,7 +98,6 @@ for i in range(0, len(y_pred_denorm)): # denorm_x = norm_x * (max(x) - min(x)) +
 from datetime import datetime, timedelta
 
 dates = []
-start_date = new_df.loc[len(new_df)-1,'Date']
 start_date = datetime.strptime(start_date, '%d-%m-%Y').date()
 
 current_date = start_date
