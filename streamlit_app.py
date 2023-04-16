@@ -107,14 +107,14 @@ for i in range(future):
 for i in range(len(dates)):
     dates[i] = dates[i].strftime('%d %b %Y')
 
+df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
+df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
+df['Dates'] = df['Dates'].astype(str)
+
 latest = df.loc[len(df)-1,'Dates']
 latest = datetime.strptime(latest, '%d-%m-%Y').date()
 gap_end = end_date - latest
 gap_start = start_date - latest
-
-df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
-df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
-df['Dates'] = df['Dates'].astype(str)
 
 close_prices = df['Close price'].apply("{:.2f}".format).tolist()
 if predict_button:
