@@ -68,7 +68,6 @@ if predict_button:
 
   data = pd.read_csv(filepath)
   new_df = data[['Date', 'Close']]
-  st.write(new_df)
 
   new_data = []
   for i in range(1, len(new_df) - window_size - 1):
@@ -117,6 +116,7 @@ if predict_button:
 
   df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
   df['Dates'] = df['Dates'].astype(str)
+  st.write(df)
 
   close_prices = df['Close price'].apply("{:.2f}".format).tolist()
   # Create the line graph
