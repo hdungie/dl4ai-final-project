@@ -98,7 +98,6 @@ for i in range(0, len(y_pred_denorm)): # denorm_x = norm_x * (max(x) - min(x)) +
 from datetime import datetime, timedelta
 
 dates = []
-start_date = datetime.strptime(start_date, '%d-%m-%Y').date()
 
 current_date = start_date
 for i in range(future):
@@ -108,8 +107,8 @@ for i in range(future):
 for i in range(len(dates)):
     dates[i] = dates[i].strftime('%d %b %Y')
 
-df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
-df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
+# df = pd.DataFrame(y_pred_denorm[-1], columns = ['Close price'])
+# df['Dates'] = pd.DataFrame(dates, columns = ['Dates'])
 df['Dates'] = df['Dates'].astype(str)
 
 close_prices = df['Close price'].apply("{:.2f}".format).tolist()
