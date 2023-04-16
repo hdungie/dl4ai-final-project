@@ -69,7 +69,7 @@ data = pd.read_csv(filepath)
 new_df = data[['Date', 'Close']]
 
 new_data = []
-for i in range(1, len(df) - window_size - 1):
+for i in range(1, len(new_df) - window_size - 1):
     data_predict = []
     # Get a window_size time frame for data feature
     for j in range(window_size):
