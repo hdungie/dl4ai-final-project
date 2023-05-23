@@ -225,6 +225,7 @@ with tab2:
     st.write(y_pred_norm)
   
   with col3: 
+    st.text("")
     if (price is not None) and (eps is not None) and (opm is not None) and (roe is not None) and (doe is not None) and (aoe is not None) and (gpm is not None) and (poe is not None):
       generate_button = st.button("Generate")
     else: generate_button = st.button("Generate", disabled = True)
