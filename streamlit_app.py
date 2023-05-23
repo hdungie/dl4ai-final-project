@@ -193,7 +193,7 @@ with tab2:
   df = pd.read_csv('./search_engine_vn.csv')
   df_search = df['company']
   company = st.selectbox("Choose a company", df_search, index=0)
-  col1, col2, col3= st.columns([1,1,1])
+  col1, col2, col3= st.columns([1,1,5])
   with col1: 
     price = st.number_input("Close Price", step = 0.1)
     eps = st.number_input("Earning per Share", step = 0.1)
