@@ -32,7 +32,7 @@ with col2:
   company = st.selectbox("Search companies by name or symbol", df_search, index=0)
 
 col1, col2 = st.columns(2)
-with col1: start_date = st.date_input( "Start date: ")
+with col1: start_date = st.date_input( "Start date: ", min_value=(2022,12,13), max_value=(2023,12,13))
 with col2: end_date = st.date_input("End date: ")
 
 comp = company.split(' ')
