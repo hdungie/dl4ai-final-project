@@ -144,7 +144,7 @@ with tab1:
         new_data_norm[i] = (new_data[i] - min_feature) / (max_feature - min_feature)
 
     # Get prediction on the test data
-    model.compile(run_eagerly = True)
+    model.compile(optimizer='adam', loss='mse', run_eagerly = True)
     y_pred_norm = model.predict(new_data_norm)
 
     # Convert the result back to stock price (i.e., de-normalization) for visualization purpose
