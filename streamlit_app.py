@@ -200,7 +200,7 @@ with tab2:
   
   with col1: 
     price = st.number_input("Close Price", step = 0.1)
-    price = (price - np.min(finance['Close']))/(np.max(finance['Close'] - np.min(finance['Close']))
+    price = (price - np.min(finance['Close'])) / (np.max(finance['Close']) - np.min(finance['Close']))
     
     eps = st.number_input("Earning per Share", step = 0.1)
     opm = st.number_input("Operating Profit Margin", step = 0.1)
