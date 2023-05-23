@@ -86,7 +86,9 @@ with tab1:
     new_df = data[['Date', 'Close']]
 
     latest = new_df.loc[len(new_df)-1,'Date']
-    latest = datetime.strptime(latest, '%d-%m-%Y').date()
+    if region == "Nasdaq":
+      latest = datetime.strptime(latest, '%d-%m-%Y').date()
+    else: latest = datetime.strptime(latest, '%Y-%m-%d').date()
     gap_end = (end_date - latest).days
     gap_start = (start_date - latest).days
 
