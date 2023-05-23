@@ -94,15 +94,15 @@ if predict_button:
       model = load_model(f'./{reg}-model-7d.h5')
   elif gap_end > 7 and gap_end <=30:
       future = 30
-      window_size = 150
+      window_size = 30
       model = load_model(f'./{reg}-model-30d.h5')
-  elif gap_end > 30 and gap_end <=365:
-      future = 365
-      window_size = 365
+  elif gap_end > 30 and gap_end <=180:
+      future = 60
+      window_size = 180
       model = load_model(f'./{reg}-model-365d.h5')
-  elif gap_end >365 and gap_end <=1095:
-      future = 1095
-      window_size = 365
+  elif gap_end >180 and gap_end <=365:
+      future = 365
+      window_size = 180
       model = load_model(f'./{reg}-model-1095d.h5')
   
   new_data = []
