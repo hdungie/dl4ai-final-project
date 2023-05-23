@@ -256,4 +256,10 @@ with tab2:
         fin['action']=action
         fig = px.pie(fin, values='scores', names='action')
         st.plotly_chart(fig)
+
+with tab3:
+  col1, col2 = st.columns([1,1])
+  with col1:
+    quarter = st.radio("Choose a quarter", [1,2,3,4])
+    year = st.number_input("Choose a year", min_value = 2016, max_value = 2023, step = 1)
   
