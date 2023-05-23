@@ -37,15 +37,11 @@ with col1:
     start_date = st.date_input( "Start date: ", min_value=datetime(2022,12,13), max_value=datetime(2023,12,13))
   if region == 'Vietnam':
     start_date = st.date_input( "Start date: ", min_value=datetime(2023,2,28), max_value=datetime(2023,8,28))
-  else:
-    start_date = st.date_input( "Start date: ")
 with col2: 
   if region == 'Nasdaq':
     end_date = st.date_input( "End date: ", min_value=datetime(2022,12,13), max_value=datetime(2023,12,13))
   if region == 'Vietnam':
     end_date = st.date_input( "End date: ", min_value=datetime(2023,2,28), max_value=datetime(2023,8,28))
-  else:
-    end_date = st.date_input( "End date: ")
 
 comp = company.split(' ')
 ticker = comp[0]
