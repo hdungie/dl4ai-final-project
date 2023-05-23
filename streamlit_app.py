@@ -194,6 +194,9 @@ with tab2:
   df_search = df['company']
   company = st.selectbox("Choose a company", df_search, index=0)
   col1, col2, col3= st.columns([1,1,2.5])
+  comp = company.split(' ')
+  ticker = comp[0]
+  
   with col1: 
     price = st.number_input("Close Price", step = 0.1)
     eps = st.number_input("Earning per Share", step = 0.1)
@@ -205,6 +208,22 @@ with tab2:
     roa = st.number_input("ROA", step = 0.1)
     gpm = st.number_input("Gross Profit Margin", step = 0.1)
     poe = st.number_input("Payable on Equity", step = 0.1)
+    
+  new_data = []
+  if ticker in {'BID','CTG','TCB','VCB','VPB'}:
+    new_data.append(price, roe, roa, eps, aoe, poe)
+    new_data = np.array(new_data)
+    new_data = new_data.reshape(new_data.shape[0],1,6)
+  else:
+    new_data.append(price, roe, roa, eps, doe, gpm, opm, aoe, poe)
+    new_data = np.array(new_data)
+    new_data = new_data.reshape(new_data.shape[0],1,9)
+    
+    new_data_norm = tensorflow.convert_to_tensor(np.array(new_data), dtype= tensorflow.float32)
+    y_pred_norm = model.predict(new_data_norm)
+    
+    st.write(y_pred_norm)
+  
   with col3: 
     scores = [0.3, 0.6, 0.1]
     action = ['Sell','Hold','Buy']
