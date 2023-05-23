@@ -48,6 +48,7 @@ with tab1:
 
   comp = company.split(' ')
   ticker = comp[0]
+  st.write(ticker)
   if region == "Nasdaq":
     filepath = f'./data-nasdaq/{ticker}.csv'
   if region == "Vietnam":
