@@ -213,24 +213,23 @@ with tab2:
     if (price is not None) and (eps is not None) and (opm is not None) and (roe is not None) and (doe is not None) and (aoe is not None) and (gpm is not None) and (poe is not None):
       generate_button = st.button("Generate")
     else: generate_button = st.button("Generate", disabled = True)
-    
-  new_data = []
-  if ticker in {'BID','CTG','TCB','VCB','VPB'}:
-    new_data.append([price, roe, roa, eps, aoe, poe])
-    new_data = np.array(new_data)
-    new_data = new_data.reshape(new_data.shape[0],1,6)
-  else:
-    new_data.append([price, roe, roa, eps, doe, gpm, opm, aoe, poe])
-    new_data = np.array(new_data)
-    new_data = new_data.reshape(new_data.shape[0],1,9)
-    
-    new_data_norm = tensorflow.convert_to_tensor(np.array(new_data), dtype= tensorflow.float32)
-    y_pred_norm = model.predict(new_data_norm)
-    
-    st.write(y_pred_norm)
   
   with col3: 
     if generate_button:
+        new_data = []
+        if ticker in {'BID','CTG','TCB','VCB','VPB'}:
+          new_data.append([price, roe, roa, eps, aoe, poe])
+          new_data = np.array(new_data)
+          new_data = new_data.reshape(new_data.shape[0],1,6)
+        else:
+          new_data.append([price, roe, roa, eps, doe, gpm, opm, aoe, poe])
+          new_data = np.array(new_data)
+          new_data = new_data.reshape(new_data.shape[0],1,9)
+
+          new_data_norm = tensorflow.convert_to_tensor(np.array(new_data), dtype= tensorflow.float32)
+          y_pred_norm = model.predict(new_data_norm)
+
+          st.write(y_pred_norm)
       scores = [0.3, 0.6, 0.1]
       action = ['Sell','Hold','Buy']
       fin = pd.DataFrame(columns = ['scores','action'])
