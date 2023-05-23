@@ -216,6 +216,7 @@ with tab2:
   
   with col3: 
     if generate_button:
+        model = load_model(f"./tradingpoint-models/model-{ticker}--tradingpoint.h5")
         new_data = []
         if ticker in {'BID','CTG','TCB','VCB','VPB'}:
           new_data.append([price, roe, roa, eps, aoe, poe])
