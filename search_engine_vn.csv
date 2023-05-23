@@ -1,83 +1,12 @@
 symbol,company_name,company
 ,,
-AAA,  Cong ty Co phan Nhua An Phat Xanh,AAA-  Cong ty Co phan Nhua An Phat Xanh
-ACB,  Ngan hang Thuong mai Co phan a Chau,ACB-  Ngan hang Thuong mai Co phan a Chau
-ANV,  Cong ty Co phan Nam Viet,ANV-  Cong ty Co phan Nam Viet
-ASM,  Cong ty Co phan Tap doan Sao Mai,ASM-  Cong ty Co phan Tap doan Sao Mai
 BID,  Ngan hang Thuong mai Co phan Dau tu va Phat trien Viet Nam,BID-  Ngan hang Thuong mai Co phan Dau tu va Phat trien Viet Nam
-BMP,  Cong ty Co phan Nhua Binh Minh,BMP-  Cong ty Co phan Nhua Binh Minh
-BVH,  Tap doan Bao Viet,BVH-  Tap doan Bao Viet
-CII,  Cong ty Co phan Dau tu Ha tang Ky thuat Thanh pho Ho Chi Minh,CII-  Cong ty Co phan Dau tu Ha tang Ky thuat Thanh pho Ho Chi Minh
-CMG,  Cong ty Co phan Tap doan Cong nghe CMC,CMG-  Cong ty Co phan Tap doan Cong nghe CMC
-CTD,  Cong ty Co phan Xay dung Coteccons,CTD-  Cong ty Co phan Xay dung Coteccons
 CTG,  Ngan hang Thuong mai Co phan Cong thuong Viet Nam,CTG-  Ngan hang Thuong mai Co phan Cong thuong Viet Nam
-CTR,  Tong Cong ty Co phan Cong trinh Viettel,CTR-  Tong Cong ty Co phan Cong trinh Viettel
-DBC,  Cong ty Co phan Tap doan Dabaco Viet Nam,DBC-  Cong ty Co phan Tap doan Dabaco Viet Nam
-DCM,  Cong ty Co phan Phan bon Dau Khi Ca Mau,DCM-  Cong ty Co phan Phan bon Dau Khi Ca Mau
-DGC,  Cong ty Co phan Tap doan Hoa chat Duc Giang,DGC-  Cong ty Co phan Tap doan Hoa chat Duc Giang
-DGW,  Cong ty Co phan The Gioi So,DGW-  Cong ty Co phan The Gioi So
-DHC,  Cong ty Co phan Dong Hai Ben Tre,DHC-  Cong ty Co phan Dong Hai Ben Tre
-DIG,  Tong Cong ty Co phan Dau tu Phat trien Xay dung,DIG-  Tong Cong ty Co phan Dau tu Phat trien Xay dung
-DPM,  Tong Cong ty Co phan Phan bon va Hoa chat Dau khi - Cong ty Co phan,DPM-  Tong Cong ty Co phan Phan bon va Hoa chat Dau khi - Cong ty Co phan
-DXG,  Cong ty Co phan Tap doan Dat Xanh,DXG-  Cong ty Co phan Tap doan Dat Xanh
-EIB,  Ngan hang Thuong mai Co phan Xuat nhap khau Viet Nam,EIB-  Ngan hang Thuong mai Co phan Xuat nhap khau Viet Nam
-FPT,  Cong ty Co phan FPT,FPT-  Cong ty Co phan FPT
-FTS,  Cong ty Co phan Chung khoan FPT,FTS-  Cong ty Co phan Chung khoan FPT
 GAS,  Tong Cong ty Khi Viet Nam - Cong ty Co phan,GAS-  Tong Cong ty Khi Viet Nam - Cong ty Co phan
-GEX,  Cong ty Co phan Tap doan Gelex,GEX-  Cong ty Co phan Tap doan Gelex
-GMD,  Cong ty Co phan Gemadept,GMD-  Cong ty Co phan Gemadept
-HCM,  Cong ty Co phan Chung khoan Thanh pho Ho Chi Minh,HCM-  Cong ty Co phan Chung khoan Thanh pho Ho Chi Minh
-HDB,  Ngan hang Thuong mai Co phan Phat Trien Thanh pho Ho Chi Minh,HDB-  Ngan hang Thuong mai Co phan Phat Trien Thanh pho Ho Chi Minh
-HDG,  Cong ty Co phan Tap doan Ha Do,HDG-  Cong ty Co phan Tap doan Ha Do
-TCH,  Cong ty Co phan Dau tu Dich vu Tai chinh Hoang Huy,TCH-  Cong ty Co phan Dau tu Dich vu Tai chinh Hoang Huy
 HPG,  Cong ty Co phan Tap doan Hoa Phat,HPG-  Cong ty Co phan Tap doan Hoa Phat
-HSG,  Cong ty Co phan Tap doan Hoa Sen,HSG-  Cong ty Co phan Tap doan Hoa Sen
-HT1,  Cong ty Co phan Xi mang VICEM Ha Tien,HT1-  Cong ty Co phan Xi mang VICEM Ha Tien
-IMP,  Cong ty Co phan Duoc pham IMEXPHARM,IMP-  Cong ty Co phan Duoc pham IMEXPHARM
-KBC,  Tong Cong ty Phat trien Do thi Kinh Bac,KBC-  Tong Cong ty Phat trien Do thi Kinh Bac
-KDC,  Cong ty Co phan Tap doan KIDO,KDC-  Cong ty Co phan Tap doan KIDO
-KDH,  Cong ty Co phan Dau tu va Kinh doanh nha Khang Dien,KDH-  Cong ty Co phan Dau tu va Kinh doanh nha Khang Dien
-LPB,  Ngan hang Thuong mai Co phan Buu Dien Lien Viet,LPB-  Ngan hang Thuong mai Co phan Buu Dien Lien Viet
-MBB,  Ngan hang Thuong mai Co phan Quan doi,MBB-  Ngan hang Thuong mai Co phan Quan doi
-MSB,  Ngan hang Thuong mai Co phan Hang Hai Viet Nam,MSB-  Ngan hang Thuong mai Co phan Hang Hai Viet Nam
-MSN,  Cong ty Co phan Tap doan Masan,MSN-  Cong ty Co phan Tap doan Masan
-MWG,  Cong ty Co phan Dau tu The Gioi Di Dong,MWG-  Cong ty Co phan Dau tu The Gioi Di Dong
-VHM,  Cong ty Co phan Vinhomes,VHM-  Cong ty Co phan Vinhomes
-NKG,  Cong ty Co phan Thep Nam Kim,NKG-  Cong ty Co phan Thep Nam Kim
-NLG,  Cong ty co phan Dau tu Nam Long,NLG-  Cong ty co phan Dau tu Nam Long
-NT2,  Cong ty Co phan Dien luc Dau khi Nhon Trach 2,NT2-  Cong ty Co phan Dien luc Dau khi Nhon Trach 2
-PAN,  Cong ty Co phan Tap doan PAN,PAN-  Cong ty Co phan Tap doan PAN
-PC1,  Cong ty Co phan Tap doan PC1,PC1-  Cong ty Co phan Tap doan PC1
-PDR,  Cong ty Co phan Phat trien Bat dong san Phat Dat,PDR-  Cong ty Co phan Phat trien Bat dong san Phat Dat
-PLX,  Tap doan Xang dau Viet Nam,PLX-  Tap doan Xang dau Viet Nam
-PHR,  Cong ty Co phan Cao su Phuoc Hoa,PHR-  Cong ty Co phan Cao su Phuoc Hoa
-PNJ,  Cong ty Co phan Vang bac Da quy Phu Nhuan,PNJ-  Cong ty Co phan Vang bac Da quy Phu Nhuan
-PPC,  Cong ty Co phan Nhiet dien Pha Lai,PPC-  Cong ty Co phan Nhiet dien Pha Lai
-PTB,  Cong ty Co phan Phu Tai,PTB-  Cong ty Co phan Phu Tai
-PVD,  Tong Cong ty Co phan Khoan va Dich vu khoan Dau khi,PVD-  Tong Cong ty Co phan Khoan va Dich vu khoan Dau khi
-PVT,  Tong Cong ty Co phan Van tai Dau khi,PVT-  Tong Cong ty Co phan Van tai Dau khi
-REE,  Cong ty Co phan Co dien Lanh,REE-  Cong ty Co phan Co dien Lanh
-SAM,  Cong ty Co phan SAM Holdings,SAM-  Cong ty Co phan SAM Holdings
-SAB,  Tong Cong ty Co phan Bia - Ruou - Nuoc Giai khat Sai Gon,SAB-  Tong Cong ty Co phan Bia - Ruou - Nuoc Giai khat Sai Gon
-SBT,  Cong ty Co phan Thanh Thanh Cong - Bien Hoa,SBT-  Cong ty Co phan Thanh Thanh Cong - Bien Hoa
-SCR,  Cong ty Co phan Dia oc Sai Gon Thuong Tin,SCR-  Cong ty Co phan Dia oc Sai Gon Thuong Tin
-SCS,  Cong ty Co phan Dich vu Hang hoa Sai Gon,SCS-  Cong ty Co phan Dich vu Hang hoa Sai Gon
-SSB,  Ngan hang Thuong mai Co phan Dong Nam a,SSB-  Ngan hang Thuong mai Co phan Dong Nam a
-SHB,  Ngan hang Thuong mai Co phan Sai Gon KKKKKKKK,SHB-  Ngan hang Thuong mai Co phan Sai Gon KKKKKKKK
-SZC,  Cong ty Co phan Sonadezi Chau Duc,SZC-  Cong ty Co phan Sonadezi Chau Duc
-SJS,  Cong ty Co phan Dau tu Phat trien Do thi va Khu cong nghiep Song Da,SJS-  Cong ty Co phan Dau tu Phat trien Do thi va Khu cong nghiep Song Da
-SSI,  Cong ty Co phan Chung khoan SSI,SSI-  Cong ty Co phan Chung khoan SSI
-STB,  Ngan hang Thuong mai Co phan Sai Gon Thuong Tin,STB-  Ngan hang Thuong mai Co phan Sai Gon Thuong Tin
-TMS,  Cong ty Co phan Transimex,TMS-  Cong ty Co phan Transimex
-VCB,  Ngan hang Thuong mai Co phan Ngoai thuong Viet Nam,VCB-  Ngan hang Thuong mai Co phan Ngoai thuong Viet Nam
-VCG,  Tong Cong ty Co phan Xuat nhap khau va Xay dung Viet Nam,VCG-  Tong Cong ty Co phan Xuat nhap khau va Xay dung Viet Nam
-VCI,  Cong ty Co phan Chung khoan Ban Viet,VCI-  Cong ty Co phan Chung khoan Ban Viet
-VGC,  Tong Cong ty Viglacera - Cong ty Co phan,VGC-  Tong Cong ty Viglacera - Cong ty Co phan
-VHC,  Cong ty Co phan Vinh Hoan,VHC-  Cong ty Co phan Vinh Hoan
-VIB,  Ngan hang Thuong mai Co phan Quoc te Viet Nam,VIB-  Ngan hang Thuong mai Co phan Quoc te Viet Nam
-VIC,  Tap doan Vingroup - Cong ty Co phan,VIC-  Tap doan Vingroup - Cong ty Co phan
-VIX,  Cong ty Co phan Chung khoan VIX,VIX-  Cong ty Co phan Chung khoan VIX
-VND,  Cong ty Co phan Chung khoan VNDIRECT,VND-  Cong ty Co phan Chung khoan VNDIRECT
-VNM,  Cong ty Co phan Sua Viet Nam,VNM-  Cong ty Co phan Sua Viet Nam
-VPI,  Cong ty Co phan Dau tu Van Phu - Invest,VPI-  Cong ty Co phan Dau tu Van Phu - Invest
-VSH,  Cong ty Co phan Thuy dien Vinh Son - Song Hinh,VSH-  Cong ty Co phan Thuy dien Vinh Son - Song Hinh
+TCB, Ngan hang Thuong mai Co phan Ky thuong Viet Nam, TCB- Ngan hang Thuong mai Co phan Ky thuong Viet Nam
+VCB, Ngan hang Thuong mai Co phan Ngoai thuong Viet Nam, VCB- Nganhang Thuong mai Co phan Ngoai thuong Viet Nam
+VHM, Cong ty Co phan Vinhomes, VHM- Cong ty Co phan Vinhomes
+VIC, Tap doan Vingroup, VIC- Tap doan Vingroup
+VNM, Cong ty Co phan Sua Viet Nam VINAMILK, VNM- Cong ty Co phan Sua Viet Nam VINAMILK
+VPB, Ngan hang Thuong mai Co phan Viet Nam Thinh Vuong, VPB- Ngan hang Thuong mai Co phan Viet Nam Thinh Vuong
