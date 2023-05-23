@@ -196,9 +196,12 @@ with tab2:
   col1, col2, col3= st.columns([1,1,2.5])
   comp = company.split(' ')
   ticker = comp[0]
+  finance = pd.read_csv(f'./data-vn/history/{ticker}.csv')
   
   with col1: 
     price = st.number_input("Close Price", step = 0.1)
+    price = (price - np.min(finance['Close']))/(np.max(finance['Close'] - np.min(finance['Close']))
+    
     eps = st.number_input("Earning per Share", step = 0.1)
     opm = st.number_input("Operating Profit Margin", step = 0.1)
     roe = st.number_input("ROE", step = 0.2)
