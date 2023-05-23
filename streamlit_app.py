@@ -211,11 +211,11 @@ with tab2:
     
   new_data = []
   if ticker in {'BID','CTG','TCB','VCB','VPB'}:
-    new_data.append(price, roe, roa, eps, aoe, poe)
+    new_data.append([price, roe, roa, eps, aoe, poe])
     new_data = np.array(new_data)
     new_data = new_data.reshape(new_data.shape[0],1,6)
   else:
-    new_data.append(price, roe, roa, eps, doe, gpm, opm, aoe, poe)
+    new_data.append([price, roe, roa, eps, doe, gpm, opm, aoe, poe])
     new_data = np.array(new_data)
     new_data = new_data.reshape(new_data.shape[0],1,9)
     
