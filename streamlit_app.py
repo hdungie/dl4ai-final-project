@@ -83,7 +83,10 @@ with tab1:
 
   if predict_button:
     data = pd.read_csv(filepath)
-    new_df = data[['Date', 'Close']]
+    if region == "Nasdaq":
+      new_df = data[['Date', 'Close']]
+    if region == "Vietnam":
+      new_df = data
 
     latest = new_df.loc[len(new_df)-1,'Date']
     if region == "Nasdaq":
@@ -120,7 +123,6 @@ with tab1:
             if ticker in {'BID','CTG','TCB','VCB','VPB'}:
               data_predict.append(new_df.loc[i+j, ['Close','roe','roa','earningPerShare', 'payableOnEquity', 'assetOnEquity','bookValuePerShare']])
             else:
-              st.write(data)
               data_predict.append(new_df.loc[i+j, ['Close','roe','roa','earningPerShare', 'payableOnEquity', 'assetOnEquity','debtOnEquity','grossProfitMargin','bookValuePerShare','operatingProfitMargin']])
         new_data.append(np.array(data_predict).reshape(window_size, 1))
 
