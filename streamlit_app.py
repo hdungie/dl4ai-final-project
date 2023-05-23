@@ -29,6 +29,7 @@ with tab1:
     df = df.fillna('')
     reg = 'vn'
 
+  df = pd.read_csv('./search_engine_vn.csv')
   df_search = df['company']
   with col2:
     company = st.selectbox("Search companies by name or symbol", df_search, index=0)
@@ -189,3 +190,8 @@ with tab1:
     # Show the graph
     st.plotly_chart(fig)
 
+with tab2:
+  df = pd.read_csv('./search_engine_vn.csv')
+  df_search = df['company']
+  company = st.selectbox("Search companies by name or symbol", df_search, index=0)
+  
