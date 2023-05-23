@@ -194,4 +194,16 @@ with tab2:
   df_search = df['company']
   company = st.selectbox("Choose a company", df_search, index=0)
   col1, col2, col3, col4 = st.columns([1,1,1,3])
+  with col1: 
+    st.number_input("Close Price", step = 0.1)
+    st.number_input("Earning per Share", step = 0.1)
+    st.number_input("Operating Profit Margin", step = 0.1)
+  with col2: 
+    st.number_input("ROE", step = 0.2)
+    st.number_input("Debt on Equity", step = 0.1)
+    st.number_input('Asset on Equity", step = 0.1)
+  with col3: 
+    st.number_input("ROA", step = 0.1)
+    st.number_input("Gross Profit Margin", step = 0.1)
+    st.number_input("Payable on Equity", step = 0.1)
   
