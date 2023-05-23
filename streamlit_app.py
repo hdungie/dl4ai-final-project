@@ -195,19 +195,19 @@ with tab2:
   company = st.selectbox("Choose a company", df_search, index=0)
   col1, col2= st.columns([1,2])
   with col1: 
-    st.number_input("Close Price", step = 0.1)
-    st.number_input("Earning per Share", step = 0.1)
-    st.number_input("Operating Profit Margin", step = 0.1)
-    st.number_input("ROE", step = 0.2)
-    st.number_input("Debt on Equity", step = 0.1)
-    st.number_input("Asset on Equity", step = 0.1)
-    st.number_input("ROA", step = 0.1)
-    st.number_input("Gross Profit Margin", step = 0.1)
-    st.number_input("Payable on Equity", step = 0.1)
+    price = st.number_input("Close Price", step = 0.1)
+    eps = st.number_input("Earning per Share", step = 0.1)
+    opm = st.number_input("Operating Profit Margin", step = 0.1)
+    roe = st.number_input("ROE", step = 0.2)
+    doe = st.number_input("Debt on Equity", step = 0.1)
+    aoe = st.number_input("Asset on Equity", step = 0.1)
+    roa = st.number_input("ROA", step = 0.1)
+    gpm = st.number_input("Gross Profit Margin", step = 0.1)
+    poe = st.number_input("Payable on Equity", step = 0.1)
   with col2: 
     scores = [0.3, 0.6, 0.1]
     action = ['Sell','Hold','Buy']
-    fin = pd.DataFrame(columns = [['scores','action']])
+    fin = pd.DataFrame(columns = ['scores','action'])
     fin['scores'] = scores
     fin['action']=action
     fig = px.pie(fin, values='scores', names='action')
