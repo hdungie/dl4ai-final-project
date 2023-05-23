@@ -203,14 +203,29 @@ with tab2:
     price = (price - np.min(finance['Close'])) / (np.max(finance['Close']) - np.min(finance['Close']))
     
     eps = st.number_input("Earning per Share", step = 0.1)
+    eps = (eps - np.min(finance['earningPerShare'])) / (np.max(finance['earningPerShare']) - np.min(finance['earningPerShare']))
+    
     opm = st.number_input("Operating Profit Margin", step = 0.1)
+    opm = (opm - np.min(finance['operatingProfitMargin'])) / (np.max(finance['operatingProfitMargin']) - np.min(finance['operatingProfitMargin']))
+    
     roe = st.number_input("ROE", step = 0.2)
+    roe = (roe - np.min(finance['roe'])) / (np.max(finance['roe']) - np.min(finance['roe']))
+    
     doe = st.number_input("Debt on Equity", step = 0.1)
+    doe = (doe - np.min(finance['debtOnEquity'])) / (np.max(finance['debtOnEquity']) - np.min(finance['debtOnEquity']))
   with col2:
     aoe = st.number_input("Asset on Equity", step = 0.1)
+    aoe = (aoe - np.min(finance['assetOnEquity'])) / (np.max(finance['assetOnEquity']) - np.min(finance['assetOnEquity']))
+    
     roa = st.number_input("ROA", step = 0.1)
+    roa = (roa - np.min(finance['roa'])) / (np.max(finance['roa']) - np.min(finance['roa']))
+    
     gpm = st.number_input("Gross Profit Margin", step = 0.1)
+    gpm = (gpm - np.min(finance['grossProfitMargin'])) / (np.max(finance['grossProfitMargin']) - np.min(finance['grossProfitMargin']))
+    
     poe = st.number_input("Payable on Equity", step = 0.1)
+    poe = (poe - np.min(finance['payableOnEquity'])) / (np.max(finance['payableOnEquity']) - np.min(finance['payableOnEquity']))
+    
     st.text("")
     st.text("")
     if (price is not None) and (eps is not None) and (opm is not None) and (roe is not None) and (doe is not None) and (aoe is not None) and (gpm is not None) and (poe is not None):
