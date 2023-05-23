@@ -50,7 +50,7 @@ with tab1:
   if region == "Nasdaq":
     filepath = f'./data-nasdaq/{ticker}.csv'
   if region == "Vietnam":
-    filepath = f'./data-vn/{ticker}.csv'
+    filepath = f'./data-vn/history/{ticker}.csv'
 
   if end_date <= start_date:
     interval = (end_date - start_date).days
