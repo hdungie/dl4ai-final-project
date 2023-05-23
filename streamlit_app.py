@@ -208,6 +208,10 @@ with tab2:
     roa = st.number_input("ROA", step = 0.1)
     gpm = st.number_input("Gross Profit Margin", step = 0.1)
     poe = st.number_input("Payable on Equity", step = 0.1)
+    generate_button = st.button("Generate", disabled = True)
+  
+  if (price is not null) and (eps is not null) and (opm is not null) and (roe is not null) and (doe is not null) and (aoe is not null) and (gpm is not null) and (poe is not null):
+    generate_button = st.button("Generate")
     
   new_data = []
   if ticker in {'BID','CTG','TCB','VCB','VPB'}:
