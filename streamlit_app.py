@@ -230,11 +230,11 @@ with tab2:
           y_pred_norm = model.predict(new_data_norm)
 
           st.write(y_pred_norm)
-      scores = [0.3, 0.6, 0.1]
-      action = ['Sell','Hold','Buy']
-      fin = pd.DataFrame(columns = ['scores','action'])
-      fin['scores'] = scores
-      fin['action']=action
-      fig = px.pie(fin, values='scores', names='action')
-      st.plotly_chart(fig)
+          scores = [0.3, 0.6, 0.1]
+          action = ['Sell','Hold','Buy']
+          fin = pd.DataFrame(columns = ['scores','action'])
+          fin['scores'] = scores
+          fin['action']=action
+          fig = px.pie(fin, values='scores', names='action')
+          st.plotly_chart(fig)
   
