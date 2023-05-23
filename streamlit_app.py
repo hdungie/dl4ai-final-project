@@ -99,8 +99,8 @@ with tab1:
         window_size = 30
         model = load_model(f'./prediction-models/model-{ticker}--30d-ws30.h5')
     elif gap_end > 30 and gap_end <=180:
-        future = 60
-        window_size = 180
+        future = 180
+        window_size = 60
         model = load_model(f'./prediction-models/model-{ticker}--180d-ws60.h5')
     elif gap_end >180 and gap_end <=365:
         future = 365
