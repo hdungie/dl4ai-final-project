@@ -201,7 +201,7 @@ with tab2:
   with col2: 
     st.number_input("ROE", step = 0.2)
     st.number_input("Debt on Equity", step = 0.1)
-    st.number_input('Asset on Equity", step = 0.1)
+    st.number_input("Asset on Equity", step = 0.1)
   with col3: 
     st.number_input("ROA", step = 0.1)
     st.number_input("Gross Profit Margin", step = 0.1)
