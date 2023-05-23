@@ -131,7 +131,7 @@ with tab1:
           new_data.append(np.array(data_predict).reshape(window_size, 1))
         if case == 2:
           new_data.append(np.array(data_predict).reshape(window_size, 7))
-        if case == 2:
+        if case == 3:
           new_data.append(np.array(data_predict).reshape(window_size, 10))
 
     new_data = np.array(new_data)
