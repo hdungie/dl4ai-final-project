@@ -16,7 +16,7 @@ import time
 # from predictions_graph import graph
 
 col1, col2 = st.columns([1,4])
-with col1: region = st.selectbox('Select a region', ('--','Nasdaq', 'Vietnam'), index=0)
+with col1: region = st.selectbox('Select a region', ('Nasdaq', 'Vietnam'), index=0)
   
 if region == "Nasdaq":
   df = pd.read_csv('./search_engine_nasdaq.csv')
