@@ -194,5 +194,4 @@ with tab1:
 with tab2:
   df = pd.read_csv('./search_engine_vn.csv')
   df_search = df['company']
-  comp2 = st.selectbox("Choose a company", df_search, index=0)
   
