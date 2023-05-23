@@ -108,15 +108,21 @@ with tab1:
         model = load_model(f'./prediction-models/model-{ticker}--365d-ws180.h5')
 
     new_data = []
-    for i in range(1, len(new_df) - window_size - 1):
+    for i in range(1, len(new_df) - window_size - future):
         data_predict = []
         # Get a window_size time frame for data feature
         for j in range(window_size):
+          if region == "Nasdaq":
             data_predict.append(new_df.loc[i + j, 'Close'])
-        new_data.append(np.array(data_predict).reshape(window_size, 1))
+          if region == "Vietnam":
+            if ticker in {'BID','CTG','TCB','VCB','VPB'}:
+              data_predict.append(new_df.loc[i+j, 'Close','roe','roa','earningPerShare', 'payableOnEquity', 'assetOnEquity','bookValuePerShare'])
+            else:
+              data_predict.append(new_df.loc[i+j, 'Close','roe','roa','earningPerShare', 'payableOnEquity', 'assetOnEquity','debtOnEquity','grossProfitMargin','bookValuePerShare','operatingProfitMargin'])
+        new_data.append(np.array(data_predict).reshape(window_size, future))
 
     new_data = np.array(new_data)
-    new_data = new_data.reshape(new_data.shape[0], window_size, 1)
+    new_data = new_data.reshape(new_data.shape[0], window_size, future)
 
     new_data_norm = new_data.copy()
     for i in range(0, len(new_data_norm)):
