@@ -47,7 +47,7 @@ comp = company.split(' ')
 ticker = comp[0]
 if region == "Nasdaq":
   filepath = f'./data-nasdaq/{ticker}.csv'
-if region == "Vietnma":
+if region == "Vietnam":
   filepath = f'./data-vn/{ticker}.csv'
 
 if end_date <= start_date:
