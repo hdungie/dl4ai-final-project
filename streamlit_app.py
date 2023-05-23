@@ -45,7 +45,10 @@ with col2:
 
 comp = company.split(' ')
 ticker = comp[0]
-filepath = f'./filtered-data-nasdaq/csv/{ticker}.csv'
+if region == "Nasdaq":
+  filepath = f'./data-nasdaq/{ticker}.csv'
+if region == "Vietnma":
+  filepath = f'./data-vn/{ticker}.csv'
 
 if end_date <= start_date:
   interval = (end_date - start_date).days
