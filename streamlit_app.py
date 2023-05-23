@@ -249,6 +249,7 @@ with tab2:
         new_data_norm = tensorflow.convert_to_tensor(np.array(new_data), dtype= tensorflow.float32)
         y_pred_norm = model.predict(new_data_norm)
 
+        st.write(y_pred_norm[0][0])
         scores = y_pred_norm
         action = ['Buy','Sell','Hold']
         fin = pd.DataFrame(columns = ['scores','action'])
