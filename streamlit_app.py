@@ -193,7 +193,7 @@ with tab2:
   df = pd.read_csv('./search_engine_vn.csv')
   df_search = df['company']
   company = st.selectbox("Choose a company", df_search, index=0)
-  col1, col2= st.columns([1,3])
+  col1, col2= st.columns([1,2])
   with col1: 
     st.number_input("Close Price", step = 0.1)
     st.number_input("Earning per Share", step = 0.1)
@@ -204,4 +204,12 @@ with tab2:
     st.number_input("ROA", step = 0.1)
     st.number_input("Gross Profit Margin", step = 0.1)
     st.number_input("Payable on Equity", step = 0.1)
+  with col2: 
+    scores = [0.3, 0.6, 0.1]
+    action = ['Sell','Hold','Buy']
+    fin = pd.DataFrame(columns = [['scores','action']])
+    fin['scores'] = scores
+    fin['action']=action
+    fig = px.pie(fin, values='scores', names='action')
+    fig.show()
   
