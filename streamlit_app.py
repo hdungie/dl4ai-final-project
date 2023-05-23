@@ -120,6 +120,7 @@ with tab1:
             if ticker in {'BID','CTG','TCB','VCB','VPB'}:
               data_predict.append(new_df.loc[i+j, ['Close','roe','roa','earningPerShare', 'payableOnEquity', 'assetOnEquity','bookValuePerShare']])
             else:
+              st.write(data)
               data_predict.append(new_df.loc[i+j, ['Close','roe','roa','earningPerShare', 'payableOnEquity', 'assetOnEquity','debtOnEquity','grossProfitMargin','bookValuePerShare','operatingProfitMargin']])
         new_data.append(np.array(data_predict).reshape(window_size, 1))
 
