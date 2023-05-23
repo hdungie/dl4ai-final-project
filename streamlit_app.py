@@ -211,5 +211,5 @@ with tab2:
     fin['scores'] = scores
     fin['action']=action
     fig = px.pie(fin, values='scores', names='action')
-    fig.show()
+    st.plotly_chart(fig)
   
