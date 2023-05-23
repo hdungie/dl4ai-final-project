@@ -93,19 +93,19 @@ with tab1:
     if gap_end <= 7:
         future = 7
         window_size = 30
-        model = load_model(f'./prediction-models/model-{comp}--7d-ws30.h5')
+        model = load_model(f'./prediction-models/model-{ticker}--7d-ws30.h5')
     elif gap_end > 7 and gap_end <=30:
         future = 30
         window_size = 30
-        model = load_model(f'./prediction-models/model-{comp}--30d-ws30.h5')
+        model = load_model(f'./prediction-models/model-{ticker}--30d-ws30.h5')
     elif gap_end > 30 and gap_end <=180:
         future = 60
         window_size = 180
-        model = load_model(f'./prediction-models/model-{comp}--180d-ws60.h5')
+        model = load_model(f'./prediction-models/model-{ticker}--180d-ws60.h5')
     elif gap_end >180 and gap_end <=365:
         future = 365
         window_size = 180
-        model = load_model(f'./prediction-models/model-{comp}--365d-ws180.h5')
+        model = load_model(f'./prediction-models/model-{ticker}--365d-ws180.h5')
 
     new_data = []
     for i in range(1, len(new_df) - window_size - 1):
