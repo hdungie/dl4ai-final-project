@@ -263,7 +263,7 @@ with tab3:
     quarter = st.radio("Choose a quarter", [1,2,3,4], horizontal = True)
   with col2:
     year = st.number_input("Choose a year", min_value = 2016, max_value = 2023, step = 1)
-  col1, col2 = st.columns([1,4])
+  col1, col2 = st.columns([1,3])
   with col1:
     st.metric("BID", "10,000 VND", "200 VND")
     st.metric("CTG", "10,000 VND", "-200 VND")
