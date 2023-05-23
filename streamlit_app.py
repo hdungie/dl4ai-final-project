@@ -147,7 +147,9 @@ with tab1:
         min_feature = np.min(new_data[i])
         max_feature = np.max(new_data[i])
         new_data_norm[i] = (new_data[i] - min_feature) / (max_feature - min_feature)
-
+     
+    new_data_norm = tf.convert_to_tensor(np.array(new_data_norm), dtype= tf.float32)
+    
     # Get prediction on the test data
     tensorflow.config.run_functions_eagerly(True)
     y_pred_norm = model.predict(new_data_norm)
