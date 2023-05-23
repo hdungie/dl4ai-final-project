@@ -261,5 +261,6 @@ with tab3:
   col1, col2 = st.columns([1,1])
   with col1:
     quarter = st.radio("Choose a quarter", [1,2,3,4])
+  with col2:
     year = st.number_input("Choose a year", min_value = 2016, max_value = 2023, step = 1)
   
