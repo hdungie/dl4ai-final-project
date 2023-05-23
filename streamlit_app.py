@@ -118,13 +118,21 @@ with tab1:
         # Get a window_size time frame for data feature
         for j in range(window_size):
           if region == "Nasdaq":
+            case = 1
             data_predict.append(new_df.loc[i + j, 'Close'])
           if region == "Vietnam":
             if ticker in {'BID','CTG','TCB','VCB','VPB'}:
+              case = 2
               data_predict.append(new_df.loc[i+j, ['Close','roe','roa','earningPerShare', 'payableOnEquity', 'assetOnEquity','bookValuePerShare']])
             else:
+              case = 3
               data_predict.append(new_df.loc[i+j, ['Close','roe','roa','earningPerShare', 'payableOnEquity', 'assetOnEquity','debtOnEquity','grossProfitMargin','bookValuePerShare','operatingProfitMargin']])
-        new_data.append(np.array(data_predict).reshape(window_size, 1))
+        if case == 1:
+          new_data.append(np.array(data_predict).reshape(window_size, 1))
+        if case == 2:
+          new_data.append(np.array(data_predict).reshape(window_size, 7))
+        if case == 2:
+          new_data.append(np.array(data_predict).reshape(window_size, 10))
 
     new_data = np.array(new_data)
     new_data = new_data.reshape(new_data.shape[0], window_size, 1)
