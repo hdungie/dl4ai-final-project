@@ -118,9 +118,9 @@ with tab1:
             data_predict.append(new_df.loc[i + j, 'Close'])
           if region == "Vietnam":
             if ticker in {'BID','CTG','TCB','VCB','VPB'}:
-              data_predict.append(new_df.loc[i+j, 'Close','roe','roa','earningPerShare', 'payableOnEquity', 'assetOnEquity','bookValuePerShare'])
+              data_predict.append(new_df.loc[i+j, ['Close','roe','roa','earningPerShare', 'payableOnEquity', 'assetOnEquity','bookValuePerShare']])
             else:
-              data_predict.append(new_df.loc[i+j, 'Close','roe','roa','earningPerShare', 'payableOnEquity', 'assetOnEquity','debtOnEquity','grossProfitMargin','bookValuePerShare','operatingProfitMargin'])
+              data_predict.append(new_df.loc[i+j, ['Close','roe','roa','earningPerShare', 'payableOnEquity', 'assetOnEquity','debtOnEquity','grossProfitMargin','bookValuePerShare','operatingProfitMargin']])
         new_data.append(np.array(data_predict).reshape(window_size, future))
 
     new_data = np.array(new_data)
