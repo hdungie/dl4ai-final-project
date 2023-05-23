@@ -210,7 +210,7 @@ with tab2:
     poe = st.number_input("Payable on Equity", step = 0.1)
     generate_button = st.button("Generate", disabled = True)
   
-  if (price is not null) and (eps is not null) and (opm is not null) and (roe is not null) and (doe is not null) and (aoe is not null) and (gpm is not null) and (poe is not null):
+  if (price is not None) and (eps is not None) and (opm is not None) and (roe is not None) and (doe is not None) and (aoe is not None) and (gpm is not None) and (poe is not None):
     generate_button = st.button("Generate")
     
   new_data = []
@@ -229,11 +229,12 @@ with tab2:
     st.write(y_pred_norm)
   
   with col3: 
-    scores = [0.3, 0.6, 0.1]
-    action = ['Sell','Hold','Buy']
-    fin = pd.DataFrame(columns = ['scores','action'])
-    fin['scores'] = scores
-    fin['action']=action
-    fig = px.pie(fin, values='scores', names='action')
-    st.plotly_chart(fig)
+    if generate_button:
+      scores = [0.3, 0.6, 0.1]
+      action = ['Sell','Hold','Buy']
+      fin = pd.DataFrame(columns = ['scores','action'])
+      fin['scores'] = scores
+      fin['action']=action
+      fig = px.pie(fin, values='scores', names='action')
+      st.plotly_chart(fig)
   
