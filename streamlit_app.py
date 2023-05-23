@@ -32,8 +32,14 @@ with col2:
   company = st.selectbox("Search companies by name or symbol", df_search, index=0)
 
 col1, col2 = st.columns(2)
-with col1: start_date = st.date_input( "Start date: ", min_value=datetime(2022,12,13), max_value=datetime(2023,12,13))
-with col2: end_date = st.date_input("End date: ")
+with col1: 
+  if region == 'Nasdaq':
+    start_date = st.date_input( "Start date: ", min_value=datetime(2022,12,13), max_value=datetime(2023,12,13))
+  if region == 'Vietnam':
+    start_date = st.date_input( "Start date: ", min_value=datetime(2023,2,28), max_value=datetime(2023,8,28))
+  else:
+    start_date = st.date_input( "Start date: ")
+with col2: end_date = st.date_input("End date: ", min_value=datetime(2022,12,13), max_value=datetime(2023,12,13))
 
 comp = company.split(' ')
 ticker = comp[0]
