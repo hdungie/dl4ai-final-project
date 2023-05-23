@@ -47,7 +47,6 @@ with tab1:
 
   comp = company.split(' ')
   ticker = comp[0]
-  st.write(ticker)
   if region == "Nasdaq":
     filepath = f'./data-nasdaq/{ticker}.csv'
   if region == "Vietnam":
@@ -194,4 +193,5 @@ with tab2:
   df = pd.read_csv('./search_engine_vn.csv')
   df_search = df['company']
   company = st.selectbox("Choose a company", df_search, index=0)
+  col1, col2, col3, col4 = st.columns([1,1,1,3])
   
