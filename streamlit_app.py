@@ -392,7 +392,10 @@ with tab3:
         st.title("Profit")
         
         profit = (now_price - l_price)
-        st.title(profit)
+        if profit >= 0:
+          st.title(f'⬆️ :green[{profit} VND]')
+        else:
+          st.title(f'⬇️ :red[{profit} VND]')
         
       with col3:
         pass
