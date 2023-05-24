@@ -278,11 +278,16 @@ with tab3:
   with col2 :
       predict_button = st.button('Generate', key = 0)
   
-  col1, col2 = st.columns([5,5])
+  col1, col2, col3, col4 = st.columns([1,1,1,1])
   with col1:
-    st.header(f":green[Potential: 0.7]")
+    pass
   with col2:
+    st.header(f":green[Potential]")
+  with col3:
     st.header(f":red[Risk: 0.3]")
+  with col4:
+    pass
+  
   col1, col2 = st.columns([1,3])
   with col1:
     st.metric("BID", "10,000 VND", "200 VND")
