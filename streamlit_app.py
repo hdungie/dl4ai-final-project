@@ -358,8 +358,11 @@ with tab3:
         pass
       with col2:
         if fin['scores'][0] > fin['scores'][1]:
-          st.title("Result: ✔️ :green[Potential]")
-        else: st.title("Results: ❌ :red[Risk]")
+          st.subheader(f'In quarter {quarter} of {year}, the company {comp} is:')
+          st.title("✔️ :green[Potential]")
+        else: 
+          st.subheader(f'In quarter {quarter} of {year}, the company {comp} is:')
+          st.title("❌ :red[Risk]")
       with col3:
         pass
 
@@ -421,7 +424,7 @@ with tab3:
       else:
         st.header(f'⬇️ :red[{profit} VND]')
 
-    st.subheader("In comparison with the last quarter: ")  
+    st.subheader(f"In comparison with quarter {last_quarter} of {last_year}, the metrics of the quarter {quarter} of {year} is: ")  
     col1, col2, col3, col4 = st.columns([1,1,1,1])
     with col1:
       st.metric("Price To Earning", pte, pte_delta)
