@@ -281,7 +281,8 @@ with tab3:
       predict_button = st.button('Generate', key = 0)
   
   st.subheader(f':blue[{company}]')
-  st.divider
+  
+  st.divider()
   
   scores = [0.3,0.7]
   action = ['Potential','Risk']
