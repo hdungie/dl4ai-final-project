@@ -278,45 +278,59 @@ with tab3:
   with col3:
     pass
   with col2 :
-      predict_button = st.button('Generate', key = 0)
+      generate_button = st.button('Generate', key = 0)
   
   st.subheader(f':blue[{company}]')
   
   st.divider()
   
-  scores = [0.3,0.7]
-  action = ['Potential','Risk']
-  fin = pd.DataFrame(columns = ['scores','action'])
-  fin['scores'] = scores
-  fin['action']=action
-  
-  col1, col2, col3 = st.columns([1,1,1])
-  with col1:
-    pass
-  with col2:
-    if fin['scores'][0] > fin['scores'][1]:
-      st.subheader("✔️ :green[Potential]")
-    else: st.subheader("❌ :red[Risk]")
-  with col3:
-    pass
+  if generate_button:
+    new_data = []
+    new_df = pd.read_csv('./data-portfolio-management.csv')
+    for i in range(len(new_df)):
+      if quarter == new_df['quarter'][i] and year == new_df['year'][i] and ticker == new_df['ticker'][i]:
+        new_data.append(new_df['pte'][i])
+        new_data.append(new_df['ptb'][i])
+        new_data.append(new_df['roe'][i])
+        new_data.append(new_df['roa'][i])
+        new_data.append(new_df['epsChange'][i])
+        new_data.append(new_df['bookValuePerShareChange'][i])
+        new_data.append(new_df['payableOnEquity'][i])
+        new_data.append(new_df['equityOnAsset'][i])
     
-  color_mapping = {'Potential': 'green', 'Risk': 'red'}
-  fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping)
-  st.plotly_chart(fig)
-  
-  st.divider()
-  
-  col1, col2, col3, col4 = st.columns([1,1,1,1])
-  with col1:
-    st.metric("Price To Earning", "1.2", "0.5")
-    st.metric("EPS Change", "1.2", "0.5")
-  with col2:
-    st.metric("Price To Book",  "1.2", "0.5")
-    st.metric("Book Value Per Share Change",  "1.2", "0.5")
-  with col3:
-    st.metric("ROE", "1.2", "0.5")
-    st.metric("Payable On Equity", "1.2", "0.5")
-  with col4:
-    st.metric("ROA", "1.2", "0.5")
-    st.metric("Equity On Asset", "1.2", "0.5")
+    scores = [0.3,0.7]
+    action = ['Potential','Risk']
+    fin = pd.DataFrame(columns = ['scores','action'])
+    fin['scores'] = scores
+    fin['action']=action
+
+    col1, col2, col3 = st.columns([1,1,1])
+    with col1:
+      pass
+    with col2:
+      if fin['scores'][0] > fin['scores'][1]:
+        st.subheader("✔️ :green[Potential]")
+      else: st.subheader("❌ :red[Risk]")
+    with col3:
+      pass
+
+    color_mapping = {'Potential': 'green', 'Risk': 'red'}
+    fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping)
+    st.plotly_chart(fig)
+
+    st.divider()
+
+    col1, col2, col3, col4 = st.columns([1,1,1,1])
+    with col1:
+      st.metric("Price To Earning", "1.2", "0.5")
+      st.metric("EPS Change", "1.2", "0.5")
+    with col2:
+      st.metric("Price To Book",  "1.2", "0.5")
+      st.metric("Book Value Per Share Change",  "1.2", "0.5")
+    with col3:
+      st.metric("ROE", "1.2", "0.5")
+      st.metric("Payable On Equity", "1.2", "0.5")
+    with col4:
+      st.metric("ROA", "1.2", "0.5")
+      st.metric("Equity On Asset", "1.2", "0.5")
   
