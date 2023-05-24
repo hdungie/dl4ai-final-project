@@ -331,8 +331,8 @@ with tab3:
         pass
       with col2:
         if fin['scores'][0] > fin['scores'][1]:
-          st.subheader("Result: ✔️ :green[Potential]")
-        else: st.subheader("Results: ❌ :red[Risk]")
+          st.title("Result: ✔️ :green[Potential]")
+        else: st.title("Results: ❌ :red[Risk]")
       with col3:
         pass
 
