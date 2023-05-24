@@ -327,9 +327,7 @@ with tab3:
         model = load_model("portfolio-management.h5")
         y_pred = model.predict(new_data)
 
-        st.write(y_pred)
         scores = y_pred[0][0]
-        st.write(scores)
         action = ['Potential','Risk']
         fin = pd.DataFrame(columns = ['scores','action'])
         fin['scores'] = scores
