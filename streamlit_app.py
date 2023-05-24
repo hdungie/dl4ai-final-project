@@ -281,6 +281,7 @@ with tab3:
       predict_button = st.button('Generate', key = 0)
   
   st.subheader(f':blue[{company}]')
+  st.divider
   
   scores = [0.3,0.7]
   action = ['Potential','Risk']
@@ -293,8 +294,8 @@ with tab3:
     pass
   with col2:
     if fin['scores'][0] > fin['scores'][1]:
-      st.header("✔️ :green[Potential]")
-    else: st.header("❌ :red[Risk]")
+      st.subheader("✔️ :green[Potential]")
+    else: st.subheader("❌ :red[Risk]")
   with col3:
     pass
     
