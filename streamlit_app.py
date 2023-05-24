@@ -285,7 +285,8 @@ with tab3:
   fin = pd.DataFrame(columns = ['scores','action'])
   fin['scores'] = scores
   fin['action']=action
-  fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action")
+  color_mapping = {'potential': 'green', 'risk': 'red'}
+  fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping)
   st.plotly_chart(fig)
   
   st.divider()
