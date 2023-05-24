@@ -289,7 +289,7 @@ with tab3:
   fin['action']=action
   
   if fin['scores'][0] > fin['scores'][1]:
-    st.subheader("✅ :green[Potential]")
+    st.subheader("✔️ :green[Potential]")
   else: st.subheader("❌ :red[Risk]")
   color_mapping = {'Potential': 'green', 'Risk': 'red'}
   fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping)
