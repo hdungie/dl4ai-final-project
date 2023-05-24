@@ -288,7 +288,7 @@ with tab3:
   fin['scores'] = scores
   fin['action']=action
   
-  if fin['Potential'][0] > fin['Risk'][0]:
+  if fin['score'][0] > fin['score'][1]:
     st.subheader("✅ :green[Potential]")
   else: st.subheader("❌ :red[Risk]")
   color_mapping = {'Potential': 'green', 'Risk': 'red'}
