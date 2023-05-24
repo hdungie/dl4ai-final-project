@@ -287,13 +287,28 @@ with tab3:
     new_df = pd.read_csv('./data-portfolio-management.csv')
     for i in range(len(new_df)):
       if quarter == new_df['quarter'][i] and year == new_df['year'][i] and ticker == new_df['ticker'][i]:
+        pte = new_df['pte'][i]
         new_data.append(new_df['pte'][i])
+        
+        ptb = new_df['ptb'][i]
         new_data.append(new_df['ptb'][i])
+        
+        roe = new_df['roe'][i]
         new_data.append(new_df['roe'][i])
+        
+        roa = new_df['roa'][i]
         new_data.append(new_df['roa'][i])
+        
+        epsC = new_df['epsChange'][i]
         new_data.append(new_df['epsChange'][i])
+        
+        bvpsC = new_df['bookValuePerShareChange'][i]
         new_data.append(new_df['bookValuePerShareChange'][i])
+        
+        poe = new_df['payableOnEquity'][i]
         new_data.append(new_df['payableOnEquity'][i])
+        
+        eoa = new_df['equityOnAsset'][i]
         new_data.append(new_df['equityOnAsset'][i])
     
     scores = [0.3,0.7]
@@ -320,15 +335,15 @@ with tab3:
 
     col1, col2, col3, col4 = st.columns([1,1,1,1])
     with col1:
-      st.metric("Price To Earning", "1.2", "0.5")
-      st.metric("EPS Change", "1.2", "0.5")
+      st.metric("Price To Earning", pte, "0.5")
+      st.metric("EPS Change", epsC, "0.5")
     with col2:
-      st.metric("Price To Book",  "1.2", "0.5")
-      st.metric("Book Value Per Share Change",  "1.2", "0.5")
+      st.metric("Price To Book",  ptb, "0.5")
+      st.metric("Book Value Per Share Change",  bvpsC, "0.5")
     with col3:
-      st.metric("ROE", "1.2", "0.5")
-      st.metric("Payable On Equity", "1.2", "0.5")
+      st.metric("ROE", roe, "0.5")
+      st.metric("Payable On Equity", poe, "0.5")
     with col4:
-      st.metric("ROA", "1.2", "0.5")
-      st.metric("Equity On Asset", "1.2", "0.5")
+      st.metric("ROA", roa, "0.5")
+      st.metric("Equity On Asset", eoa, "0.5")
   
