@@ -340,11 +340,17 @@ with tab3:
       fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping)
       fig.update_layout(showlegend=False)
       st.plotly_chart(fig)
-
-      st.subheader("In comparison with the last quarter: ")
       
     with column2:
-      st.title("Profit")
+      col1, col2, col3 = st.columns([1,1,1])
+      with col1:
+        pass
+      with col2:
+        st.title("Profit")
+      with col3:
+        pass
+      
+    st.subheader("In comparison with the last quarter: ")  
     col1, col2, col3, col4 = st.columns([1,1,1,1])
     with col1:
       st.metric("Price To Earning", pte, pte_delta)
