@@ -278,6 +278,8 @@ with tab3:
   with col2 :
       predict_button = st.button('Generate', key = 0)
   
+  st.subheader(f':blue[{company}]')
+  
   col1, col2, col3, col4, col5, col6 = st.columns([1,1,1,1,1,1])
   with col3:
     st.metric(":green[**Potential**]", 0.7)
