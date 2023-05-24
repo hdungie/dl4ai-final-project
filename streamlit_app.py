@@ -322,6 +322,7 @@ with tab3:
     fin['scores'] = scores
     fin['action']=action
 
+    st.info("Scroll down to see the metrics")
     col1, col2, col3 = st.columns([1,1,1])
     with col1:
       pass
@@ -332,7 +333,6 @@ with tab3:
     with col3:
       pass
 
-    st.info("Scroll down to see the metrics")
     color_mapping = {'Potential': 'green', 'Risk': 'red'}
     fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping)
     st.plotly_chart(fig)
