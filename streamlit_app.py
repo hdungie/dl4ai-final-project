@@ -287,7 +287,7 @@ with tab3:
     fin = pd.DataFrame(columns = ['scores','action'])
     fin['scores'] = scores
     fin['action']=action
-    fig = px.bar(df, x="scores", y="action", orientation='h')
+    fig = px.bar(fin, x="scores", y="action", orientation='h')
     st.plotly_chart(fig)
   with col1:
     pass
