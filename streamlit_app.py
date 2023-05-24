@@ -258,7 +258,7 @@ with tab2:
         st.plotly_chart(fig)
 
 with tab3:
-  col1, col2, col3 = st.columns([2,1,3])
+  col1, col2, col3 = st.columns([3,2,6])
   with col1:
     quarter = st.radio("Choose a quarter", [1,2,3,4], horizontal = True)
   with col2:
