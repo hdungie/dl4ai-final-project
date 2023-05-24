@@ -267,9 +267,12 @@ with tab3:
   ticker = comp[0]
   col1, col2, col3, col4 = st.columns([1,1,1,1])
   with col1:
-    last_quarter = st.number_input("Choose the start quarter", min_value = 1, max_value =4, step =1)
+      last_quarter = st.number_input("Choose the start quarter", min_value = 1, max_value =4, step =1)
   with col2:
-    last_year = st.number_input("Choose the start year", min_value = 2015, max_value = 2022, step = 1)
+    if ticker in {'TCB','VPB','VHM'}
+      last_year = st.number_input("Choose the start year", min_value = 2018, max_value = 2022, step = 1)
+    else:
+      last_year = st.number_input("Choose the start year", min_value = 2015, max_value = 2022, step = 1)
   with col3:
     quarter = st.number_input("Choose the end quarter", min_value = 1, max_value =4, step =1)
   with col4:
