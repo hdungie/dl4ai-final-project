@@ -323,21 +323,27 @@ with tab3:
     fin['action']=action
 
     st.info("Scroll down to see the metrics")
-    col1, col2, col3 = st.columns([1,1,1])
-    with col1:
-      pass
-    with col2:
-      if fin['scores'][0] > fin['scores'][1]:
-        st.subheader("Result: ✔️ :green[Potential]")
-      else: st.subheader("Results: ❌ :red[Risk]")
-    with col3:
-      pass
-
-    color_mapping = {'Potential': 'green', 'Risk': 'red'}
-    fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping)
-    st.plotly_chart(fig)
+    column1, column2 =st.columns(3,2)
     
-    st.subheader("In comparison with the last quarter: ")
+    with column1:
+      col1, col2, col3 = st.columns([1,1,1])
+      with col1:
+        pass
+      with col2:
+        if fin['scores'][0] > fin['scores'][1]:
+          st.subheader("Result: ✔️ :green[Potential]")
+        else: st.subheader("Results: ❌ :red[Risk]")
+      with col3:
+        pass
+
+      color_mapping = {'Potential': 'green', 'Risk': 'red'}
+      fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping)
+      st.plotly_chart(fig)
+
+      st.subheader("In comparison with the last quarter: ")
+      
+    with column2:
+      st.title("Profit")
     col1, col2, col3, col4 = st.columns([1,1,1,1])
     with col1:
       st.metric("Price To Earning", pte, pte_delta)
