@@ -280,7 +280,7 @@ with tab3:
     with col5:
       pass
     with col3 :
-        predict_button = st.button('Predict', disabled = True)
+        predict_button = st.button('Generate', disabled = True, key = 0)
     
   col1, col2 = st.columns([1,3])
   with col1:
