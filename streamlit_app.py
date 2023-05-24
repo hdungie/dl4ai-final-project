@@ -255,7 +255,7 @@ with tab2:
         fin['scores'] = scores
         fin['action']=action
         color_mapping = {'Buy': 'green', 'Sell': 'red', 'Hold':'yellow'}
-        fig = px.pie(fin, values='scores', names='action', color_discrete_sequence = color_mapping)
+        fig = px.pie(fin, values='scores', names='action', color_discrete_sequence = list(color_mapping.values()))
         st.plotly_chart(fig)
 
 with tab3:
