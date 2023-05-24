@@ -280,19 +280,13 @@ with tab3:
   
   st.subheader(f':blue[{company}]')
   
-  col1, col2, col3= st.columns([1,1,1])
-  with col2:
-    scores = [0.7,0.3]
-    action = ['potential','risk']
-    fin = pd.DataFrame(columns = ['scores','action'])
-    fin['scores'] = scores
-    fin['action']=action
-    fig = px.bar(fin, x="scores", y="action", orientation='h')
-    st.plotly_chart(fig)
-  with col1:
-    pass
-  with col3:
-    pass
+  scores = [0.7,0.3]
+  action = ['potential','risk']
+  fin = pd.DataFrame(columns = ['scores','action'])
+  fin['scores'] = scores
+  fin['action']=action
+  fig = px.bar(fin, x="scores", y="action", orientation='h')
+  st.plotly_chart(fig)
   
   st.divider()
   
