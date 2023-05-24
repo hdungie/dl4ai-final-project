@@ -347,63 +347,58 @@ with tab3:
       st.plotly_chart(fig)
       
     with column2:
+      
+      history = pd.read_csv(f'./data-vn/history/{ticker}.csv')
+      current = str('quarter') + "/" + str('year')
+
+      if quarter == 1:
+        date = f'1/{year}'
+      elif quarter == 2:
+        date = f'4/{year}'
+      elif quarter == 3:
+        date = f'7/{year}'
+      else:
+        date = f'10/{year}'
+      date = datetime.strptime(date, '%m/%Y')
+
+      if last_quarter == 1:
+        last_date = f'1/{year}'
+      elif last_quarter == 2:
+        last_date = f'4/{year}'
+      elif last_quarter == 3:
+        last_date = f'7/{year}'
+      else:
+        last_date = f'10/{year}'
+      last_date = datetime.strptime(last_date, '%m/%Y')
+
+      current_price = []
+      for i in range(len(history)):
+        his_date = datetime.strptime(history['Date'][i], '%Y-%m-%d')
+        if date.month == his_date.month and date.year == his_date.year:
+          current_price.append(history['Close'][i])
+
+      last_price = []
+      for i in range(len(history)):
+        his_date = datetime.strptime(history['Date'][i], '%Y-%m-%d')
+        if last_date.month == his_date.month and last_date.year == his_date.year:
+          last_price.append(history['Close'][i])
+
+      now_price = np.max(current_price)
+      l_price = np.max(last_price)
+      
       col1, col2, col3 = st.columns([1,1,1])
       with col1:
         pass
       with col2:
-        history = pd.read_csv(f'./data-vn/history/{ticker}.csv')
-        current = str('quarter') + "/" + str('year')
-        
-        if quarter == 1:
-          date = f'1/{year}'
-        elif quarter == 2:
-          date = f'4/{year}'
-        elif quarter == 3:
-          date = f'7/{year}'
-        else:
-          date = f'10/{year}'
-        date = datetime.strptime(date, '%m/%Y')
-          
-        if last_quarter == 1:
-          last_date = f'1/{year}'
-        elif last_quarter == 2:
-          last_date = f'4/{year}'
-        elif last_quarter == 3:
-          last_date = f'7/{year}'
-        else:
-          last_date = f'10/{year}'
-        last_date = datetime.strptime(last_date, '%m/%Y')
-        
-        current_price = []
-        for i in range(len(history)):
-          his_date = datetime.strptime(history['Date'][i], '%Y-%m-%d')
-          if date.month == his_date.month and date.year == his_date.year:
-            current_price.append(history['Close'][i])
-        
-        last_price = []
-        for i in range(len(history)):
-          his_date = datetime.strptime(history['Date'][i], '%Y-%m-%d')
-          if last_date.month == his_date.month and last_date.year == his_date.year:
-            last_price.append(history['Close'][i])
-        
-        now_price = np.max(current_price)
-        l_price = np.max(last_price)
-        
         st.title("Profit")
-        
-        profit = (now_price - l_price)
-        if profit >= 0:
-          st.title(f'⬆️ :green[{profit} VND]')
-        else:
-          st.title(f'⬇️ :red[{profit} VND]')
-        
       with col3:
         pass
+      
       profit = (now_price - l_price)
       if profit >= 0:
-        st.title(f'⬆️ :green[{profit} VND]')
+        st.title(f'⬆️ :green[{profit}] VND')
       else:
-        st.title(f'⬇️ :red[{profit} VND]')
+        st.title(f'⬇️ :red[{profit}] VND')
       
     st.subheader("In comparison with the last quarter: ")  
     col1, col2, col3, col4 = st.columns([1,1,1,1])
