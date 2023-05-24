@@ -282,8 +282,10 @@ with tab3:
   col1, col2 = st.columns([5,5])
   with col1:
     st.header(":green[Potential]")
+    st.header(0.7)
   with col2:
     st.header(":red[Risk]")
+    st.header(0.3)
   col1, col2 = st.columns([1,3])
   with col1:
     st.metric("BID", "10,000 VND", "200 VND")
