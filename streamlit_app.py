@@ -280,35 +280,33 @@ with tab3:
   with col2 :
       generate_button = st.button('Generate', key = 0)
   
-  st.divider()
-  
   if generate_button:
     new_data = []
     new_df = pd.read_csv('./data-portfolio-management.csv')
     for i in range(len(new_df)):
       if quarter == new_df['quarter'][i] and year == new_df['year'][i] and ticker == new_df['ticker'][i]:
-        pte = new_df['pte'][i]
+        pte = round(new_df['pte'][i],3)
         new_data.append(new_df['pte'][i])
         
-        ptb = new_df['ptb'][i]
+        ptb = round(new_df['ptb'][i],3)
         new_data.append(new_df['ptb'][i])
         
-        roe = new_df['roe'][i]
+        roe = round(new_df['roe'][i],3)
         new_data.append(new_df['roe'][i])
         
-        roa = new_df['roa'][i]
+        roa = round(new_df['roa'][i],3)
         new_data.append(new_df['roa'][i])
         
-        epsC = new_df['epsChange'][i]
+        epsC = round(new_df['epsChange'][i],3)
         new_data.append(new_df['epsChange'][i])
         
-        bvpsC = new_df['bookValuePerShareChange'][i]
+        bvpsC = round(new_df['bookValuePerShareChange'][i],3)
         new_data.append(new_df['bookValuePerShareChange'][i])
         
-        poe = new_df['payableOnEquity'][i]
+        poe = round(new_df['payableOnEquity'][i],3)
         new_data.append(new_df['payableOnEquity'][i])
         
-        eoa = new_df['equityOnAsset'][i]
+        eoa = round(new_df['equityOnAsset'][i],3)
         new_data.append(new_df['equityOnAsset'][i])
     
     scores = [0.3,0.7]
