@@ -264,7 +264,7 @@ with tab3:
   with col1:
     quarter = st.number_input("Choose a quarter", min_value = 1, max_value =4, step =1)
   with col2:
-    year = st.number_input("Choose a year", min_value = 2016, max_value = 2023, step = 1)
+    year = st.number_input("Choose a year", min_value = 2017, max_value = 2023, step = 1)
   with col3:
     df = pd.read_csv('./search_engine_vn.csv')
     df_search = df['company']
@@ -286,27 +286,35 @@ with tab3:
     for i in range(len(new_df)):
       if quarter == new_df['quarter'][i] and year == new_df['year'][i] and ticker == new_df['ticker'][i]:
         pte = round(new_df['pte'][i],3)
+        pte_delta = round(pte - new_df['pte'][i-1],3)
         new_data.append(new_df['pte'][i])
         
         ptb = round(new_df['ptb'][i],3)
+        ptb_delta = round(ptb - new_df['ptb'][i-1],3)
         new_data.append(new_df['ptb'][i])
         
         roe = round(new_df['roe'][i],3)
+        roe_delta = round(roe - new_df['roe'][i-1],3)
         new_data.append(new_df['roe'][i])
         
         roa = round(new_df['roa'][i],3)
+        roa_delta = round(roa - new_df['roa'][i-1],3)
         new_data.append(new_df['roa'][i])
         
         epsC = round(new_df['epsChange'][i],3)
+        epsC_delta = round(epsC - new_df['epsChange'][i-1],3)
         new_data.append(new_df['epsChange'][i])
         
         bvpsC = round(new_df['bookValuePerShareChange'][i],3)
+        bvpsC_delta = round(bvpsC - new_df['bookValuePerShareChange'][i-1],3)
         new_data.append(new_df['bookValuePerShareChange'][i])
         
         poe = round(new_df['payableOnEquity'][i],3)
+        poe_delta = round(poe - new_df['payableOnEquity'][i-1],3)
         new_data.append(new_df['payableOnEquity'][i])
         
         eoa = round(new_df['equityOnAsset'][i],3)
+        eoa_delta = round(eoa - new_df['equityOnAsset'][i-1],3)
         new_data.append(new_df['equityOnAsset'][i])
     
     scores = [0.3,0.7]
@@ -320,11 +328,12 @@ with tab3:
       pass
     with col2:
       if fin['scores'][0] > fin['scores'][1]:
-        st.subheader("✔️ :green[Potential]")
-      else: st.subheader("❌ :red[Risk]")
+        st.subheader("Result: ✔️ :green[Potential]")
+      else: st.subheader("Results: ❌ :red[Risk]")
     with col3:
       pass
 
+    st.info("Scroll down to see the metrics")
     color_mapping = {'Potential': 'green', 'Risk': 'red'}
     fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping)
     st.plotly_chart(fig)
@@ -333,15 +342,15 @@ with tab3:
 
     col1, col2, col3, col4 = st.columns([1,1,1,1])
     with col1:
-      st.metric("Price To Earning", pte, "0.5")
-      st.metric("EPS Change", epsC, "0.5")
+      st.metric("Price To Earning", pte, pte_delta)
+      st.metric("EPS Change", epsC, epsC_delta)
     with col2:
-      st.metric("Price To Book",  ptb, "0.5")
-      st.metric("Book Value Per Share Change",  bvpsC, "0.5")
+      st.metric("Price To Book",  ptb, ptb_delta)
+      st.metric("Book Value Per Share Change",  bvpsC, bvpsC_delta)
     with col3:
-      st.metric("ROE", roe, "0.5")
-      st.metric("Payable On Equity", poe, "0.5")
+      st.metric("ROE", roe, roe_delta)
+      st.metric("Payable On Equity", poe, poe_delta)
     with col4:
       st.metric("ROA", roa, "0.5")
-      st.metric("Equity On Asset", eoa, "0.5")
+      st.metric("Equity On Asset", eoa, eoa_delta)
   
