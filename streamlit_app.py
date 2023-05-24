@@ -260,17 +260,20 @@ with tab2:
         st.plotly_chart(fig)
 
 with tab3:
+  df = pd.read_csv('./search_engine_vn.csv')
+  df_search = df['company']
+  company = st.selectbox("Select a company", df_search, index=0)
+  comp = company.split(' ')
+  ticker = comp[0]
   col1, col2, col3 = st.columns([2,2,6])
   with col1:
-    quarter = st.number_input("Choose a quarter", min_value = 1, max_value =4, step =1)
+    last_quarter = st.number_input("Choose the start quarter", min_value = 1, max_value =4, step =1)
   with col2:
-    year = st.number_input("Choose a year", min_value = 2016, max_value = 2023, step = 1)
+    last_year = st.number_input("Choose the start year", min_value = 2015, max_value = 2022, step = 1)
   with col3:
-    df = pd.read_csv('./search_engine_vn.csv')
-    df_search = df['company']
-    company = st.selectbox("Select a company", df_search, index=0)
-    comp = company.split(' ')
-    ticker = comp[0]
+    quarter = st.number_input("Choose the end quarter", min_value = 1, max_value =4, step =1)
+  with col4:
+    year = st.number_input("Choose the end year", min_value = 2016, max_value = 2022, step = 1)
     
   col1, col2, col3 = st.columns([1,1,1])
   with col1:
@@ -287,8 +290,6 @@ with tab3:
       if quarter == new_df['quarter'][i] and year == new_df['year'][i] and ticker == new_df['ticker'][i]:
         current_quarter = quarter
         current_year = year
-        last_quarter = new_df['quarter'][i-1]
-        last_year = new_df['year'][i-1]
         
         pte = round(new_df['pte'][i],3)
         pte_delta = round(pte - new_df['pte'][i-1],3)
@@ -362,13 +363,13 @@ with tab3:
       date = datetime.strptime(date, '%m/%Y')
 
       if last_quarter == 1:
-        last_date = f'1/{year}'
+        last_date = f'1/{last_year}'
       elif last_quarter == 2:
-        last_date = f'4/{year}'
+        last_date = f'4/{last_year}'
       elif last_quarter == 3:
-        last_date = f'7/{year}'
+        last_date = f'7/{last_year}'
       else:
-        last_date = f'10/{year}'
+        last_date = f'10/{last_year}'
       last_date = datetime.strptime(last_date, '%m/%Y')
 
       current_price = []
