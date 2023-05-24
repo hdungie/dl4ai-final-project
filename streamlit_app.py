@@ -354,10 +354,10 @@ with tab3:
     column1, column2 =st.columns([3,2])
     with column1:
       if fin['scores'][0] > fin['scores'][1]:
-        st.subheader(f'In quarter {quarter} of {year}, the company {comp} is:')
+        st.subheader(f'In quarter {quarter} of {year}, the company {ticker} is:')
         st.title("✔️ :green[Potential]")
       else: 
-        st.subheader(f'In quarter {quarter} of {year}, the company {comp} is:')
+        st.subheader(f'In quarter {quarter} of {year}, the company {ticker} is:')
         st.title("❌ :red[Risk]")
 
       color_mapping = {'Potential': 'green', 'Risk': 'red'}
