@@ -265,7 +265,7 @@ with tab3:
   company = st.selectbox("Select a company", df_search, index=0)
   comp = company.split(' ')
   ticker = comp[0]
-  col1, col2, col3 = st.columns([2,2,6])
+  col1, col2, col3, col4 = st.columns([1,1,1,1])
   with col1:
     last_quarter = st.number_input("Choose the start quarter", min_value = 1, max_value =4, step =1)
   with col2:
