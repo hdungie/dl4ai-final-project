@@ -333,22 +333,22 @@ with tab3:
 
         st.info("Scroll down to see the metrics")
 
-        column1, column2 =st.columns([3,2])
-        with column1:
-          col1, col2, col3 = st.columns([1,1,1])
-          with col1:
-            pass
-          with col2:
-            if fin['scores'][0] > fin['scores'][1]:
-              st.title("Result: ✔️ :green[Potential]")
-            else: st.title("Results: ❌ :red[Risk]")
-          with col3:
-            pass
+  column1, column2 =st.columns([3,2])
+  with column1:
+    col1, col2, col3 = st.columns([1,1,1])
+    with col1:
+      pass
+    with col2:
+      if fin['scores'][0] > fin['scores'][1]:
+        st.title("Result: ✔️ :green[Potential]")
+      else: st.title("Results: ❌ :red[Risk]")
+    with col3:
+      pass
 
-          color_mapping = {'Potential': 'green', 'Risk': 'red'}
-          fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping, width = 400, height = 200)
-          fig.update_layout(showlegend=False)
-          st.plotly_chart(fig)
+    color_mapping = {'Potential': 'green', 'Risk': 'red'}
+    fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping, width = 400, height = 200)
+    fig.update_layout(showlegend=False)
+    st.plotly_chart(fig)
       
     with column2:
       
