@@ -323,6 +323,7 @@ with tab3:
         y_pred = model.predict(new_data)
     
     scores = y_pred[0][0]
+    st.write(scores)
     action = ['Potential','Risk']
     fin = pd.DataFrame(columns = ['scores','action'])
     fin['scores'] = scores
