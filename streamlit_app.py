@@ -310,11 +310,11 @@ with tab3:
         eoa_delta = round(eoa - new_df['equityOnAsset'][i-1],3)
         
         new_data.append([pte,ptb,roe,roa,epsC, bvpsC,poe,eoa])
-        new_data = np.array(data)
-        data = data.reshape(data.shape[0], 1,8)
-        data = tensorflow.convert_to_tensor(np.array(data), dtype=tensorflow.float32)
+        new_data = np.array(new_data)
+        new_data = new_data.reshape(data.shape[0], 1,8)
+        new_data = tensorflow.convert_to_tensor(np.array(new_data), dtype=tensorflow.float32)
         model = load_model("portfolio-management.h5")
-        y_pred = model.predict(data)
+        y_pred = model.predict(new_data)
     
     scores = [0.3,0.7]
     action = ['Potential','Risk']
