@@ -286,6 +286,7 @@ with tab3:
   if generate_button:
     new_data = []
     new_df = pd.read_csv('./data-portfolio-management.csv')
+    
     for i in range(len(new_df)):
       if quarter == new_df['quarter'][i] and year == new_df['year'][i] and ticker == new_df['ticker'][i]:
         current_quarter = quarter
@@ -315,23 +316,23 @@ with tab3:
         eoa = round(new_df['equityOnAsset'][i],3)
         eoa_delta = round(eoa - new_df['equityOnAsset'][i-1],3)
         
-    new_data.append([pte,ptb,roe,roa,epsC, bvpsC,poe,eoa])
-    new_data = np.array(new_data)
-    new_data = new_data.reshape(new_data.shape[0], 1,8)
-    new_data = tensorflow.convert_to_tensor(np.array(new_data), dtype=tensorflow.float32)
+        new_data.append([pte,ptb,roe,roa,epsC, bvpsC,poe,eoa])
+        new_data = np.array(new_data)
+        new_data = new_data.reshape(new_data.shape[0], 1,8)
+        new_data = tensorflow.convert_to_tensor(np.array(new_data), dtype=tensorflow.float32)
 
-    model = load_model("portfolio-management.h5")
-    y_pred = model.predict(new_data)
+        model = load_model("portfolio-management.h5")
+        y_pred = model.predict(new_data)
 
-    st.write(y_pred)
-    scores = y_pred[0][0]
-    st.write(scores)
-    action = ['Potential','Risk']
-    fin = pd.DataFrame(columns = ['scores','action'])
-    fin['scores'] = scores
-    fin['action']=action
+        st.write(y_pred)
+        scores = y_pred[0][0]
+        st.write(scores)
+        action = ['Potential','Risk']
+        fin = pd.DataFrame(columns = ['scores','action'])
+        fin['scores'] = scores
+        fin['action']=action
 
-    st.info("Scroll down to see the metrics")
+  st.info("Scroll down to see the metrics")
 
   column1, column2 =st.columns([3,2])
   with column1:
