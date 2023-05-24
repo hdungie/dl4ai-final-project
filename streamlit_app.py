@@ -280,8 +280,6 @@ with tab3:
   with col2 :
       generate_button = st.button('Generate', key = 0)
   
-  st.subheader(f':blue[{company}]')
-  
   st.divider()
   
   if generate_button:
