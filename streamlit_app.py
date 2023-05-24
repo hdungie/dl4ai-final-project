@@ -316,6 +316,10 @@ with tab3:
         eoa = round(new_df['equityOnAsset'][i],3)
         eoa_delta = round(eoa - new_df['equityOnAsset'][i-1],3)
         new_data.append(new_df['equityOnAsset'][i])
+        
+        model = load_model("portfolio-management.h5")
+        y_pred = model.predict(new_data)
+        st.write(y_pred)
     
     scores = [0.3,0.7]
     action = ['Potential','Risk']
