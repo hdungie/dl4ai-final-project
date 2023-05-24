@@ -247,8 +247,8 @@ with tab2:
           new_data = np.array(new_data)
           new_data = new_data.reshape(new_data.shape[0],1,9)
 
-        new_data_norm = tensorflow.convert_to_tensor(np.array(new_data), dtype= tensorflow.float32)
-        y_pred_norm = model.predict(new_data_norm)
+          new_data_norm = tensorflow.convert_to_tensor(np.array(new_data), dtype= tensorflow.float32)
+          y_pred_norm = model.predict(new_data_norm)
 
         scores = y_pred_norm[0][0]
         action = ['Buy','Sell','Hold']
