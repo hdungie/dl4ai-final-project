@@ -260,7 +260,7 @@ with tab2:
 with tab3:
   col1, col2, col3 = st.columns([2,2,6])
   with col1:
-    quarter = st.slider("Choose a quarter", min_value = 1, max_value =4, step =1)
+    quarter = st.number_input("Choose a quarter", min_value = 1, max_value =4, step =1)
   with col2:
     year = st.number_input("Choose a year", min_value = 2016, max_value = 2023, step = 1)
   with col3:
