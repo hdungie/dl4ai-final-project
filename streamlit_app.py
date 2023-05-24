@@ -250,14 +250,14 @@ with tab2:
           new_data_norm = tensorflow.convert_to_tensor(np.array(new_data), dtype= tensorflow.float32)
           y_pred_norm = model.predict(new_data_norm)
 
-        scores = y_pred_norm[0][0]
-        action = ['Buy','Sell','Hold']
-        fin = pd.DataFrame(columns = ['scores','action'])
-        fin['scores'] = scores
-        fin['action']=action
-        color_mapping = {'Buy': 'green', 'Sell': 'red', 'Hold':'yellow'}
-        fig = px.pie(fin, values='scores', names='action', color_discrete_sequence = list(color_mapping.values()))
-        st.plotly_chart(fig)
+          scores = y_pred_norm[0][0]
+          action = ['Buy','Sell','Hold']
+          fin = pd.DataFrame(columns = ['scores','action'])
+          fin['scores'] = scores
+          fin['action']=action
+          color_mapping = {'Buy': 'green', 'Sell': 'red', 'Hold':'yellow'}
+          fig = px.pie(fin, values='scores', names='action', color_discrete_sequence = list(color_mapping.values()))
+          st.plotly_chart(fig)
 
 with tab3:
   df = pd.read_csv('./search_engine_vn.csv')
