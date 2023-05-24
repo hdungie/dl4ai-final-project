@@ -270,6 +270,18 @@ with tab3:
     comp = company.split(' ')
     ticker = comp[0]
     
+    col1, col2, col3, col4, col5 = st.beta_columns(5)
+    with col1:
+      pass
+    with col2:
+      pass
+    with col4:
+      pass
+    with col5:
+      pass
+    with col3 :
+        predict_button = st.button('Predict', disabled = True)
+    
   col1, col2 = st.columns([1,3])
   with col1:
     st.metric("BID", "10,000 VND", "200 VND")
