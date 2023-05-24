@@ -322,6 +322,7 @@ with tab3:
         model = load_model("portfolio-management.h5")
         y_pred = model.predict(new_data)
     
+    st.write(y_pred)
     scores = y_pred[0][0]
     st.write(scores)
     action = ['Potential','Risk']
@@ -330,8 +331,8 @@ with tab3:
     fin['action']=action
 
     st.info("Scroll down to see the metrics")
-    column1, column2 =st.columns([3,2])
     
+    column1, column2 =st.columns([3,2])
     with column1:
       col1, col2, col3 = st.columns([1,1,1])
       with col1:
