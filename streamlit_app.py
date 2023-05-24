@@ -284,8 +284,7 @@ with tab3:
   with col2:
     st.metric(":green[**Potential**]", 0.7)
   with col3:
-    st.header(f":red[Risk]")
-    st.header(0.3)
+    st.metric(":green[**Potential**]", 0.3)
   with col4:
     pass
   
