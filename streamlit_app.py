@@ -334,89 +334,88 @@ with tab3:
 
     st.info("Scroll down to see the metrics")
 
-  column1, column2 =st.columns([3,2])
-  with column1:
-    col1, col2, col3 = st.columns([1,1,1])
+    column1, column2 =st.columns([3,2])
+    with column1:
+      col1, col2, col3 = st.columns([1,1,1])
+      with col1:
+        pass
+      with col2:
+        if fin['scores'][0] > fin['scores'][1]:
+          st.title("Result: ✔️ :green[Potential]")
+        else: st.title("Results: ❌ :red[Risk]")
+      with col3:
+        pass
+
+      color_mapping = {'Potential': 'green', 'Risk': 'red'}
+      fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping, width = 400, height = 200)
+      fig.update_layout(showlegend=False)
+      st.plotly_chart(fig)
+
+    with column2:
+      history = pd.read_csv(f'./data-vn/history/{ticker}.csv')
+      current = str('quarter') + "/" + str('year')
+
+      if quarter == 1:
+        date = f'1/{year}'
+      elif quarter == 2:
+        date = f'4/{year}'
+      elif quarter == 3:
+        date = f'7/{year}'
+      else:
+        date = f'10/{year}'
+      date = datetime.strptime(date, '%m/%Y')
+
+      if last_quarter == 1:
+        last_date = f'1/{last_year}'
+      elif last_quarter == 2:
+        last_date = f'4/{last_year}'
+      elif last_quarter == 3:
+        last_date = f'7/{last_year}'
+      else:
+        last_date = f'10/{last_year}'
+      last_date = datetime.strptime(last_date, '%m/%Y')
+
+      current_price = []
+      for i in range(len(history)):
+        his_date = datetime.strptime(history['Date'][i], '%Y-%m-%d')
+        if date.month == his_date.month and date.year == his_date.year:
+          current_price.append(history['Close'][i])
+
+      last_price = []
+      for i in range(len(history)):
+        his_date = datetime.strptime(history['Date'][i], '%Y-%m-%d')
+        if last_date.month == his_date.month and last_date.year == his_date.year:
+          last_price.append(history['Close'][i])
+
+      now_price = np.max(current_price)
+      l_price = np.max(last_price)
+
+      col1, col2, col3 = st.columns([1,1,1])
+      with col1:
+        pass
+      with col2:
+        st.title("Profit")
+      with col3:
+        pass
+
+      profit = (now_price - l_price)
+      if profit >= 0:
+        st.header(f'⬆️ :green[{profit} VND]')
+      else:
+        st.header(f'⬇️ :red[{profit} VND]')
+
+    st.subheader("In comparison with the last quarter: ")  
+    col1, col2, col3, col4 = st.columns([1,1,1,1])
     with col1:
-      pass
+      st.metric("Price To Earning", pte, pte_delta)
+      st.metric("EPS Change", epsC, epsC_delta)
     with col2:
-      if fin['scores'][0] > fin['scores'][1]:
-        st.title("Result: ✔️ :green[Potential]")
-      else: st.title("Results: ❌ :red[Risk]")
+      st.metric("Price To Book",  ptb, ptb_delta)
+      st.metric("Book Value Per Share Change",  bvpsC, bvpsC_delta)
     with col3:
-      pass
-
-    color_mapping = {'Potential': 'green', 'Risk': 'red'}
-    fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping, width = 400, height = 200)
-    fig.update_layout(showlegend=False)
-    st.plotly_chart(fig)
-      
-  with column2:
-
-    history = pd.read_csv(f'./data-vn/history/{ticker}.csv')
-    current = str('quarter') + "/" + str('year')
-
-    if quarter == 1:
-      date = f'1/{year}'
-    elif quarter == 2:
-      date = f'4/{year}'
-    elif quarter == 3:
-      date = f'7/{year}'
-    else:
-      date = f'10/{year}'
-    date = datetime.strptime(date, '%m/%Y')
-
-    if last_quarter == 1:
-      last_date = f'1/{last_year}'
-    elif last_quarter == 2:
-      last_date = f'4/{last_year}'
-    elif last_quarter == 3:
-      last_date = f'7/{last_year}'
-    else:
-      last_date = f'10/{last_year}'
-    last_date = datetime.strptime(last_date, '%m/%Y')
-
-    current_price = []
-    for i in range(len(history)):
-      his_date = datetime.strptime(history['Date'][i], '%Y-%m-%d')
-      if date.month == his_date.month and date.year == his_date.year:
-        current_price.append(history['Close'][i])
-
-    last_price = []
-    for i in range(len(history)):
-      his_date = datetime.strptime(history['Date'][i], '%Y-%m-%d')
-      if last_date.month == his_date.month and last_date.year == his_date.year:
-        last_price.append(history['Close'][i])
-
-    now_price = np.max(current_price)
-    l_price = np.max(last_price)
-
-    col1, col2, col3 = st.columns([1,1,1])
-    with col1:
-      pass
-    with col2:
-      st.title("Profit")
-    with col3:
-      pass
-
-    profit = (now_price - l_price)
-    if profit >= 0:
-      st.header(f'⬆️ :green[{profit} VND]')
-    else:
-      st.header(f'⬇️ :red[{profit} VND]')
-      
-  st.subheader("In comparison with the last quarter: ")  
-  col1, col2, col3, col4 = st.columns([1,1,1,1])
-  with col1:
-    st.metric("Price To Earning", pte, pte_delta)
-    st.metric("EPS Change", epsC, epsC_delta)
-  with col2:
-    st.metric("Price To Book",  ptb, ptb_delta)
-    st.metric("Book Value Per Share Change",  bvpsC, bvpsC_delta)
-  with col3:
-    st.metric("ROE", roe, roe_delta)
-    st.metric("Payable On Equity", poe, poe_delta)
-  with col4:
-    st.metric("ROA", roa, "0.5")
-    st.metric("Equity On Asset", eoa, eoa_delta)
+      st.metric("ROE", roe, roe_delta)
+      st.metric("Payable On Equity", poe, poe_delta)
+    with col4:
+      st.metric("ROA", roa, "0.5")
+      st.metric("Equity On Asset", eoa, eoa_delta)
   
