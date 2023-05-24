@@ -282,7 +282,7 @@ with tab3:
   
   col1, col2, col3= st.columns([1,1,1,1,1,1])
   with col2:
-    scores = [0.7,0.3)
+    scores = [0.7,0.3]
     action = ['potential','risk']
     fin = pd.DataFrame(columns = ['scores','action'])
     fin['scores'] = scores
