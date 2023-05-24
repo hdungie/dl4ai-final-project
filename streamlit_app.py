@@ -282,6 +282,7 @@ with tab3:
   
   if generate_button:
     new_data = []
+    data = []
     new_df = pd.read_csv('./data-portfolio-management.csv')
     for i in range(len(new_df)):
       if quarter == new_df['quarter'][i] and year == new_df['year'][i] and ticker == new_df['ticker'][i]:
@@ -317,6 +318,10 @@ with tab3:
         eoa_delta = round(eoa - new_df['equityOnAsset'][i-1],3)
         new_data.append(new_df['equityOnAsset'][i])
         
+        data.append([pte,ptb,roe,roa,epsC, bvpsC,poe,eoa])
+        
+      data = np.array(data)
+      data = data.reshape(data.shape[0], 1,8)
       model = load_model("portfolio-management.h5")
       y_pred = model.predict(new_data)
       st.write(y_pred)
