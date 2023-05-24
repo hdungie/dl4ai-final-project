@@ -280,18 +280,18 @@ with tab3:
   
   st.subheader(f':blue[{company}]')
   
-  col1, col2, col3, col4, col5, col6 = st.columns([1,1,1,1,1,1])
-  with col3:
-    st.metric(":green[**Potential**]", 0.7)
-  with col4:
-    st.metric(":red[**Risk**]", 0.3)
+  col1, col2, col3= st.columns([1,1,1,1,1,1])
+  with col2:
+    scores = [0.7,0.3)
+    action = ['potential','risk']
+    fin = pd.DataFrame(columns = ['scores','action'])
+    fin['scores'] = scores
+    fin['action']=action
+    fig = px.pie(fin, values='scores', names='action')
+    st.plotly_chart(fig)
   with col1:
     pass
-  with col2:
-    pass
-  with col5: 
-    pass
-  with col6:
+  with col3:
     pass
   
   st.divider()
