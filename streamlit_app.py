@@ -270,16 +270,12 @@ with tab3:
     comp = company.split(' ')
     ticker = comp[0]
     
-    col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1])
+    col1, col2, col3 = st.columns([1,1,1])
     with col1:
       pass
-    with col2:
+    with col3:
       pass
-    with col4:
-      pass
-    with col5:
-      pass
-    with col3 :
+    with col2 :
         predict_button = st.button('Generate', disabled = True, key = 0)
     
   col1, col2 = st.columns([1,3])
