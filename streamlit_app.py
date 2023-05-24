@@ -353,18 +353,12 @@ with tab3:
 
     column1, column2 =st.columns([3,2])
     with column1:
-      col1, col2, col3 = st.columns([1,1,1])
-      with col1:
-        pass
-      with col2:
-        if fin['scores'][0] > fin['scores'][1]:
-          st.subheader(f'In quarter {quarter} of {year}, the company {comp} is:')
-          st.title("✔️ :green[Potential]")
-        else: 
-          st.subheader(f'In quarter {quarter} of {year}, the company {comp} is:')
-          st.title("❌ :red[Risk]")
-      with col3:
-        pass
+      if fin['scores'][0] > fin['scores'][1]:
+        st.subheader(f'In quarter {quarter} of {year}, the company {comp} is:')
+        st.title("✔️ :green[Potential]")
+      else: 
+        st.subheader(f'In quarter {quarter} of {year}, the company {comp} is:')
+        st.title("❌ :red[Risk]")
 
       color_mapping = {'Potential': 'green', 'Risk': 'red'}
       fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping, width = 400, height = 200)
