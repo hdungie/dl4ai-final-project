@@ -405,18 +405,18 @@ with tab3:
       else:
         st.title(f'⬇️ :red[{profit} VND]')
       
-    st.subheader("In comparison with the last quarter: ")  
-    col1, col2, col3, col4 = st.columns([1,1,1,1])
-    with col1:
-      st.metric("Price To Earning", pte, pte_delta)
-      st.metric("EPS Change", epsC, epsC_delta)
-    with col2:
-      st.metric("Price To Book",  ptb, ptb_delta)
-      st.metric("Book Value Per Share Change",  bvpsC, bvpsC_delta)
-    with col3:
-      st.metric("ROE", roe, roe_delta)
-      st.metric("Payable On Equity", poe, poe_delta)
-    with col4:
-      st.metric("ROA", roa, "0.5")
-      st.metric("Equity On Asset", eoa, eoa_delta)
+  st.subheader("In comparison with the last quarter: ")  
+  col1, col2, col3, col4 = st.columns([1,1,1,1])
+  with col1:
+    st.metric("Price To Earning", pte, pte_delta)
+    st.metric("EPS Change", epsC, epsC_delta)
+  with col2:
+    st.metric("Price To Book",  ptb, ptb_delta)
+    st.metric("Book Value Per Share Change",  bvpsC, bvpsC_delta)
+  with col3:
+    st.metric("ROE", roe, roe_delta)
+    st.metric("Payable On Equity", poe, poe_delta)
+  with col4:
+    st.metric("ROA", roa, "0.5")
+    st.metric("Equity On Asset", eoa, eoa_delta)
   
