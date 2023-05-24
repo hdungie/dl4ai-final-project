@@ -264,7 +264,7 @@ with tab3:
   with col1:
     quarter = st.number_input("Choose a quarter", min_value = 1, max_value =4, step =1)
   with col2:
-    year = st.number_input("Choose a year", min_value = 2017, max_value = 2023, step = 1)
+    year = st.number_input("Choose a year", min_value = 2016, max_value = 2023, step = 1)
   with col3:
     df = pd.read_csv('./search_engine_vn.csv')
     df_search = df['company']
@@ -323,7 +323,7 @@ with tab3:
       data = np.array(data)
       data = data.reshape(data.shape[0], 1,8)
       model = load_model("portfolio-management.h5")
-      y_pred = model.predict(new_data)
+      y_pred = model.predict(data)
       st.write(y_pred)
     
     scores = [0.3,0.7]
