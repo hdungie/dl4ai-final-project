@@ -316,7 +316,7 @@ with tab3:
         eoa = round(new_df['equityOnAsset'][i],3)
         eoa_delta = round(eoa - new_df['equityOnAsset'][i-1],3)
 
-      new_data.append([pte,ptb,roe,roa,epsC, bvpsC,poe,eoa])
+        new_data.append([pte,ptb,roe,roa,epsC, bvpsC,poe,eoa])
       new_data = np.array(new_data)
       new_data = new_data.reshape(new_data.shape[0], 1,8)
       new_data = tensorflow.convert_to_tensor(np.array(new_data), dtype=tensorflow.float32)
