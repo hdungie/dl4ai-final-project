@@ -277,7 +277,8 @@ with tab3:
     pass
   with col2 :
       predict_button = st.button('Generate', key = 0)
-    
+  
+  st.tilte(f'{company}')
   col1, col2 = st.columns([1,3])
   with col1:
     st.metric("BID", "10,000 VND", "200 VND")
