@@ -285,6 +285,11 @@ with tab3:
     new_df = pd.read_csv('./data-portfolio-management.csv')
     for i in range(len(new_df)):
       if quarter == new_df['quarter'][i] and year == new_df['year'][i] and ticker == new_df['ticker'][i]:
+        current_quarter = quarter
+        current_year = year
+        last_quarter = new_df['quarter'][i-1]
+        last_year = new_df['year'][i-1]
+        
         pte = round(new_df['pte'][i],3)
         pte_delta = round(pte - new_df['pte'][i-1],3)
         
@@ -346,7 +351,49 @@ with tab3:
       with col1:
         pass
       with col2:
+        history = pd.read_csv(f'./data-vn/history/{ticker}.csv')
+        current = str('quarter') + "/" + str('year')
+        
+        if quarter == 1:
+          date = f'1/{year}'
+        elif quarter == 2:
+          date = f'4/{year}'
+        elif quarter == 3:
+          date = f'7/{year}'
+        else:
+          date = f'10/{year}'
+        date = datetime.strptime(date, '%m/%Y')
+          
+        if last_quarter == 1:
+          last_date = f'1/{year}'
+        elif last_quarter == 2:
+          last_date = f'4/{year}'
+        elif last_quarter == 3:
+          last_date = f'7/{year}'
+        else:
+          last_date = f'10/{year}'
+        last_date = datetime.strptime(last_date, '%m/%Y')
+        
+        current_price = []
+        for i in range(len(history)):
+          his_date = datetime.strptime(history['Date'][i], '%Y-%m-%d')
+          if date.month == his_date.month and date.year == his_date.year:
+            current_price.append(history['Close'][i])
+        
+        last_price = []
+        for i in range(len(history)):
+          his_date = datetime.strptime(history['Date'][i], '%Y-%m-%d')
+          if last_date.month == his_date.month and last_date.year == his_date.year:
+            last_price.append(history['Close'][i])
+        
+        now_price = np.max(current_price)
+        l_price = np.max(last_price)
+        
         st.title("Profit")
+        
+        profit = (now_price - l_price)
+        st.title(profit)
+        
       with col3:
         pass
       
