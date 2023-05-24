@@ -278,7 +278,7 @@ with tab3:
   with col2 :
       predict_button = st.button('Generate', key = 0)
   
-  st.title(company)
+  st.header(company)
   col1, col2 = st.columns([5,5])
   with col1:
     st.header(":green[Potential]")
