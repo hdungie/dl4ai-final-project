@@ -286,36 +286,36 @@ with tab3:
   if generate_button:
     new_data = []
     new_df = pd.read_csv('./data-portfolio-management.csv')
-    
+
     for i in range(len(new_df)):
       if quarter == new_df['quarter'][i] and year == new_df['year'][i] and ticker == new_df['ticker'][i]:
         current_quarter = quarter
         current_year = year
-        
+
         pte = round(new_df['pte'][i],3)
         pte_delta = round(pte - new_df['pte'][i-1],3)
-        
+
         ptb = round(new_df['ptb'][i],3)
         ptb_delta = round(ptb - new_df['ptb'][i-1],3)
-        
+
         roe = round(new_df['roe'][i],3)
         roe_delta = round(roe - new_df['roe'][i-1],3)
-        
+
         roa = round(new_df['roa'][i],3)
         roa_delta = round(roa - new_df['roa'][i-1],3)
-        
+
         epsC = round(new_df['epsChange'][i],3)
         epsC_delta = round(epsC - new_df['epsChange'][i-1],3)
-        
+
         bvpsC = round(new_df['bookValuePerShareChange'][i],3)
         bvpsC_delta = round(bvpsC - new_df['bookValuePerShareChange'][i-1],3)
-        
+
         poe = round(new_df['payableOnEquity'][i],3)
         poe_delta = round(poe - new_df['payableOnEquity'][i-1],3)
-        
+
         eoa = round(new_df['equityOnAsset'][i],3)
         eoa_delta = round(eoa - new_df['equityOnAsset'][i-1],3)
-        
+
         new_data.append([pte,ptb,roe,roa,epsC, bvpsC,poe,eoa])
         new_data = np.array(new_data)
         new_data = new_data.reshape(new_data.shape[0], 1,8)
@@ -332,7 +332,7 @@ with tab3:
         fin['scores'] = scores
         fin['action']=action
 
-  st.info("Scroll down to see the metrics")
+    st.info("Scroll down to see the metrics")
 
   column1, column2 =st.columns([3,2])
   with column1:
