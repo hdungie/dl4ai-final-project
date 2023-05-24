@@ -399,6 +399,11 @@ with tab3:
         
       with col3:
         pass
+      profit = (now_price - l_price)
+        if profit >= 0:
+          st.title(f'⬆️ :green[{profit} VND]')
+        else:
+          st.title(f'⬇️ :red[{profit} VND]')
       
     st.subheader("In comparison with the last quarter: ")  
     col1, col2, col3, col4 = st.columns([1,1,1,1])
