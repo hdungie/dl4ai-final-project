@@ -269,7 +269,7 @@ with tab3:
   with col1:
       last_quarter = st.number_input("Choose the start quarter", min_value = 1, max_value =4, step =1)
   with col2:
-    if ticker in {'TCB','VPB','VHM'}
+    if ticker in {'TCB','VPB','VHM'}:
       last_year = st.number_input("Choose the start year", min_value = 2018, max_value = 2022, step = 1)
     else:
       last_year = st.number_input("Choose the start year", min_value = 2015, max_value = 2022, step = 1)
