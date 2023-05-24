@@ -338,6 +338,7 @@ with tab3:
 
       color_mapping = {'Potential': 'green', 'Risk': 'red'}
       fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping)
+      fig.update_layout(showlegend=False)
       st.plotly_chart(fig)
 
       st.subheader("In comparison with the last quarter: ")
