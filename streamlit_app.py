@@ -322,6 +322,7 @@ with tab3:
         
       data = np.array(data)
       data = data.reshape(data.shape[0], 1,8)
+      data = tensorflow.convert_to_tensor(np.array(data), dtype=tensorflow.float32)
       model = load_model("portfolio-management.h5")
       y_pred = model.predict(data)
       st.write(y_pred)
