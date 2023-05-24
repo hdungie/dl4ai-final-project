@@ -258,11 +258,18 @@ with tab2:
         st.plotly_chart(fig)
 
 with tab3:
-  col1, col2 = st.columns([1,1])
+  col1, col2, col3 = st.columns([1,1,1])
   with col1:
     quarter = st.radio("Choose a quarter", [1,2,3,4], horizontal = True)
   with col2:
     year = st.number_input("Choose a year", min_value = 2016, max_value = 2023, step = 1)
+  with col3:
+    df = pd.read_csv('./search_engine_vn.csv')
+    df_search = df['company']
+    company = st.selectbox("Select a company", df_search, index=0)
+    comp = company.split(' ')
+    ticker = comp[0]
+    
   col1, col2 = st.columns([1,3])
   with col1:
     st.metric("BID", "10,000 VND", "200 VND")
