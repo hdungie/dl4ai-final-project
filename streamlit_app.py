@@ -292,16 +292,19 @@ with tab3:
   with col6:
     pass
   
-  col1, col2 = st.columns([1,3])
+  st.divider()
+  
+  col1, col2, col3, col4 = st.columns([1,1,1,1])
   with col1:
-    st.metric("BID", "10,000 VND", "200 VND")
-    st.metric("CTG", "10,000 VND", "-200 VND")
-    st.metric("GAS", "10,000 VND", "200 VND")
-    st.metric("HPG", "10,000 VND", "-200 VND")
-    st.metric("TCB", "10,000 VND", "200 VND")
-    st.metric("VCB", "10,000 VND", "200 VND")
-    st.metric("VHM", "10,000 VND", "200 VND")
-    st.metric("VIC", "10,000 VND", "-200 VND")
-    st.metric("VNM", "10,000 VND", "200 VND")
-    st.metric("VPB", "10,000 VND", "200 VND")
+    st.metric("Price To Earning", "10,000 VND", "200 VND")
+    st.metric("EPS Change", "10,000 VND", "-200 VND")
+  with col2:
+    st.metric("Price To Book", "10,000 VND", "200 VND")
+    st.metric("Book Value Per Share Change", "10,000 VND", "-200 VND")
+  with col3:
+    st.metric("ROE", "10,000 VND", "200 VND")
+    st.metric("Payable On Equity", "10,000 VND", "200 VND")
+  with col4:
+    st.metric("ROA", "10,000 VND", "200 VND")
+    st.metric("Equity On Asset", "10,000 VND", "-200 VND")
   
