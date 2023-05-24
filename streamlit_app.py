@@ -179,8 +179,7 @@ with tab1:
 
     # Create the line graph
     st.info("You can click on the data points for more details on close price and its corresponding date.")
-    fig = px.line(df[gap_start:gap_end], x='Dates', y='Close price', markers = False, title = f':red[Predicted close price of {ticker} from {start_date} to {end_date}]',
-                 line_color = green)
+    fig = px.line(df[gap_start:gap_end], x='Dates', y='Close price', markers = False, title = f':red[Predicted close price of {ticker} from {start_date} to {end_date}]')
   #   fig.add_trace(px.scatter(df[gap_start:gap_end], x='Dates', y='Close price',
   #                           color_continuous_scale='oranges').data[0])
   #   fig.update_traces(textposition="top center")
