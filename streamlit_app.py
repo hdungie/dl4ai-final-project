@@ -315,10 +315,8 @@ with tab3:
         new_data = tensorflow.convert_to_tensor(np.array(new_data), dtype=tensorflow.float32)
         model = load_model("portfolio-management.h5")
         y_pred = model.predict(new_data)
-        
-        st.write(y_pred)
     
-    scores = [0.3,0.7]
+    scores = y_pred[0][0]
     action = ['Potential','Risk']
     fin = pd.DataFrame(columns = ['scores','action'])
     fin['scores'] = scores
