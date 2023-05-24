@@ -270,7 +270,7 @@ with tab3:
     comp = company.split(' ')
     ticker = comp[0]
     
-    col1, col2, col3, col4, col5 = st.beta_columns(5)
+    col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1])
     with col1:
       pass
     with col2:
