@@ -311,7 +311,7 @@ with tab3:
         
         new_data.append([pte,ptb,roe,roa,epsC, bvpsC,poe,eoa])
         new_data = np.array(new_data)
-        new_data = new_data.reshape(data.shape[0], 1,8)
+        new_data = new_data.reshape(new_data.shape[0], 1,8)
         new_data = tensorflow.convert_to_tensor(np.array(new_data), dtype=tensorflow.float32)
         model = load_model("portfolio-management.h5")
         y_pred = model.predict(new_data)
