@@ -337,7 +337,7 @@ with tab3:
         pass
 
       color_mapping = {'Potential': 'green', 'Risk': 'red'}
-      fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping)
+      fig = px.bar(fin, x="scores", y="action", orientation='h', color = "action", color_discrete_map = color_mapping, height = 100)
       fig.update_layout(showlegend=False)
       st.plotly_chart(fig)
       
