@@ -298,15 +298,15 @@ with tab3:
   
   col1, col2, col3, col4 = st.columns([1,1,1,1])
   with col1:
-    st.metric("Price To Earning", "10,000 VND", "200 VND")
-    st.metric("EPS Change", "10,000 VND", "-200 VND")
+    st.metric("Price To Earning", "1.2", "0.5")
+    st.metric("EPS Change", "1.2", "0.5")
   with col2:
-    st.metric("Price To Book", "10,000 VND", "200 VND")
-    st.metric("Book Value Per Share Change", "10,000 VND", "-200 VND")
+    st.metric("Price To Book",  "1.2", "0.5")
+    st.metric("Book Value Per Share Change",  "1.2", "0.5")
   with col3:
-    st.metric("ROE", "10,000 VND", "200 VND")
-    st.metric("Payable On Equity", "10,000 VND", "200 VND")
+    st.metric("ROE", "1.2", "0.5")
+    st.metric("Payable On Equity", "1.2", "0.5")
   with col4:
-    st.metric("ROA", "10,000 VND", "200 VND")
-    st.metric("Equity On Asset", "10,000 VND", "-200 VND")
+    st.metric("ROA", "1.2", "0.5")
+    st.metric("Equity On Asset", "1.2", "0.5")
   
