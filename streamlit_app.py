@@ -323,7 +323,7 @@ with tab3:
     fin['action']=action
 
     st.info("Scroll down to see the metrics")
-    column1, column2 =st.columns(3,2)
+    column1, column2 =st.columns([3,2])
     
     with column1:
       col1, col2, col3 = st.columns([1,1,1])
