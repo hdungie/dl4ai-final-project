@@ -276,7 +276,10 @@ with tab3:
   with col3:
     quarter = st.number_input("Choose the end quarter", min_value = 1, max_value =4, step =1)
   with col4:
-    year = st.number_input("Choose the end year", min_value = 2016, max_value = 2022, step = 1)
+    if ticker == "BID" and quarter == 4:
+      year = st.number_input("Choose the end year", min_value = 2016, max_value = 2021, step = 1)
+    else:
+      year = st.number_input("Choose the end year", min_value = 2016, max_value = 2022, step = 1)
     
   col1, col2, col3 = st.columns([1,1,1])
   with col1:
