@@ -238,6 +238,19 @@ with tab2:
           new_data.append([price, roe, roa, eps, aoe, poe])
           new_data = np.array(new_data)
           new_data = new_data.reshape(new_data.shape[0],1,6)
+          
+          new_data_norm = tensorflow.convert_to_tensor(np.array(new_data), dtype= tensorflow.float32)
+          y_pred_norm = model.predict(new_data_norm)
+
+          scores = y_pred_norm[0][0]
+          action = ['Buy','Sell','Hold']
+          fin = pd.DataFrame(columns = ['scores','action'])
+          fin['scores'] = scores
+          fin['action']=action
+          color_mapping = {'Buy': 'green', 'Sell': 'red', 'Hold':'yellow'}
+          fig = px.pie(fin, values='scores', names='action', color_discrete_sequence = list(color_mapping.values()))
+          st.plotly_chart(fig)
+          
         else:
           opm = (opm - np.min(finance['operatingProfitMargin'])) / (np.max(finance['operatingProfitMargin']) - np.min(finance['operatingProfitMargin']))
           doe = (doe - np.min(finance['debtOnEquity'])) / (np.max(finance['debtOnEquity']) - np.min(finance['debtOnEquity']))
