@@ -280,7 +280,7 @@ with tab3:
   
   st.subheader(f':blue[{company}]')
   
-  col1, col2, col3= st.columns([1,1,1,1,1,1])
+  col1, col2, col3= st.columns([1,1,1])
   with col2:
     scores = [0.7,0.3]
     action = ['potential','risk']
