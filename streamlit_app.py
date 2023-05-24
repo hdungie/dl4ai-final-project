@@ -282,7 +282,7 @@ with tab3:
   
   st.subheader(f':blue[{company}]')
   
-  scores = [0.7,0.3]
+  scores = [0.3,0.7]
   action = ['Potential','Risk']
   fin = pd.DataFrame(columns = ['scores','action'])
   fin['scores'] = scores
