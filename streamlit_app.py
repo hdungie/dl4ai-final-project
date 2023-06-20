@@ -69,7 +69,7 @@ with tab1:
   else: 
     interval = (end_date - start_date).days
     st.success(f"Interval: {interval} days")
-    col1, col2, col3, col4, col5 = st.beta_columns(5)
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
       pass
     with col2:
