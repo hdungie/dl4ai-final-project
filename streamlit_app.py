@@ -190,7 +190,9 @@ with tab1:
 
     # Show the graph
     st.plotly_chart(fig)
-
+  else:
+    pass
+    
 with tab2:
   df = pd.read_csv('./search_engine_vn.csv')
   df_search = df['company']
