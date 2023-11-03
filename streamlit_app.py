@@ -54,7 +54,7 @@ with tab1:
 
   if company == "":
     st.warning("Please choose a company")
-  else if company != "" and end_date <= start_date:
+  elif company != "" and end_date <= start_date:
     interval = (end_date - start_date).days
     st.error("End date must be after start date.", icon = "❌")
     col1, col2, col3, col4, col5 = st.columns(5)
@@ -68,7 +68,7 @@ with tab1:
       pass
     with col3 :
         predict_button = st.button('Predict', disabled = True)
-  else if company != "" and end_date >= start_date: 
+  elif company != "" and end_date >= start_date: 
     interval = (end_date - start_date).days
     st.success(f"Interval: {interval} days")
     col1, col2, col3, col4, col5 = st.columns(5)
