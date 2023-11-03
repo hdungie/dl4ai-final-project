@@ -82,7 +82,7 @@ with tab1:
       predict_button = st.button("Predict")
 
   if predict_button:
-    if company == null:
+    if company == "":
       st.warning("Please choose a company")
     else:
       data = pd.read_csv(filepath)
