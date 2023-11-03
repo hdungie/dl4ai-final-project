@@ -83,7 +83,7 @@ with tab1:
     with col3 :
       predict_button = st.button("Predict")
 
-  if !predict_button:
+  if not(predict_button):
     pass
   elif predict_button:
     data = pd.read_csv(filepath)
