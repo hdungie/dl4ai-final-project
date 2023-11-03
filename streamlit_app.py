@@ -52,10 +52,12 @@ with tab1:
   if region == "Vietnam":
     filepath = f'./data-vn/history/{ticker}.csv'
 
-  if end_date <= start_date:
+  if company == "":
+    st.warning("Please choose a company")
+  else if company != "" and end_date <= start_date:
     interval = (end_date - start_date).days
     st.error("End date must be after start date.", icon = "❌")
-    col1, col2, col3, col4, col5 = st.beta_columns(5)
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
       pass
     with col2:
@@ -66,7 +68,7 @@ with tab1:
       pass
     with col3 :
         predict_button = st.button('Predict', disabled = True)
-  else: 
+  else if company != "" and end_date >= start_date: 
     interval = (end_date - start_date).days
     st.success(f"Interval: {interval} days")
     col1, col2, col3, col4, col5 = st.columns(5)
@@ -82,14 +84,11 @@ with tab1:
       predict_button = st.button("Predict")
 
   if predict_button:
-    if company == "":
-      st.warning("Please choose a company")
-    else:
-      data = pd.read_csv(filepath)
-      if region == "Nasdaq":
-        new_df = data[['Date', 'Close']]
-      if region == "Vietnam":
-        new_df = data
+    data = pd.read_csv(filepath)
+    if region == "Nasdaq":
+      new_df = data[['Date', 'Close']]
+    if region == "Vietnam":
+      new_df = data
 
     latest = new_df.loc[len(new_df)-1,'Date']
     if region == "Nasdaq":
