@@ -83,7 +83,9 @@ with tab1:
     with col3 :
       predict_button = st.button("Predict")
 
-  if predict_button:
+  if !predict_button:
+    pass
+  elif predict_button:
     data = pd.read_csv(filepath)
     if region == "Nasdaq":
       new_df = data[['Date', 'Close']]
@@ -190,8 +192,6 @@ with tab1:
 
     # Show the graph
     st.plotly_chart(fig)
-  else:
-    pass
     
 with tab2:
   df = pd.read_csv('./search_engine_vn.csv')
