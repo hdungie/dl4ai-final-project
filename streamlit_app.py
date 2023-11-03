@@ -82,11 +82,14 @@ with tab1:
       predict_button = st.button("Predict")
 
   if predict_button:
-    data = pd.read_csv(filepath)
-    if region == "Nasdaq":
-      new_df = data[['Date', 'Close']]
-    if region == "Vietnam":
-      new_df = data
+    if company == null:
+      st.warning("Please choose a company")
+    else:
+      data = pd.read_csv(filepath)
+      if region == "Nasdaq":
+        new_df = data[['Date', 'Close']]
+      if region == "Vietnam":
+        new_df = data
 
     latest = new_df.loc[len(new_df)-1,'Date']
     if region == "Nasdaq":
