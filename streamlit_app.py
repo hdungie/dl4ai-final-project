@@ -93,11 +93,11 @@ with tab1:
       latest = new_df.loc[len(new_df)-1,'Date']
       if region == "Nasdaq":
         latest = datetime.strptime(latest, '%d-%m-%Y').date()
+        st.write('latest',latest)
       else: latest = datetime.strptime(latest, '%Y-%m-%d').date()
       gap_end = (end_date - latest).days
       gap_start = (start_date - latest).days
       st.write('gap end', gap_end)
-      st.write(gap_start)
   
       if gap_end <= 7:
           future = 7
