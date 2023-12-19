@@ -96,10 +96,13 @@ with tab1:
       else: latest = datetime.strptime(latest, '%Y-%m-%d').date()
       gap_end = (end_date - latest).days
       gap_start = (start_date - latest).days
+      st.write(gap_end)
+      st.write(gap_start)
   
       if gap_end <= 7:
           future = 7
           window_size = 30
+          st.write(window_size)
           model = load_model(f'./prediction-models/model-{ticker}--7d-ws30.h5')
       elif gap_end > 7 and gap_end <=30:
           future = 30
