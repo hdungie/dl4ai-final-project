@@ -100,6 +100,7 @@ with tab3:
           latest = datetime.strptime(latest, '%Y-%m-%d').date()
           
         gap_end = (end_date - latest).days
+        gap_start = (start_date - latest).days
 
         st.write('Loading models')
     
