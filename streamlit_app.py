@@ -84,7 +84,7 @@ with tab1:
       predict_button = st.button("Predict")
       
     if predict_button:
-      st.info('You can click on the 'Generating results...' tab to view progress')
+      st.info('You can click on the "Generating results..." tab to view progress')
       with st.status("Generating results..."):
         
         data = pd.read_csv(filepath)
