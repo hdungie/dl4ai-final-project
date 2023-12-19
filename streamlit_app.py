@@ -96,7 +96,7 @@ with tab1:
       else: latest = datetime.strptime(latest, '%Y-%m-%d').date()
       gap_end = (end_date - latest).days
       gap_start = (start_date - latest).days
-      st.write(gap_end)
+      st.write('gap end', gap_end)
       st.write(gap_start)
   
       if gap_end <= 7:
