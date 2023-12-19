@@ -154,9 +154,10 @@ with tab1:
       new_data_norm = tensorflow.convert_to_tensor(np.array(new_data_norm), dtype= tensorflow.float32)
       
       # Get prediction on the test data
-      tensorflow.config.run_functions_eagerly(True)
-      y_pred_norm = model.predict(new_data_norm)
-      tensorflow.config.run_functions_eagerly(True)
+      with st.status("Predicting..."):
+        tensorflow.config.run_functions_eagerly(True)
+        y_pred_norm = model.predict(new_data_norm)
+        tensorflow.config.run_functions_eagerly(True)
   
       # Convert the result back to stock price (i.e., de-normalization) for visualization purpose
       y_pred_denorm = y_pred_norm
