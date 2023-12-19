@@ -15,8 +15,8 @@ import io
 import time
 # from predictions_graph import graph
 
-tab1, tab2, tab3 = st.tabs(["📈 Stock price prediction","🪙 Trading point Identification"," 📓 Portfolio Management"])
-with tab1:
+tab1, tab2, tab3 = st.tabs(["🪙 Trading point Identification"," 📓 Portfolio Management","📈 Stock price prediction",])
+with tab3:
   col1, col2 = st.columns([1,4])
   with col1: region = st.selectbox('Select a region', ('Nasdaq', 'Vietnam'), index=0)
 
@@ -201,7 +201,7 @@ with tab1:
       # Show the graph
       st.plotly_chart(fig)
     
-with tab2:
+with tab1:
   df = pd.read_csv('./search_engine_vn.csv')
   df_search = df['company']
   company = st.selectbox("Choose a company", df_search, index=0)
@@ -284,7 +284,7 @@ with tab2:
           fig = px.pie(fin, values='scores', names='action', color_discrete_sequence = list(color_mapping.values()))
           st.plotly_chart(fig)
 
-with tab3:
+with tab2:
   df = pd.read_csv('./search_engine_vn.csv')
   df_search = df['company']
   company = st.selectbox("Select a company", df_search, index=0)
