@@ -93,16 +93,14 @@ with tab1:
       latest = new_df.loc[len(new_df)-1,'Date']
       if region == "Nasdaq":
         latest = datetime.strptime(latest, '%d-%m-%Y').date()
-        st.write('latest',latest)
-      else: latest = datetime.strptime(latest, '%Y-%m-%d').date()
+      else: 
+        latest = datetime.strptime(latest, '%Y-%m-%d').date()
+        
       gap_end = (end_date - latest).days
-      gap_start = (start_date - latest).days
-      st.write('gap end', gap_end)
   
       if gap_end <= 7:
           future = 7
           window_size = 30
-          st.write(window_size)
           model = load_model(f'./prediction-models/model-{ticker}--7d-ws30.h5')
       elif gap_end > 7 and gap_end <=30:
           future = 30
