@@ -36,14 +36,14 @@ with tab1:
   col1, col2 = st.columns(2)
   with col1: 
     if region == 'Nasdaq':
-      start_date = st.date_input( "Start date: ", min_value=datetime(2022,12,13), max_value=datetime(2023,12,13))
+      start_date = st.date_input( "Start date: ", min_value=datetime(2022,12,13), max_value=datetime(2023,12,31))
     if region == 'Vietnam':
-      start_date = st.date_input( "Start date: ", min_value=datetime(2023,2,28), max_value=datetime(2023,8,28))
+      start_date = st.date_input( "Start date: ", min_value=datetime(2023,2,28), max_value=datetime(2023,12,31))
   with col2: 
     if region == 'Nasdaq':
-      end_date = st.date_input( "End date: ", min_value=datetime(2022,12,13), max_value=datetime(2023,12,13))
+      end_date = st.date_input( "End date: ", min_value=datetime(2022,12,13), max_value=datetime(2023,12,31))
     if region == 'Vietnam':
-      end_date = st.date_input( "End date: ", min_value=datetime(2023,2,28), max_value=datetime(2023,8,28))
+      end_date = st.date_input( "End date: ", min_value=datetime(2023,2,28), max_value=datetime(2023,12,31))
 
   comp = company.split(' ')
   ticker = comp[0]
