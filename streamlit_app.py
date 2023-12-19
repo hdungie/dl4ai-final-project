@@ -158,7 +158,7 @@ with tab1:
             max_feature = np.max(new_data[i])
             new_data_norm[i] = (new_data[i] - min_feature) / (max_feature - min_feature)
 
-        st.write('Models are predicting...')
+        st.write('Models are predicting... This might take time')
         new_data_norm = tensorflow.convert_to_tensor(np.array(new_data_norm), dtype= tensorflow.float32)
         
         # Get prediction on the test data
